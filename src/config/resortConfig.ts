@@ -23,7 +23,7 @@ export interface TestimonialItem {
 export interface ExperienceItem {
   id: string;
   title: string;
-  category: 'nature' | 'relaxation' | 'outdoor' | 'romantic' | 'family';
+  category: 'thrill' | 'nature' | 'trekking' | 'relaxation' | 'outdoor' | 'romantic' | 'family';
   shortDesc: string;
   fullDesc: string;
   image: string;
@@ -120,88 +120,102 @@ export const RESORT_CONFIG = {
     }
   ] as RoomItem[],
 
-  // Experiences Data
+  // Experiences Data - "What You Can Do in Vagamon" Guide
   experiences: [
+    // Category 1: High-Thrill Activities
     {
-      id: "vagamon-paragliding",
-      title: "Paragliding over Vagamon Ridges",
-      category: "adventure",
-      shortDesc: "Soar over Vagamon's emerald green mountain peaks and misty valleys.",
-      fullDesc: "Experience the thrill of tandem paragliding off Vagamon's famous high-altitude launch ridges. Glide smoothly through mountain thermals with certified pilots taking in 360-degree aerial views of rolling tea estates and pine valleys.",
+      id: "paragliding",
+      title: "Paragliding over Vagamon Hills",
+      category: "thrill",
+      shortDesc: "Soar above Vagamon’s rolling green hills and valleys with an unforgettable tandem paragliding experience.",
+      fullDesc: "Soar above Vagamon’s rolling green hills and valleys with an unforgettable tandem paragliding experience. Certified pilots guide you smoothly over emerald mountain ridges and pine groves.",
       image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=80",
-      tag: "Tandem Paragliding"
+      tag: "High-Thrill Activity"
     },
     {
-      id: "mountain-jeep-safari",
-      title: "Off-Road Mountain Jeep Safari",
-      category: "adventure",
-      shortDesc: "Traverse rugged mountain trails, hidden waterfalls, and secret ridge viewpoints.",
-      fullDesc: "Embark on an exhilarating 4x4 open-top jeep safari through Vagamon's rugged mountain terrain. Discover hidden waterfalls, secluded tea estates, and high-altitude ridge viewpoints accessible only by off-road vehicles.",
+      id: "vagamon-adventure-park",
+      title: "Vagamon Adventure Park",
+      category: "thrill",
+      shortDesc: "Experience exciting adventures including ziplining, sky cycling, giant swings, and rock climbing.",
+      fullDesc: "Experience exciting adventures including ziplining, sky cycling, giant swings, rock climbing, and other high-energy activities in the lush green mountain park of Vagamon.",
+      image: "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1200&q=80",
+      tag: "Mountain Adventure"
+    },
+    {
+      id: "uluppooni-jeep-safari",
+      title: "Uluppooni Off-Road Jeep Safari",
+      category: "thrill",
+      shortDesc: "Take an off-road journey through rugged green terrain, hidden waterfalls, and forest trails around Uluppooni.",
+      fullDesc: "Take an off-road journey through rugged green terrain, hidden waterfalls, forest trails, and scenic viewpoints around Uluppooni in an open-top 4x4 mountain jeep.",
       image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80",
-      tag: "4x4 Jeep Safari"
+      tag: "Off-Road Safari"
     },
+
+    // Category 2: Nature & Sightseeing
     {
-      id: "pine-forest-walks",
-      title: "Guided Pine Forest & Valley Trails",
+      id: "vagamon-pine-forest",
+      title: "Vagamon Pine Forest",
       category: "nature",
-      shortDesc: "Wander through tall fragrant pine groves enveloped in soft mountain mist.",
-      fullDesc: "Immerse your senses in Vagamon's iconic pine forests. Guided morning treks lead you through tranquil canopy paths with views of hidden mountain streams and lush valleys.",
+      shortDesc: "Walk beneath towering pine trees and explore one of Vagamon’s most peaceful and scenic natural landscapes.",
+      fullDesc: "Walk beneath towering pine trees and explore one of Vagamon’s most peaceful and scenic natural landscapes, surrounded by dense green pine canopies and mountain mist.",
       image: "https://i.ibb.co/jvN1Q7wS/Screenshot-2026-07-21-124133.png",
-      tag: "Pine Canopy Trail"
+      tag: "Nature & Sightseeing"
     },
     {
-      id: "sunset-meadows",
-      title: "Vagamon Meadows & Rolling Grasslands",
+      id: "vagamon-meadows",
+      title: "Vagamon Meadows",
       category: "nature",
-      shortDesc: "Witness golden hour hues over endless green rolling hills.",
-      fullDesc: "Experience Vagamon's world-famous rolling meadows at dusk. We arrange private high-tea hampers for couples and families to enjoy spectacular sunset panoramas over lush green hillscapes.",
+      shortDesc: "Relax and wander through the wide green meadows surrounded by the peaceful beauty of Vagamon’s rolling hills.",
+      fullDesc: "Relax and wander through the wide green meadows surrounded by the peaceful beauty of Vagamon’s rolling hills, offering endless greenery and gentle mountain breezes.",
       image: "https://i.ibb.co/2YmdQCp2/Screenshot-2026-07-21-124848.png",
-      tag: "Scenic Hill View"
+      tag: "Nature & Sightseeing"
     },
     {
-      id: "tea-estate-tour",
-      title: "Tea Plantation Walks & Estate Tasting",
+      id: "marmala-waterfalls",
+      title: "Marmala Waterfalls",
       category: "nature",
-      shortDesc: "Stroll through emerald tea gardens and learn the art of traditional tea plucking.",
-      fullDesc: "Take a guided walking tour through surrounding heritage tea plantations. Learn about organic tea cultivation, try your hand at leaf plucking alongside local estate tea pickers, and conclude with a fresh estate tea tasting session.",
-      image: "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?auto=format&fit=crop&w=1200&q=80",
-      tag: "Tea Plantation"
-    },
-    {
-      id: "kurisumala-trekking",
-      title: "Kurisumala Hill & Monastery Trekking",
-      category: "adventure",
-      shortDesc: "Ascend sacred Kurisumala Ashram peaks surrounded by alpine dairy farms.",
-      fullDesc: "Embark on a refreshing morning hike to Kurisumala hill. Pass by peaceful monastery grounds, grazing Swiss dairy cattle, and reach mountain ridges where cool mountain breeze carries complete peace.",
-      image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
-      tag: "Hill Trek"
-    },
-    {
-      id: "waterfall-excursion",
-      title: "Mountain Stream & Waterfall Trails",
-      category: "relaxation",
-      shortDesc: "Discover secluded natural streams and crystal-clear mountain cascades in the woods.",
-      fullDesc: "Follow hidden forest paths to serene mountain cascades and natural rock pools. Relax by the cool flowing water, listen to forest birdsong, and enjoy a private streamside hamper prepared by our resort hosts.",
+      shortDesc: "Discover a beautiful forest waterfall surrounded by lush greenery and a peaceful natural atmosphere.",
+      fullDesc: "Discover a beautiful forest waterfall surrounded by lush greenery, natural rock pools, and a peaceful forest atmosphere tucked away in Vagamon's green valleys.",
       image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80",
-      tag: "Waterfall Cascade"
+      tag: "Forest Waterfall"
     },
     {
-      id: "starlight-campfire",
-      title: "Starlight Campfire & Acoustic Evenings",
-      category: "relaxation",
-      shortDesc: "Warm firelight, crisp mountain air, and fresh grilled local delicacies under starry skies.",
-      fullDesc: "As twilight settles over the hills, gather around our central stone fire pit. Enjoy live acoustic melodies, freshly roasted barbecue, and warm conversation under clear hill-station skies.",
-      image: "https://i.ibb.co/PGHRfZjJ/Screenshot-2026-07-21-124818.png",
-      tag: "Evening Ritual"
+      id: "vagamon-lake",
+      title: "Vagamon Lake",
+      category: "nature",
+      shortDesc: "Enjoy the calm beauty of a scenic lake surrounded by green hills and peaceful landscapes.",
+      fullDesc: "Enjoy the calm beauty of a scenic lake surrounded by green hills, lush gardens, and peaceful mountain reflection views.",
+      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+      tag: "Nature & Sightseeing"
+    },
+
+    // Category 3: Trekking & Spiritual Trails
+    {
+      id: "thangal-para",
+      title: "Thangal Para",
+      category: "trekking",
+      shortDesc: "Explore the distinctive rock formations and enjoy breathtaking panoramic views across the green Vagamon valleys.",
+      fullDesc: "Explore the distinctive rock formations and enjoy breathtaking panoramic views across the green Vagamon valleys from Thangal Para's elevated mountain ridge.",
+      image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      tag: "Trekking Trail"
     },
     {
-      id: "plantation-dining",
-      title: "Traditional Kerala Gourmet Dining",
-      category: "family",
-      shortDesc: "Authentic Malabar & Central Travancore culinary creations prepared with fresh organic produce.",
-      fullDesc: "Savor traditional Kerala dishes served on fresh banana leaves alongside modern international cuisine crafted by our master resort chefs in an open-air mountain-view dining pavilion.",
-      image: "https://i.ibb.co/wZbsBgjM/Screenshot-2026-07-21-124928.png",
-      tag: "Culinary Pavilion"
+      id: "murugan-mala",
+      title: "Murugan Mala",
+      category: "trekking",
+      shortDesc: "Follow the peaceful hill trail and discover panoramic views across Vagamon’s lush green surroundings.",
+      fullDesc: "Follow the peaceful hill trail and discover panoramic views across Vagamon’s lush green surroundings on the serene ascent to Murugan Mala.",
+      image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80",
+      tag: "Spiritual Trail"
+    },
+    {
+      id: "kurisumala",
+      title: "Kurisumala Hills",
+      category: "trekking",
+      shortDesc: "Experience peaceful hill trails, spiritual surroundings, and beautiful sunrise or sunset views across the Vagamon landscape.",
+      fullDesc: "Experience peaceful hill trails, spiritual monastery surroundings, Swiss dairy cattle pastures, and beautiful sunrise or sunset views across the green Vagamon landscape.",
+      image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1200&q=80",
+      tag: "Spiritual Trail"
     }
   ] as ExperienceItem[],
 
