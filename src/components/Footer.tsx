@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
             <img
               src={RESORT_CONFIG.images.logo}
               alt={RESORT_CONFIG.name}
-              style={{ height: '64px', width: 'auto', marginBottom: '1.25rem', objectFit: 'contain' }}
+              style={{ height: '90px', width: 'auto', marginBottom: '1.25rem', objectFit: 'contain', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.5))' }}
             />
             <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.95rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
               A sanctuary of serenity nestled among Vagamon's misty mountain pine hills. Discover modern luxury, peaceful nature, and authentic Kerala hospitality.

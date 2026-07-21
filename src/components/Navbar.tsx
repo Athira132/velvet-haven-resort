@@ -66,12 +66,12 @@ export const Navbar: React.FC = () => {
               src={RESORT_CONFIG.images.logo}
               alt={`${RESORT_CONFIG.name} Logo`}
               style={{
-                height: isScrolled ? '64px' : '78px',
-                maxHeight: '85px',
+                height: isScrolled ? '76px' : '100px',
+                maxHeight: '110px',
                 width: 'auto',
                 objectFit: 'contain',
                 transition: 'height 0.3s ease',
-                filter: 'drop-shadow(0 2px 10px rgba(0,0,0,0.4))'
+                filter: 'drop-shadow(0 4px 14px rgba(0,0,0,0.5))'
               }}
             />
           </Link>
@@ -186,7 +186,7 @@ export const Navbar: React.FC = () => {
         <img
           src={RESORT_CONFIG.images.logo}
           alt={RESORT_CONFIG.name}
-          style={{ height: '75px', marginBottom: '2rem', objectFit: 'contain' }}
+          style={{ height: '95px', marginBottom: '2rem', objectFit: 'contain', filter: 'drop-shadow(0 4px 14px rgba(0,0,0,0.5))' }}
         />
 
         <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem', marginBottom: '2.5rem' }}>

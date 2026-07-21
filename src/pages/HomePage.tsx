@@ -86,7 +86,22 @@ export const HomePage: React.FC = () => {
             transition={{ duration: 0.6 }}
             style={{ maxWidth: '780px' }}
           >
-            {/* Prominent Resort Name & Location Badge */}
+            {/* Prominent Uncropped Resort Logo Emblem */}
+            <div style={{ marginBottom: '1.25rem' }}>
+              <img
+                src={RESORT_CONFIG.images.logo}
+                alt={RESORT_CONFIG.name}
+                style={{
+                  height: '95px',
+                  maxHeight: '105px',
+                  width: 'auto',
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 6px 20px rgba(0,0,0,0.6))'
+                }}
+              />
+            </div>
+
+            {/* Resort Name & Location Badge */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
               <span className="badge-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem' }}>
                 <Sparkles size={14} /> VELVET HAVEN RESORT
