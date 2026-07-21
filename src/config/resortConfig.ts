@@ -120,102 +120,61 @@ export const RESORT_CONFIG = {
     }
   ] as RoomItem[],
 
-  // Experiences Data - "What You Can Do in Vagamon" Guide
+  // Experiences Data - "What You Can Do in Vagamon" Guide (Strictly 6 Locations in Idukki District, Kerala)
   experiences: [
-    // Category 1: High-Thrill Activities
     {
-      id: "paragliding",
-      title: "Paragliding over Vagamon Hills",
-      category: "thrill",
-      shortDesc: "Soar above Vagamon’s rolling green hills and valleys with an unforgettable tandem paragliding experience.",
-      fullDesc: "Soar above Vagamon’s rolling green hills and valleys with an unforgettable tandem paragliding experience. Certified pilots guide you smoothly over emerald mountain ridges and pine groves.",
-      image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=80",
-      tag: "High-Thrill Activity"
+      id: "thangal-para",
+      title: "Thangal Para",
+      category: "nature",
+      shortDesc: "Explore the distinctive rock formations and enjoy breathtaking panoramic views across the green Vagamon valleys in Idukki district, Kerala.",
+      fullDesc: "Explore the distinctive rock formations and enjoy breathtaking panoramic views across the green Vagamon valleys from Thangal Para's elevated mountain ridge in Idukki district.",
+      image: "https://i.ibb.co/39Yvh2gB/Screenshot-2026-07-21-124848.png",
+      tag: "Idukki Destination"
     },
     {
-      id: "vagamon-adventure-park",
-      title: "Vagamon Adventure Park",
-      category: "thrill",
-      shortDesc: "Experience exciting adventures including ziplining, sky cycling, giant swings, and rock climbing.",
-      fullDesc: "Experience exciting adventures including ziplining, sky cycling, giant swings, rock climbing, and other high-energy activities in the lush green mountain park of Vagamon.",
-      image: "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=1200&q=80",
-      tag: "Mountain Adventure"
+      id: "murugan-mala",
+      title: "Murugan Mala",
+      category: "nature",
+      shortDesc: "Follow the peaceful hill trail and discover panoramic views across Vagamon’s lush green surroundings in Idukki district, Kerala.",
+      fullDesc: "Follow the peaceful hill trail and discover panoramic views across Vagamon’s lush green surroundings on the serene ascent to Murugan Mala in Idukki, Kerala.",
+      image: "https://i.ibb.co/H6KwDgK/Screenshot-2026-07-21-124955.png",
+      tag: "Idukki Destination"
     },
     {
-      id: "uluppooni-jeep-safari",
-      title: "Uluppooni Off-Road Jeep Safari",
-      category: "thrill",
-      shortDesc: "Take an off-road journey through rugged green terrain, hidden waterfalls, and forest trails around Uluppooni.",
-      fullDesc: "Take an off-road journey through rugged green terrain, hidden waterfalls, forest trails, and scenic viewpoints around Uluppooni in an open-top 4x4 mountain jeep.",
-      image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80",
-      tag: "Off-Road Safari"
+      id: "kurish-mala",
+      title: "Kurish Mala",
+      category: "nature",
+      shortDesc: "Experience peaceful hill trails, spiritual surroundings, and beautiful sunrise or sunset views across the Vagamon landscape in Idukki, Kerala.",
+      fullDesc: "Experience peaceful hill trails, spiritual monastery surroundings, Swiss dairy pastures, and beautiful sunrise or sunset views across the Vagamon hillscape in Idukki district.",
+      image: "https://i.ibb.co/Gf9MvCTm/Screenshot-2026-07-21-124142.png",
+      tag: "Idukki Destination"
     },
-
-    // Category 2: Nature & Sightseeing
     {
       id: "vagamon-pine-forest",
       title: "Vagamon Pine Forest",
       category: "nature",
-      shortDesc: "Walk beneath towering pine trees and explore one of Vagamon’s most peaceful and scenic natural landscapes.",
-      fullDesc: "Walk beneath towering pine trees and explore one of Vagamon’s most peaceful and scenic natural landscapes, surrounded by dense green pine canopies and mountain mist.",
-      image: "https://i.ibb.co/jvN1Q7wS/Screenshot-2026-07-21-124133.png",
-      tag: "Nature & Sightseeing"
+      shortDesc: "Walk beneath towering pine trees and explore one of Vagamon’s most peaceful and scenic natural landscapes in Idukki district, Kerala.",
+      fullDesc: "Walk beneath towering pine trees and explore one of Vagamon’s most peaceful and scenic natural landscapes, surrounded by dense green pine canopies in Idukki, Kerala.",
+      image: "https://i.ibb.co/sv5cyhM5/Screenshot-2026-07-21-124133.png",
+      tag: "Idukki Destination"
     },
     {
       id: "vagamon-meadows",
       title: "Vagamon Meadows",
       category: "nature",
-      shortDesc: "Relax and wander through the wide green meadows surrounded by the peaceful beauty of Vagamon’s rolling hills.",
-      fullDesc: "Relax and wander through the wide green meadows surrounded by the peaceful beauty of Vagamon’s rolling hills, offering endless greenery and gentle mountain breezes.",
-      image: "https://i.ibb.co/2YmdQCp2/Screenshot-2026-07-21-124848.png",
-      tag: "Nature & Sightseeing"
-    },
-    {
-      id: "marmala-waterfalls",
-      title: "Marmala Waterfalls",
-      category: "nature",
-      shortDesc: "Discover a beautiful forest waterfall surrounded by lush greenery and a peaceful natural atmosphere.",
-      fullDesc: "Discover a beautiful forest waterfall surrounded by lush greenery, natural rock pools, and a peaceful forest atmosphere tucked away in Vagamon's green valleys.",
-      image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80",
-      tag: "Forest Waterfall"
+      shortDesc: "Relax and wander through the wide green meadows surrounded by the peaceful beauty of Vagamon’s rolling hills in Idukki, Kerala.",
+      fullDesc: "Relax and wander through the wide green meadows surrounded by the peaceful beauty of Vagamon’s rolling hills, offering endless greenery in Idukki district.",
+      image: "https://i.ibb.co/tw6bQD2q/Screenshot-2026-07-21-124848.png",
+      tag: "Idukki Destination"
     },
     {
       id: "vagamon-lake",
       title: "Vagamon Lake",
       category: "nature",
-      shortDesc: "Enjoy the calm beauty of a scenic lake surrounded by green hills and peaceful landscapes.",
-      fullDesc: "Enjoy the calm beauty of a scenic lake surrounded by green hills, lush gardens, and peaceful mountain reflection views.",
-      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-      tag: "Nature & Sightseeing"
-    },
-
-    // Category 3: Trekking & Spiritual Trails
-    {
-      id: "thangal-para",
-      title: "Thangal Para",
-      category: "trekking",
-      shortDesc: "Explore the distinctive rock formations and enjoy breathtaking panoramic views across the green Vagamon valleys.",
-      fullDesc: "Explore the distinctive rock formations and enjoy breathtaking panoramic views across the green Vagamon valleys from Thangal Para's elevated mountain ridge.",
-      image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
-      tag: "Trekking Trail"
-    },
-    {
-      id: "murugan-mala",
-      title: "Murugan Mala",
-      category: "trekking",
-      shortDesc: "Follow the peaceful hill trail and discover panoramic views across Vagamon’s lush green surroundings.",
-      fullDesc: "Follow the peaceful hill trail and discover panoramic views across Vagamon’s lush green surroundings on the serene ascent to Murugan Mala.",
-      image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80",
-      tag: "Spiritual Trail"
-    },
-    {
-      id: "kurisumala",
-      title: "Kurisumala Hills",
-      category: "trekking",
-      shortDesc: "Experience peaceful hill trails, spiritual surroundings, and beautiful sunrise or sunset views across the Vagamon landscape.",
-      fullDesc: "Experience peaceful hill trails, spiritual monastery surroundings, Swiss dairy cattle pastures, and beautiful sunrise or sunset views across the green Vagamon landscape.",
-      image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1200&q=80",
-      tag: "Spiritual Trail"
+      shortDesc: "Enjoy the calm beauty of a scenic lake surrounded by green hills and peaceful landscapes in Vagamon, Idukki district, Kerala.",
+      fullDesc: "Enjoy the calm beauty of a scenic lake surrounded by green hills, lush gardens, and peaceful mountain reflection views in Vagamon, Idukki district.",
+      image: "https://i.ibb.co/JwW3rKwp/Screenshot-2026-07-21-124928.png",
+      tag: "Idukki Destination"
     }
   ] as ExperienceItem[],
 
