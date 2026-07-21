@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ChevronRight, MapPin, ArrowRight, ShieldCheck, Flame, Utensils, MessageSquare, Sparkles, Moon, Sun, Star, Quote } from 'lucide-react';
 import { RESORT_CONFIG } from '../config/resortConfig';
 import { SEO } from '../components/SEO';
 import { useTheme } from '../context/ThemeContext';
 
 export const HomePage: React.FC = () => {
-  const { themeMode, toggleTheme, heroImage } = useTheme();
+  const { themeMode, toggleTheme } = useTheme();
 
   return (
     <>
@@ -15,28 +15,7 @@ export const HomePage: React.FC = () => {
 
       {/* ================= HERO SECTION ================= */}
       <section style={{ position: 'relative', width: '100%', height: '100vh', minHeight: '650px', overflow: 'hidden' }}>
-        {/* Static Hero Image based on Day / Night mode */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={themeMode}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundImage: `url(${heroImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}
-          />
-        </AnimatePresence>
-
-        {/* Elegant Dark Gradient Overlay for readability */}
+        {/* Day Hero Layer (Hero 1) */}
         <div
           style={{
             position: 'absolute',
@@ -44,9 +23,45 @@ export const HomePage: React.FC = () => {
             left: 0,
             right: 0,
             bottom: 0,
+            backgroundImage: `url(${RESORT_CONFIG.images.hero1})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: themeMode === 'day' ? 1 : 0,
+            transition: 'opacity 0.25s ease',
+            zIndex: 1
+          }}
+        />
+
+        {/* Night Hero Layer (Hero 2) */}
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage: `url(${RESORT_CONFIG.images.hero2})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: themeMode === 'night' ? 1 : 0,
+            transition: 'opacity 0.25s ease',
+            zIndex: 1
+          }}
+        />
+
+        {/* Elegant Dark Overlay for text legibility */}
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 2,
             background: themeMode === 'night'
-              ? 'linear-gradient(180deg, rgba(3, 12, 8, 0.65) 0%, rgba(3, 12, 8, 0.45) 50%, rgba(3, 12, 8, 0.85) 100%)'
-              : 'linear-gradient(180deg, rgba(8, 22, 16, 0.45) 0%, rgba(8, 22, 16, 0.25) 50%, rgba(8, 22, 16, 0.75) 100%)'
+              ? 'linear-gradient(180deg, rgba(3, 12, 8, 0.7) 0%, rgba(3, 12, 8, 0.5) 50%, rgba(3, 12, 8, 0.88) 100%)'
+              : 'linear-gradient(180deg, rgba(8, 22, 16, 0.5) 0%, rgba(8, 22, 16, 0.3) 50%, rgba(8, 22, 16, 0.78) 100%)',
+            transition: 'background 0.25s ease'
           }}
         />
 
@@ -66,9 +81,9 @@ export const HomePage: React.FC = () => {
           }}
         >
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
             style={{ maxWidth: '780px' }}
           >
             {/* Prominent Resort Name & Location Badge */}
@@ -76,7 +91,7 @@ export const HomePage: React.FC = () => {
               <span className="badge-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem' }}>
                 <Sparkles size={14} /> VELVET HAVEN RESORT
               </span>
-              <span style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase', textShadow: '0 2px 6px rgba(0,0,0,0.4)' }}>
+              <span style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase', textShadow: '0 2px 6px rgba(0,0,0,0.5)' }}>
                 Vagamon, Kerala
               </span>
             </div>
@@ -86,7 +101,7 @@ export const HomePage: React.FC = () => {
               style={{
                 color: '#FFFFFF',
                 marginBottom: '1.25rem',
-                textShadow: '0 4px 18px rgba(0,0,0,0.5)',
+                textShadow: '0 4px 18px rgba(0,0,0,0.6)',
                 fontWeight: 500
               }}
             >
@@ -96,11 +111,11 @@ export const HomePage: React.FC = () => {
             <p
               style={{
                 fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
-                color: 'rgba(255, 255, 255, 0.92)',
+                color: 'rgba(255, 255, 255, 0.95)',
                 lineHeight: '1.6',
                 marginBottom: '2.25rem',
                 maxWidth: '640px',
-                textShadow: '0 2px 8px rgba(0,0,0,0.4)'
+                textShadow: '0 2px 8px rgba(0,0,0,0.5)'
               }}
             >
               Experience peaceful stays, scenic landscapes, and warm hospitality in the heart of Vagamon, Kerala.
@@ -128,7 +143,7 @@ export const HomePage: React.FC = () => {
               zIndex: 20
             }}
           >
-            <span style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.85)', letterSpacing: '0.05em', textTransform: 'uppercase', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }} className="desktop-nav">
+            <span style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.9)', letterSpacing: '0.05em', textTransform: 'uppercase', textShadow: '0 2px 4px rgba(0,0,0,0.6)' }} className="desktop-nav">
               {themeMode === 'day' ? 'Day View' : 'Night View'}
             </span>
             <button
@@ -151,24 +166,24 @@ export const HomePage: React.FC = () => {
             
             <div>
               <span className="badge-gold" style={{ marginBottom: '1rem' }}>Welcome to Velvet Haven</span>
-              <h2 className="heading-1 font-serif" style={{ color: 'var(--color-pine)', marginBottom: '1.5rem' }}>
+              <h2 className="heading-1 font-serif" style={{ color: 'var(--color-heading)', marginBottom: '1.5rem' }}>
                 A Peaceful Mountain Haven Above the Clouds
               </h2>
-              <p style={{ color: 'var(--color-muted)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.25rem' }}>
+              <p style={{ color: 'var(--color-muted-text)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.25rem' }}>
                 Perched gracefully amidst the misty pine ridges of Vagamon, Velvet Haven Resort is designed for travelers who seek true stillness, elevated comfort, and unhurried luxury.
               </p>
-              <p style={{ color: 'var(--color-muted)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '2rem' }}>
+              <p style={{ color: 'var(--color-muted-text)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '2rem' }}>
                 Whether you are listening to morning birdsong over the pine valley or gathering around an evening campfire under a starry mountain sky, every moment here connects you deeply with nature and authentic Kerala warmth.
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '2rem' }}>
                 <div>
                   <h3 className="font-serif" style={{ fontSize: '2.2rem', color: 'var(--color-gold)' }}>1,100m</h3>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--color-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Elevation above sea level</p>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--color-muted-text)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Elevation above sea level</p>
                 </div>
                 <div>
                   <h3 className="font-serif" style={{ fontSize: '2.2rem', color: 'var(--color-gold)' }}>100%</h3>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--color-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Tranquil Pine Nature</p>
+                  <p style={{ fontSize: '0.875rem', color: 'var(--color-muted-text)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Tranquil Pine Nature</p>
                 </div>
               </div>
 
@@ -197,7 +212,7 @@ export const HomePage: React.FC = () => {
             <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
               Why Guests Choose Velvet Haven
             </h2>
-            <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '1.05rem' }}>
+            <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '1.05rem' }}>
               Thoughtfully curated amenities and natural luxury created for your peaceful stay.
             </p>
           </div>
@@ -212,13 +227,13 @@ export const HomePage: React.FC = () => {
               <div
                 key={i}
                 className="glass-panel-dark"
-                style={{ padding: '2.25rem', borderRadius: 'var(--radius-md)', transition: 'transform 0.3s ease' }}
+                style={{ padding: '2.25rem', borderRadius: 'var(--radius-md)' }}
               >
                 <feature.icon size={36} style={{ color: 'var(--color-gold)', marginBottom: '1.25rem' }} />
                 <h3 className="font-serif" style={{ fontSize: '1.4rem', color: '#FFFFFF', marginBottom: '0.75rem' }}>
                   {feature.title}
                 </h3>
-                <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.95rem', lineHeight: '1.6' }}>
+                <p style={{ color: 'rgba(255, 255, 255, 0.78)', fontSize: '0.95rem', lineHeight: '1.6' }}>
                   {feature.desc}
                 </p>
               </div>
@@ -227,13 +242,13 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ================= ACCOMMODATION PREVIEW (PRICING FREE) ================= */}
+      {/* ================= ACCOMMODATION PREVIEW (PRICING FREE & HIGH CONTRAST) ================= */}
       <section className="section-padding">
         <div className="container">
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3.5rem', gap: '1.5rem' }}>
             <div>
               <span className="badge-gold" style={{ marginBottom: '0.75rem' }}>Luxury Stays</span>
-              <h2 className="heading-1 font-serif" style={{ color: 'var(--color-pine)' }}>
+              <h2 className="heading-1 font-serif" style={{ color: 'var(--color-heading)' }}>
                 Rooms & Accommodation
               </h2>
             </div>
@@ -247,13 +262,13 @@ export const HomePage: React.FC = () => {
               <div
                 key={room.id}
                 style={{
-                  backgroundColor: 'var(--color-surface)',
+                  backgroundColor: 'var(--color-card-bg)',
                   borderRadius: 'var(--radius-md)',
                   overflow: 'hidden',
                   boxShadow: 'var(--shadow-md)',
                   display: 'flex',
                   flexDirection: 'column',
-                  border: '1px solid var(--color-border)'
+                  border: '1px solid var(--color-border-theme)'
                 }}
               >
                 <div className="img-zoom-container" style={{ height: '260px' }}>
@@ -282,10 +297,10 @@ export const HomePage: React.FC = () => {
                   <span style={{ fontSize: '0.85rem', color: 'var(--color-gold)', fontWeight: 600, textTransform: 'uppercase', marginBottom: '0.4rem' }}>
                     {room.subtitle}
                   </span>
-                  <h3 className="font-serif" style={{ fontSize: '1.75rem', color: 'var(--color-pine)', marginBottom: '0.75rem' }}>
+                  <h3 className="font-serif" style={{ fontSize: '1.75rem', color: 'var(--color-heading)', marginBottom: '0.75rem' }}>
                     {room.name}
                   </h3>
-                  <p style={{ color: 'var(--color-muted)', fontSize: '0.95rem', marginBottom: '1.25rem', lineHeight: '1.6' }}>
+                  <p style={{ color: 'var(--color-muted-text)', fontSize: '0.95rem', marginBottom: '1.25rem', lineHeight: '1.6' }}>
                     {room.description}
                   </p>
 
@@ -296,9 +311,10 @@ export const HomePage: React.FC = () => {
                         style={{
                           fontSize: '0.78rem',
                           backgroundColor: 'var(--color-sand)',
-                          color: 'var(--color-charcoal)',
+                          color: 'var(--color-body)',
                           padding: '0.3rem 0.65rem',
-                          borderRadius: '4px'
+                          borderRadius: '4px',
+                          border: '1px solid var(--color-border-theme)'
                         }}
                       >
                         {feat}
@@ -306,8 +322,8 @@ export const HomePage: React.FC = () => {
                     ))}
                   </div>
 
-                  <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '0.875rem', color: 'var(--color-muted)', fontWeight: 500 }}>
+                  <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border-theme)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontSize: '0.875rem', color: 'var(--color-muted-text)', fontWeight: 500 }}>
                       {room.capacity}
                     </span>
                     <a
@@ -335,7 +351,7 @@ export const HomePage: React.FC = () => {
             <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
               Stories from Velvet Haven
             </h2>
-            <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '1.05rem' }}>
+            <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '1.05rem' }}>
               Read what travelers say about their peaceful getaway at our Vagamon hillside sanctuary.
             </p>
           </div>
@@ -353,14 +369,14 @@ export const HomePage: React.FC = () => {
                       <Star key={idx} size={16} fill="var(--color-gold)" style={{ color: 'var(--color-gold)' }} />
                     ))}
                   </div>
-                  <Quote size={24} style={{ color: 'var(--color-gold)', opacity: 0.5, marginBottom: '0.75rem' }} />
-                  <p style={{ color: 'rgba(255, 255, 255, 0.88)', fontStyle: 'italic', fontSize: '1rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                  <Quote size={24} style={{ color: 'var(--color-gold)', opacity: 0.6, marginBottom: '0.75rem' }} />
+                  <p style={{ color: 'rgba(255, 255, 255, 0.92)', fontStyle: 'italic', fontSize: '1rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
                     "{item.quote}"
                   </p>
                 </div>
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1rem' }}>
+                <div style={{ borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: '1rem' }}>
                   <h4 className="font-serif" style={{ color: 'var(--color-gold)', fontSize: '1.15rem' }}>{item.author}</h4>
-                  <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.85rem' }}>{item.location}</p>
+                  <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.85rem' }}>{item.location}</p>
                 </div>
               </div>
             ))}
@@ -374,10 +390,10 @@ export const HomePage: React.FC = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'center' }}>
             <div>
               <span className="badge-gold" style={{ marginBottom: '1rem' }}>Destination Guide</span>
-              <h2 className="heading-1 font-serif" style={{ color: 'var(--color-pine)', marginBottom: '1.5rem' }}>
+              <h2 className="heading-1 font-serif" style={{ color: 'var(--color-heading)', marginBottom: '1.5rem' }}>
                 Located in Pristine Vagamon, Kerala
               </h2>
-              <p style={{ color: 'var(--color-muted)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+              <p style={{ color: 'var(--color-muted-text)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
                 Situated conveniently near Vagamon’s renowned Pine Forests, Kurisumala Ashram, and green meadows, our resort offers easy access to major sight-seeing spots while retaining complete hillside tranquility.
               </p>
 
@@ -385,8 +401,8 @@ export const HomePage: React.FC = () => {
                 {RESORT_CONFIG.travelInfo.slice(0, 3).map((item, idx) => (
                   <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                     <MapPin size={20} style={{ color: 'var(--color-gold)', flexShrink: 0 }} />
-                    <span style={{ color: 'var(--color-charcoal)', fontWeight: 500, fontSize: '0.95rem' }}>{item.label}:</span>
-                    <span style={{ color: 'var(--color-muted)', fontSize: '0.95rem' }}>{item.distance}</span>
+                    <span style={{ color: 'var(--color-heading)', fontWeight: 500, fontSize: '0.95rem' }}>{item.label}:</span>
+                    <span style={{ color: 'var(--color-muted-text)', fontSize: '0.95rem' }}>{item.distance}</span>
                   </div>
                 ))}
               </div>
@@ -406,7 +422,7 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', height: '420px', border: '1px solid var(--color-border)' }}>
+            <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', height: '420px', border: '1px solid var(--color-border-theme)' }}>
               <iframe
                 title="Velvet Haven Resort Vagamon Location Map"
                 src={RESORT_CONFIG.mapEmbedSrc}
@@ -429,7 +445,7 @@ export const HomePage: React.FC = () => {
           <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1.25rem' }}>
             Ready for your Vagamon Mountain Getaway?
           </h2>
-          <p style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2.5rem' }}>
+          <p style={{ color: 'rgba(255, 255, 255, 0.88)', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2.5rem' }}>
             Book directly through our dedicated reservation portal or connect instantly on WhatsApp with our front desk team.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>

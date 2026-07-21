@@ -55,79 +55,79 @@ export const ContactPage: React.FC = () => {
           <h1 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
             Contact Velvet Haven Resort
           </h1>
-          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.85)', maxWidth: '680px', margin: '0 auto' }}>
+          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '680px', margin: '0 auto' }}>
             Our host team is delighted to assist you with reservations, room choices, and travel planning in Vagamon.
           </p>
         </div>
       </section>
 
       {/* Contact Form & Direct Details */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-cream)' }}>
+      <section className="section-padding">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem' }}>
             
             {/* Contact Details & Info Card */}
             <div>
               <span className="badge-gold" style={{ marginBottom: '1rem' }}>Reach Out</span>
-              <h2 className="heading-1 font-serif" style={{ color: 'var(--color-pine)', marginBottom: '1.5rem' }}>
+              <h2 className="heading-1 font-serif" style={{ color: 'var(--color-heading)', marginBottom: '1.5rem' }}>
                 We're Here to Help
               </h2>
-              <p style={{ color: 'var(--color-muted)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '2.5rem' }}>
+              <p style={{ color: 'var(--color-muted-text)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '2.5rem' }}>
                 For instant booking support or questions regarding availability, send us a WhatsApp message or reach us via email.
               </p>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem', marginBottom: '3rem' }}>
                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <div style={{ width: '46px', height: '46px', borderRadius: '50%', backgroundColor: 'var(--color-pine)', color: 'var(--color-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <div style={{ width: '46px', height: '46px', borderRadius: '50%', backgroundColor: 'rgba(197, 160, 89, 0.2)', color: 'var(--color-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <Mail size={22} />
                   </div>
                   <div>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-pine)' }}>Email Us</h3>
-                    <a href={`mailto:${RESORT_CONFIG.email}`} style={{ color: 'var(--color-muted)', textDecoration: 'none', fontSize: '1rem' }}>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-heading)' }}>Email Us</h3>
+                    <a href={`mailto:${RESORT_CONFIG.email}`} style={{ color: 'var(--color-muted-text)', textDecoration: 'none', fontSize: '1rem' }}>
                       {RESORT_CONFIG.email}
                     </a>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <div style={{ width: '46px', height: '46px', borderRadius: '50%', backgroundColor: 'var(--color-pine)', color: 'var(--color-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <div style={{ width: '46px', height: '46px', borderRadius: '50%', backgroundColor: 'rgba(197, 160, 89, 0.2)', color: 'var(--color-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <Phone size={22} />
                   </div>
                   <div>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-pine)' }}>Call Us</h3>
-                    <a href={`tel:${RESORT_CONFIG.contactPhone}`} style={{ color: 'var(--color-muted)', textDecoration: 'none', fontSize: '1rem' }}>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-heading)' }}>Call Us</h3>
+                    <a href={`tel:${RESORT_CONFIG.contactPhone}`} style={{ color: 'var(--color-muted-text)', textDecoration: 'none', fontSize: '1rem' }}>
                       {RESORT_CONFIG.contactPhone}
                     </a>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <div style={{ width: '46px', height: '46px', borderRadius: '50%', backgroundColor: 'var(--color-pine)', color: 'var(--color-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <div style={{ width: '46px', height: '46px', borderRadius: '50%', backgroundColor: 'rgba(197, 160, 89, 0.2)', color: 'var(--color-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <MapPin size={22} />
                   </div>
                   <div>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-pine)' }}>Resort Location</h3>
-                    <p style={{ color: 'var(--color-muted)', fontSize: '1rem' }}>{RESORT_CONFIG.location}</p>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-heading)' }}>Resort Location</h3>
+                    <p style={{ color: 'var(--color-muted-text)', fontSize: '1rem' }}>{RESORT_CONFIG.location}</p>
                   </div>
                 </div>
 
                 <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-                  <div style={{ width: '46px', height: '46px', borderRadius: '50%', backgroundColor: 'var(--color-pine)', color: 'var(--color-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <div style={{ width: '46px', height: '46px', borderRadius: '50%', backgroundColor: 'rgba(197, 160, 89, 0.2)', color: 'var(--color-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <Clock size={22} />
                   </div>
                   <div>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-pine)' }}>Front Desk Hours</h3>
-                    <p style={{ color: 'var(--color-muted)', fontSize: '1rem' }}>24 Hours Guest Support & Check-in</p>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-heading)' }}>Front Desk Hours</h3>
+                    <p style={{ color: 'var(--color-muted-text)', fontSize: '1rem' }}>24 Hours Guest Support & Check-in</p>
                   </div>
                 </div>
               </div>
 
               {/* Direct WhatsApp Action Box */}
-              <div style={{ padding: '2rem', backgroundColor: '#E8F6EE', borderRadius: 'var(--radius-lg)', border: '1px solid #C2EBD0' }}>
-                <h3 style={{ fontSize: '1.2rem', color: '#116530', fontWeight: 600, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <div style={{ padding: '2rem', backgroundColor: 'var(--color-card-bg)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--color-border-theme)' }}>
+                <h3 style={{ fontSize: '1.2rem', color: '#25D366', fontWeight: 600, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <MessageSquare size={20} /> Quick WhatsApp Chat
                 </h3>
-                <p style={{ fontSize: '0.925rem', color: '#2C5E3B', marginBottom: '1.25rem' }}>
+                <p style={{ fontSize: '0.925rem', color: 'var(--color-muted-text)', marginBottom: '1.25rem' }}>
                   Click below to directly chat with our Vagamon desk host without filling the form.
                 </p>
                 <a
@@ -142,18 +142,18 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {/* Interactive Enquiry Form */}
-            <div style={{ backgroundColor: '#FFFFFF', padding: '3rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-lg)', border: '1px solid var(--color-border)' }}>
-              <h2 className="font-serif" style={{ fontSize: '2rem', color: 'var(--color-pine)', marginBottom: '0.5rem' }}>
+            <div style={{ backgroundColor: 'var(--color-card-bg)', padding: '3rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-lg)', border: '1px solid var(--color-border-theme)' }}>
+              <h2 className="font-serif" style={{ fontSize: '2rem', color: 'var(--color-heading)', marginBottom: '0.5rem' }}>
                 Send Reservation Enquiry
               </h2>
-              <p style={{ color: 'var(--color-muted)', fontSize: '0.95rem', marginBottom: '2rem' }}>
+              <p style={{ color: 'var(--color-muted-text)', fontSize: '0.95rem', marginBottom: '2rem' }}>
                 Fill out the form below to generate a pre-formatted WhatsApp message for instant booking.
               </p>
 
               <form onSubmit={handleWhatsAppSubmit}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '0.35rem' }}>
+                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-heading)', marginBottom: '0.35rem' }}>
                       Full Name *
                     </label>
                     <input
@@ -166,7 +166,9 @@ export const ContactPage: React.FC = () => {
                         width: '100%',
                         padding: '0.8rem 0.9rem',
                         borderRadius: '4px',
-                        border: '1px solid var(--color-border)',
+                        border: '1px solid var(--color-input-border)',
+                        backgroundColor: 'var(--color-input-bg)',
+                        color: 'var(--color-input-text)',
                         fontSize: '0.95rem',
                         outline: 'none'
                       }}
@@ -174,7 +176,7 @@ export const ContactPage: React.FC = () => {
                   </div>
 
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '0.35rem' }}>
+                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-heading)', marginBottom: '0.35rem' }}>
                       Phone Number *
                     </label>
                     <input
@@ -187,7 +189,9 @@ export const ContactPage: React.FC = () => {
                         width: '100%',
                         padding: '0.8rem 0.9rem',
                         borderRadius: '4px',
-                        border: '1px solid var(--color-border)',
+                        border: '1px solid var(--color-input-border)',
+                        backgroundColor: 'var(--color-input-bg)',
+                        color: 'var(--color-input-text)',
                         fontSize: '0.95rem',
                         outline: 'none'
                       }}
@@ -196,7 +200,7 @@ export const ContactPage: React.FC = () => {
                 </div>
 
                 <div style={{ marginBottom: '1.25rem' }}>
-                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '0.35rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-heading)', marginBottom: '0.35rem' }}>
                     Email Address *
                   </label>
                   <input
@@ -209,7 +213,9 @@ export const ContactPage: React.FC = () => {
                       width: '100%',
                       padding: '0.8rem 0.9rem',
                       borderRadius: '4px',
-                      border: '1px solid var(--color-border)',
+                      border: '1px solid var(--color-input-border)',
+                      backgroundColor: 'var(--color-input-bg)',
+                      color: 'var(--color-input-text)',
                       fontSize: '0.95rem',
                       outline: 'none'
                     }}
@@ -218,7 +224,7 @@ export const ContactPage: React.FC = () => {
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '0.35rem' }}>
+                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-heading)', marginBottom: '0.35rem' }}>
                       Check-in Date
                     </label>
                     <input
@@ -229,7 +235,9 @@ export const ContactPage: React.FC = () => {
                         width: '100%',
                         padding: '0.8rem 0.9rem',
                         borderRadius: '4px',
-                        border: '1px solid var(--color-border)',
+                        border: '1px solid var(--color-input-border)',
+                        backgroundColor: 'var(--color-input-bg)',
+                        color: 'var(--color-input-text)',
                         fontSize: '0.95rem',
                         outline: 'none'
                       }}
@@ -237,7 +245,7 @@ export const ContactPage: React.FC = () => {
                   </div>
 
                   <div>
-                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '0.35rem' }}>
+                    <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-heading)', marginBottom: '0.35rem' }}>
                       Check-out Date
                     </label>
                     <input
@@ -248,7 +256,9 @@ export const ContactPage: React.FC = () => {
                         width: '100%',
                         padding: '0.8rem 0.9rem',
                         borderRadius: '4px',
-                        border: '1px solid var(--color-border)',
+                        border: '1px solid var(--color-input-border)',
+                        backgroundColor: 'var(--color-input-bg)',
+                        color: 'var(--color-input-text)',
                         fontSize: '0.95rem',
                         outline: 'none'
                       }}
@@ -257,7 +267,7 @@ export const ContactPage: React.FC = () => {
                 </div>
 
                 <div style={{ marginBottom: '1.25rem' }}>
-                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '0.35rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-heading)', marginBottom: '0.35rem' }}>
                     Number of Guests
                   </label>
                   <select
@@ -267,9 +277,10 @@ export const ContactPage: React.FC = () => {
                       width: '100%',
                       padding: '0.8rem 0.9rem',
                       borderRadius: '4px',
-                      border: '1px solid var(--color-border)',
+                      border: '1px solid var(--color-input-border)',
+                      backgroundColor: 'var(--color-input-bg)',
+                      color: 'var(--color-input-text)',
                       fontSize: '0.95rem',
-                      backgroundColor: '#FFFFFF',
                       outline: 'none'
                     }}
                   >
@@ -281,7 +292,7 @@ export const ContactPage: React.FC = () => {
                 </div>
 
                 <div style={{ marginBottom: '1.75rem' }}>
-                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '0.35rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-heading)', marginBottom: '0.35rem' }}>
                     Your Message
                   </label>
                   <textarea
@@ -293,7 +304,9 @@ export const ContactPage: React.FC = () => {
                       width: '100%',
                       padding: '0.8rem 0.9rem',
                       borderRadius: '4px',
-                      border: '1px solid var(--color-border)',
+                      border: '1px solid var(--color-input-border)',
+                      backgroundColor: 'var(--color-input-bg)',
+                      color: 'var(--color-input-text)',
                       fontSize: '0.95rem',
                       outline: 'none',
                       resize: 'vertical'

@@ -36,14 +36,14 @@ export const FacilitiesPage: React.FC = () => {
           <h1 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
             Resort Facilities & Amenities
           </h1>
-          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.85)', maxWidth: '680px', margin: '0 auto' }}>
+          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '680px', margin: '0 auto' }}>
             Designed for total peace of mind, delightful dining, and unhurried relaxation in Vagamon.
           </p>
         </div>
       </section>
 
       {/* Main Facilities Cards */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-cream)' }}>
+      <section className="section-padding">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
             {RESORT_CONFIG.facilities.map((facility) => {
@@ -52,11 +52,11 @@ export const FacilitiesPage: React.FC = () => {
                 <div
                   key={facility.id}
                   style={{
-                    backgroundColor: '#FFFFFF',
+                    backgroundColor: 'var(--color-card-bg)',
                     borderRadius: 'var(--radius-lg)',
                     overflow: 'hidden',
                     boxShadow: 'var(--shadow-md)',
-                    border: '1px solid var(--color-border)',
+                    border: '1px solid var(--color-border-theme)',
                     display: 'flex',
                     flexDirection: 'column'
                   }}
@@ -72,7 +72,7 @@ export const FacilitiesPage: React.FC = () => {
                           width: '46px',
                           height: '46px',
                           borderRadius: '50%',
-                          backgroundColor: 'var(--color-pine)',
+                          backgroundColor: 'rgba(197, 160, 89, 0.2)',
                           color: 'var(--color-gold)',
                           display: 'flex',
                           alignItems: 'center',
@@ -82,22 +82,22 @@ export const FacilitiesPage: React.FC = () => {
                       >
                         <IconComp size={22} />
                       </div>
-                      <h2 className="font-serif" style={{ fontSize: '1.75rem', color: 'var(--color-pine)' }}>
+                      <h2 className="font-serif" style={{ fontSize: '1.75rem', color: 'var(--color-heading)' }}>
                         {facility.title}
                       </h2>
                     </div>
 
-                    <p style={{ color: 'var(--color-muted)', fontSize: '0.975rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                    <p style={{ color: 'var(--color-muted-text)', fontSize: '0.975rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
                       {facility.description}
                     </p>
 
-                    <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border)' }}>
+                    <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border-theme)' }}>
                       <h3 style={{ fontSize: '0.85rem', color: 'var(--color-gold)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem', fontWeight: 600 }}>
                         Key Highlights
                       </h3>
                       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
                         {facility.highlights.map((h, i) => (
-                          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', color: 'var(--color-charcoal)' }}>
+                          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', color: 'var(--color-body)' }}>
                             <CheckCircle2 size={15} style={{ color: 'var(--color-gold)', flexShrink: 0 }} />
                             <span>{h}</span>
                           </div>

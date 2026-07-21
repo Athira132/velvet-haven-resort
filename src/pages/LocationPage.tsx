@@ -29,39 +29,39 @@ export const LocationPage: React.FC = () => {
           <h1 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
             Location & Travel Guide
           </h1>
-          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.85)', maxWidth: '680px', margin: '0 auto' }}>
+          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '680px', margin: '0 auto' }}>
             Perched amidst Vagamon's peaceful mountain landscape with effortless access to top attractions.
           </p>
         </div>
       </section>
 
       {/* Map & Get Directions Callout */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-cream)' }}>
+      <section className="section-padding">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'center' }}>
             <div>
               <span className="badge-gold" style={{ marginBottom: '1rem' }}>Map Navigation</span>
-              <h2 className="heading-1 font-serif" style={{ color: 'var(--color-pine)', marginBottom: '1.5rem' }}>
+              <h2 className="heading-1 font-serif" style={{ color: 'var(--color-heading)', marginBottom: '1.5rem' }}>
                 How to Find Us
               </h2>
-              <p style={{ color: 'var(--color-muted)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+              <p style={{ color: 'var(--color-muted-text)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
                 Velvet Haven Resort is nestled in the quiet upper hills of Vagamon, Idukki District, Kerala. The route passes through scenic winding tea estates and cool mist-laden roads.
               </p>
 
-              <div style={{ padding: '1.5rem', backgroundColor: '#FFFFFF', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border)', marginBottom: '2rem' }}>
-                <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.75rem', color: 'var(--color-pine)' }}>
+              <div style={{ padding: '1.5rem', backgroundColor: 'var(--color-card-bg)', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border-theme)', marginBottom: '2rem' }}>
+                <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.75rem' }}>
                   <MapPin size={22} style={{ color: 'var(--color-gold)', flexShrink: 0 }} />
                   <div>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600 }}>Resort Address</h3>
-                    <p style={{ color: 'var(--color-muted)', fontSize: '0.95rem' }}>{RESORT_CONFIG.name}, {RESORT_CONFIG.location} - {RESORT_CONFIG.pinCode}</p>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-heading)' }}>Resort Address</h3>
+                    <p style={{ color: 'var(--color-muted-text)', fontSize: '0.95rem' }}>{RESORT_CONFIG.name}, {RESORT_CONFIG.location} - {RESORT_CONFIG.pinCode}</p>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', gap: '0.75rem', color: 'var(--color-pine)' }}>
+                <div style={{ display: 'flex', gap: '0.75rem' }}>
                   <Phone size={22} style={{ color: 'var(--color-gold)', flexShrink: 0 }} />
                   <div>
-                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600 }}>Front Desk Assistance</h3>
-                    <p style={{ color: 'var(--color-muted)', fontSize: '0.95rem' }}>{RESORT_CONFIG.contactPhone}</p>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-heading)' }}>Front Desk Assistance</h3>
+                    <p style={{ color: 'var(--color-muted-text)', fontSize: '0.95rem' }}>{RESORT_CONFIG.contactPhone}</p>
                   </div>
                 </div>
               </div>
@@ -80,7 +80,7 @@ export const LocationPage: React.FC = () => {
             </div>
 
             {/* Embedded Interactive Map */}
-            <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', height: '460px', border: '1px solid var(--color-border)' }}>
+            <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', height: '460px', border: '1px solid var(--color-border-theme)' }}>
               <iframe
                 title="Velvet Haven Resort Google Map"
                 src={RESORT_CONFIG.mapEmbedSrc}
@@ -104,7 +104,7 @@ export const LocationPage: React.FC = () => {
             <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
               Travel Distances from Major Hubs
             </h2>
-            <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '1.05rem' }}>
+            <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '1.05rem' }}>
               Smooth road connectivity from major Kerala airports, railway stations, and cities.
             </p>
           </div>
@@ -130,14 +130,14 @@ export const LocationPage: React.FC = () => {
       </section>
 
       {/* Nearby Attractions */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-cream)' }}>
+      <section className="section-padding">
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 4rem' }}>
             <span className="badge-gold" style={{ marginBottom: '1rem' }}>Local Sightseeing</span>
-            <h2 className="heading-1 font-serif" style={{ color: 'var(--color-pine)', marginBottom: '1rem' }}>
+            <h2 className="heading-1 font-serif" style={{ color: 'var(--color-heading)', marginBottom: '1rem' }}>
               Nearby Vagamon Attractions
             </h2>
-            <p style={{ color: 'var(--color-muted)', fontSize: '1.05rem' }}>
+            <p style={{ color: 'var(--color-muted-text)', fontSize: '1.05rem' }}>
               Explore famous sightseeing destinations located just minutes away from Velvet Haven Resort.
             </p>
           </div>
@@ -147,11 +147,11 @@ export const LocationPage: React.FC = () => {
               <div
                 key={idx}
                 style={{
-                  backgroundColor: '#FFFFFF',
+                  backgroundColor: 'var(--color-card-bg)',
                   borderRadius: 'var(--radius-md)',
                   padding: '2rem',
                   boxShadow: 'var(--shadow-md)',
-                  border: '1px solid var(--color-border)',
+                  border: '1px solid var(--color-border-theme)',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between'
@@ -159,14 +159,14 @@ export const LocationPage: React.FC = () => {
               >
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-                    <h3 className="font-serif" style={{ fontSize: '1.4rem', color: 'var(--color-pine)' }}>
+                    <h3 className="font-serif" style={{ fontSize: '1.4rem', color: 'var(--color-heading)' }}>
                       {spot.name}
                     </h3>
-                    <span style={{ fontSize: '0.825rem', color: 'var(--color-gold)', fontWeight: 700, backgroundColor: 'var(--color-sand)', padding: '0.25rem 0.6rem', borderRadius: '4px' }}>
+                    <span style={{ fontSize: '0.825rem', color: 'var(--color-gold)', fontWeight: 700, backgroundColor: 'var(--color-sand)', padding: '0.25rem 0.6rem', borderRadius: '4px', border: '1px solid var(--color-border-theme)' }}>
                       {spot.distance}
                     </span>
                   </div>
-                  <p style={{ color: 'var(--color-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>
+                  <p style={{ color: 'var(--color-muted-text)', fontSize: '0.95rem', lineHeight: '1.6' }}>
                     {spot.desc}
                   </p>
                 </div>

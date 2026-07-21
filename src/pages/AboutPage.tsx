@@ -30,26 +30,26 @@ export const AboutPage: React.FC = () => {
           <h1 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
             About Velvet Haven Resort
           </h1>
-          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.85)', maxWidth: '680px', margin: '0 auto' }}>
+          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '680px', margin: '0 auto' }}>
             Crafted as a sanctuary of quiet luxury among Vagamon's pine forests and high-altitude mist.
           </p>
         </div>
       </section>
 
       {/* Resort Story Section */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-cream)' }}>
+      <section className="section-padding">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'center' }}>
             
             <div>
               <span className="badge-gold" style={{ marginBottom: '1rem' }}>Nestled in Vagamon</span>
-              <h2 className="heading-1 font-serif" style={{ color: 'var(--color-pine)', marginBottom: '1.5rem' }}>
+              <h2 className="heading-1 font-serif" style={{ color: 'var(--color-heading)', marginBottom: '1.5rem' }}>
                 Where Nature meets Uncompromised Luxury
               </h2>
-              <p style={{ color: 'var(--color-muted)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.25rem' }}>
+              <p style={{ color: 'var(--color-muted-text)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.25rem' }}>
                 Velvet Haven Resort was conceived around a single core vision: to offer travelers a peaceful mountain haven that respects the untouched natural beauty of Vagamon while providing modern, high-end comfort.
               </p>
-              <p style={{ color: 'var(--color-muted)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+              <p style={{ color: 'var(--color-muted-text)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
                 Every element of our architecture—from wide glass viewing windows to locally crafted timber elements—was thoughtfully integrated into the sloping landscape. Our guests enjoy panoramic vistas of rolling tea estates and evergreen pine groves right from their rooms.
               </p>
 
@@ -83,7 +83,7 @@ export const AboutPage: React.FC = () => {
             <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
               The Spirit of Vagamon Hospitality
             </h2>
-            <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '1.05rem' }}>
+            <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '1.05rem' }}>
               We believe luxury is not just fine materials, but the tranquility of mind and warmth of genuine care.
             </p>
           </div>
@@ -104,7 +104,7 @@ export const AboutPage: React.FC = () => {
                 <h3 className="font-serif" style={{ fontSize: '1.4rem', color: '#FFFFFF', marginBottom: '0.75rem' }}>
                   {pillar.title}
                 </h3>
-                <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.95rem', lineHeight: '1.6' }}>
+                <p style={{ color: 'rgba(255, 255, 255, 0.78)', fontSize: '0.95rem', lineHeight: '1.6' }}>
                   {pillar.desc}
                 </p>
               </div>
@@ -114,11 +114,11 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* Visual Showcase Section */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-cream)' }}>
+      <section className="section-padding">
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
             <span className="badge-gold" style={{ marginBottom: '1rem' }}>Resort Life</span>
-            <h2 className="heading-1 font-serif" style={{ color: 'var(--color-pine)' }}>
+            <h2 className="heading-1 font-serif" style={{ color: 'var(--color-heading)' }}>
               Moments at Velvet Haven
             </h2>
           </div>

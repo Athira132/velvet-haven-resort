@@ -29,7 +29,7 @@ export const RoomsPage: React.FC = () => {
           <h1 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
             Luxury Accommodation
           </h1>
-          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.85)', maxWidth: '680px', margin: '0 auto' }}>
+          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '680px', margin: '0 auto' }}>
             Wake up to soft mountain fog and endless green valleys. Each room combines privacy, elegance, and natural tranquility.
           </p>
         </div>
@@ -43,13 +43,13 @@ export const RoomsPage: React.FC = () => {
               <div
                 key={room.id}
                 style={{
-                  backgroundColor: 'var(--color-surface)',
+                  backgroundColor: 'var(--color-card-bg)',
                   borderRadius: 'var(--radius-lg)',
                   overflow: 'hidden',
                   boxShadow: 'var(--shadow-lg)',
                   display: 'grid',
                   gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                  border: '1px solid var(--color-border)'
+                  border: '1px solid var(--color-border-theme)'
                 }}
               >
                 {/* Room Image */}
@@ -71,29 +71,29 @@ export const RoomsPage: React.FC = () => {
                     </span>
                   </div>
 
-                  <h2 className="font-serif" style={{ fontSize: '2.2rem', color: 'var(--color-pine)', marginBottom: '1rem' }}>
+                  <h2 className="font-serif" style={{ fontSize: '2.2rem', color: 'var(--color-heading)', marginBottom: '1rem' }}>
                     {room.name}
                   </h2>
 
-                  <p style={{ color: 'var(--color-muted)', fontSize: '1.025rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                  <p style={{ color: 'var(--color-muted-text)', fontSize: '1.025rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
                     {room.description}
                   </p>
 
                   {/* Room Specs Grid */}
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '1rem', padding: '1.25rem', backgroundColor: 'var(--color-sand)', borderRadius: 'var(--radius-md)', marginBottom: '1.75rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-charcoal)' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '1rem', padding: '1.25rem', backgroundColor: 'var(--color-sand)', borderRadius: 'var(--radius-md)', marginBottom: '1.75rem', border: '1px solid var(--color-border-theme)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-body)' }}>
                       <Users size={18} style={{ color: 'var(--color-gold)' }} />
                       <span>{room.capacity}</span>
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-charcoal)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-body)' }}>
                       <BedDouble size={18} style={{ color: 'var(--color-gold)' }} />
                       <span>{room.bedType}</span>
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-charcoal)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-body)' }}>
                       <Maximize size={18} style={{ color: 'var(--color-gold)' }} />
                       <span>{room.size}</span>
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-charcoal)' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-body)' }}>
                       <Eye size={18} style={{ color: 'var(--color-gold)' }} />
                       <span>{room.viewType}</span>
                     </div>
@@ -109,7 +109,7 @@ export const RoomsPage: React.FC = () => {
                           display: 'inline-flex',
                           alignItems: 'center',
                           gap: '0.35rem',
-                          color: 'var(--color-charcoal)',
+                          color: 'var(--color-body)',
                           fontWeight: 500
                         }}
                       >

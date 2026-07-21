@@ -14,6 +14,14 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [themeMode, setThemeMode] = useState<ThemeMode>('day');
 
+  // Preload hero images immediately on mount so theme switching is instant with zero network lag
+  useEffect(() => {
+    const img1 = new Image();
+    img1.src = RESORT_CONFIG.images.hero1;
+    const img2 = new Image();
+    img2.src = RESORT_CONFIG.images.hero2;
+  }, []);
+
   const toggleTheme = () => {
     setThemeMode((prev) => (prev === 'day' ? 'night' : 'day'));
   };

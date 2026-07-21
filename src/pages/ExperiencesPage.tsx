@@ -35,14 +35,14 @@ export const ExperiencesPage: React.FC = () => {
           <h1 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
             Experiences & Activities
           </h1>
-          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.85)', maxWidth: '680px', margin: '0 auto' }}>
+          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '680px', margin: '0 auto' }}>
             Immerse yourself in mountain quietude, guided nature trails, campfire evenings, and local Vagamon culture.
           </p>
         </div>
       </section>
 
       {/* Filter Tabs */}
-      <section style={{ backgroundColor: 'var(--color-sand)', padding: '2rem 0', borderBottom: '1px solid var(--color-border)' }}>
+      <section style={{ backgroundColor: 'var(--color-sand)', padding: '2rem 0', borderBottom: '1px solid var(--color-border-theme)' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
           {[
             { id: 'all', label: 'All Experiences' },
@@ -58,13 +58,13 @@ export const ExperiencesPage: React.FC = () => {
                 padding: '0.6rem 1.4rem',
                 borderRadius: '50px',
                 border: '1px solid',
-                borderColor: filter === tab.id ? 'var(--color-pine)' : 'var(--color-border)',
-                backgroundColor: filter === tab.id ? 'var(--color-pine)' : '#FFFFFF',
-                color: filter === tab.id ? 'var(--color-gold)' : 'var(--color-charcoal)',
+                borderColor: filter === tab.id ? 'var(--color-gold)' : 'var(--color-border-theme)',
+                backgroundColor: filter === tab.id ? 'var(--color-gold)' : 'var(--color-card-bg)',
+                color: filter === tab.id ? '#081610' : 'var(--color-heading)',
                 fontWeight: filter === tab.id ? 600 : 400,
                 fontSize: '0.875rem',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.25s ease'
               }}
             >
               {tab.label}
@@ -74,20 +74,20 @@ export const ExperiencesPage: React.FC = () => {
       </section>
 
       {/* Experiences Grid */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-cream)' }}>
+      <section className="section-padding">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '3rem' }}>
             {filtered.map((exp) => (
               <div
                 key={exp.id}
                 style={{
-                  backgroundColor: '#FFFFFF',
+                  backgroundColor: 'var(--color-card-bg)',
                   borderRadius: 'var(--radius-lg)',
                   overflow: 'hidden',
                   boxShadow: 'var(--shadow-md)',
                   display: 'flex',
                   flexDirection: 'column',
-                  border: '1px solid var(--color-border)'
+                  border: '1px solid var(--color-border-theme)'
                 }}
               >
                 <div className="img-zoom-container" style={{ height: '280px' }}>
@@ -97,7 +97,7 @@ export const ExperiencesPage: React.FC = () => {
                       position: 'absolute',
                       top: '1rem',
                       left: '1rem',
-                      backgroundColor: 'var(--color-pine)',
+                      backgroundColor: 'rgba(8, 22, 16, 0.88)',
                       color: 'var(--color-gold)',
                       fontSize: '0.75rem',
                       fontWeight: 600,
@@ -111,14 +111,14 @@ export const ExperiencesPage: React.FC = () => {
                 </div>
 
                 <div style={{ padding: '2.25rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                  <h2 className="font-serif" style={{ fontSize: '1.75rem', color: 'var(--color-pine)', marginBottom: '0.75rem' }}>
+                  <h2 className="font-serif" style={{ fontSize: '1.75rem', color: 'var(--color-heading)', marginBottom: '0.75rem' }}>
                     {exp.title}
                   </h2>
-                  <p style={{ color: 'var(--color-muted)', fontSize: '0.975rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                  <p style={{ color: 'var(--color-muted-text)', fontSize: '0.975rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
                     {exp.fullDesc}
                   </p>
 
-                  <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border)' }}>
+                  <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border-theme)' }}>
                     <a
                       href={`https://wa.me/${RESORT_CONFIG.whatsappNumber}?text=${encodeURIComponent(`Hello, I would like to enquire about ${exp.title} at Velvet Haven Resort, Vagamon.`)}`}
                       target="_blank"

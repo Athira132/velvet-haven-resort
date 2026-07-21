@@ -37,14 +37,14 @@ export const GalleryPage: React.FC = () => {
           <h1 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
             Resort Photo Gallery
           </h1>
-          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.85)', maxWidth: '680px', margin: '0 auto' }}>
+          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '680px', margin: '0 auto' }}>
             Explore the tranquil atmosphere, luxury interiors, and breathtaking natural vistas of Velvet Haven Resort.
           </p>
         </div>
       </section>
 
       {/* Category Tabs */}
-      <section style={{ backgroundColor: 'var(--color-sand)', padding: '2rem 0', borderBottom: '1px solid var(--color-border)' }}>
+      <section style={{ backgroundColor: 'var(--color-sand)', padding: '2rem 0', borderBottom: '1px solid var(--color-border-theme)' }}>
         <div className="container" style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '0.75rem' }}>
           {[
             { id: 'all', label: 'All Photos' },
@@ -60,13 +60,13 @@ export const GalleryPage: React.FC = () => {
                 padding: '0.6rem 1.4rem',
                 borderRadius: '50px',
                 border: '1px solid',
-                borderColor: activeTab === tab.id ? 'var(--color-pine)' : 'var(--color-border)',
-                backgroundColor: activeTab === tab.id ? 'var(--color-pine)' : '#FFFFFF',
-                color: activeTab === tab.id ? 'var(--color-gold)' : 'var(--color-charcoal)',
+                borderColor: activeTab === tab.id ? 'var(--color-gold)' : 'var(--color-border-theme)',
+                backgroundColor: activeTab === tab.id ? 'var(--color-gold)' : 'var(--color-card-bg)',
+                color: activeTab === tab.id ? '#081610' : 'var(--color-heading)',
                 fontWeight: activeTab === tab.id ? 600 : 400,
                 fontSize: '0.875rem',
                 cursor: 'pointer',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.25s ease'
               }}
             >
               {tab.label}
@@ -76,7 +76,7 @@ export const GalleryPage: React.FC = () => {
       </section>
 
       {/* Gallery Grid */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-cream)' }}>
+      <section className="section-padding">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.75rem' }}>
             {filteredItems.map((item, idx) => (
@@ -90,7 +90,7 @@ export const GalleryPage: React.FC = () => {
                   cursor: 'pointer',
                   height: '280px',
                   boxShadow: 'var(--shadow-md)',
-                  border: '1px solid var(--color-border)'
+                  border: '1px solid var(--color-border-theme)'
                 }}
                 className="img-zoom-container"
               >
@@ -104,7 +104,7 @@ export const GalleryPage: React.FC = () => {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    background: 'linear-gradient(180deg, rgba(8, 22, 16, 0.1) 0%, rgba(8, 22, 16, 0.85) 100%)',
+                    background: 'linear-gradient(180deg, rgba(8, 22, 16, 0.1) 0%, rgba(8, 22, 16, 0.88) 100%)',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'flex-end',
@@ -122,7 +122,7 @@ export const GalleryPage: React.FC = () => {
                       <Maximize2 size={16} style={{ color: '#FFFFFF' }} />
                     </div>
                   </div>
-                  <p style={{ fontSize: '0.825rem', color: 'rgba(255, 255, 255, 0.8)', marginTop: '0.25rem' }}>
+                  <p style={{ fontSize: '0.825rem', color: 'rgba(255, 255, 255, 0.85)', marginTop: '0.25rem' }}>
                     {item.caption}
                   </p>
                 </div>
