@@ -55,8 +55,8 @@ export const Navbar: React.FC = () => {
           backdropFilter: isScrolled ? 'blur(16px)' : 'none',
           WebkitBackdropFilter: isScrolled ? 'blur(16px)' : 'none',
           borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid transparent',
-          paddingTop: isScrolled ? '0.65rem' : '1rem',
-          paddingBottom: isScrolled ? '0.65rem' : '1rem'
+          paddingTop: isScrolled ? '0.75rem' : '1.25rem',
+          paddingBottom: isScrolled ? '0.75rem' : '1.25rem'
         }}
       >
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -66,12 +66,12 @@ export const Navbar: React.FC = () => {
               src={RESORT_CONFIG.images.logo}
               alt={`${RESORT_CONFIG.name} Logo`}
               style={{
-                height: isScrolled ? '85px' : '110px',
-                maxHeight: '120px',
+                height: isScrolled ? '95px' : '130px',
+                maxHeight: '140px',
                 width: 'auto',
                 objectFit: 'contain',
                 transition: 'height 0.3s ease',
-                filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.5))'
+                filter: 'drop-shadow(0 4px 18px rgba(0,0,0,0.5))'
               }}
             />
           </Link>
@@ -186,7 +186,7 @@ export const Navbar: React.FC = () => {
         <img
           src={RESORT_CONFIG.images.logo}
           alt={RESORT_CONFIG.name}
-          style={{ height: '100px', marginBottom: '2rem', objectFit: 'contain', filter: 'drop-shadow(0 4px 14px rgba(0,0,0,0.5))' }}
+          style={{ height: '115px', marginBottom: '2rem', objectFit: 'contain', filter: 'drop-shadow(0 4px 14px rgba(0,0,0,0.5))' }}
         />
 
         <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem', marginBottom: '2.5rem' }}>

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronRight, MapPin, ArrowRight, ShieldCheck, Flame, Utensils, MessageSquare, Sparkles, Moon, Sun, Star, Quote } from 'lucide-react';
+import { ChevronRight, MapPin, ArrowRight, ShieldCheck, Flame, Utensils, MessageSquare, Sparkles, Star, Quote } from 'lucide-react';
 import { RESORT_CONFIG } from '../config/resortConfig';
 import { SEO } from '../components/SEO';
 import { useTheme } from '../context/ThemeContext';
 
 export const HomePage: React.FC = () => {
-  const { themeMode, toggleTheme } = useTheme();
+  const { themeMode } = useTheme();
 
   const isNight = themeMode === 'night';
 
@@ -162,42 +162,6 @@ export const HomePage: React.FC = () => {
               </Link>
             </div>
           </motion.div>
-
-          {/* Manual Day / Night Toggle Floating Button in Hero */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '2.5rem',
-              right: '1.5rem',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.85rem',
-              zIndex: 20
-            }}
-          >
-            <span
-              style={{
-                fontSize: '0.8rem',
-                color: isNight ? 'rgba(255, 255, 255, 0.9)' : '#071A12',
-                fontWeight: 600,
-                letterSpacing: '0.05em',
-                textTransform: 'uppercase',
-                textShadow: isNight ? '0 2px 4px rgba(0,0,0,0.6)' : '0 1px 6px rgba(255,255,255,0.9)'
-              }}
-              className="desktop-nav"
-            >
-              {isNight ? 'Night View' : 'Day View'}
-            </span>
-            <button
-              onClick={toggleTheme}
-              className="theme-toggle-btn"
-              aria-label={isNight ? 'Switch to Day Mode' : 'Switch to Night Mode'}
-              title={isNight ? 'Switch to Day Mode ☀️' : 'Switch to Night Mode 🌙'}
-              style={{ width: '50px', height: '50px' }}
-            >
-              {isNight ? <Sun size={24} /> : <Moon size={24} />}
-            </button>
-          </div>
         </div>
       </section>
 
