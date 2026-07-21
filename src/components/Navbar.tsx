@@ -60,8 +60,9 @@ export const Navbar: React.FC = () => {
         }}
       >
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          {/* Prominent Single Brand Logo */}
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+          
+          {/* Logo on Left */}
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', marginRight: 'auto' }}>
             <img
               src={RESORT_CONFIG.images.logo}
               alt={`${RESORT_CONFIG.name} Logo`}
@@ -76,33 +77,33 @@ export const Navbar: React.FC = () => {
             />
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav style={{ display: 'none', gap: '1.75rem', alignItems: 'center' }} className="desktop-nav">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                style={({ isActive }) => ({
-                  color: isActive ? 'var(--color-gold)' : (themeMode === 'day' && !isScrolled ? '#081A12' : '#FFFFFF'),
-                  textDecoration: 'none',
-                  fontSize: '0.925rem',
-                  fontWeight: isActive || (themeMode === 'day' && !isScrolled) ? '600' : '400',
-                  letterSpacing: '0.04em',
-                  textTransform: 'uppercase',
-                  transition: 'color 0.2s ease',
-                  borderBottom: isActive ? '2px solid var(--color-gold)' : '2px solid transparent',
-                  paddingBottom: '0.2rem',
-                  textShadow: themeMode === 'day' && !isScrolled ? '0 1px 4px rgba(255,255,255,0.8)' : '0 2px 6px rgba(0,0,0,0.5)'
-                })}
-              >
-                {link.name}
-              </NavLink>
-            ))}
-          </nav>
+          {/* All Navigation Options Right-Aligned */}
+          <div style={{ display: 'none', alignItems: 'center', gap: '2rem', marginLeft: 'auto' }} className="desktop-nav">
+            <nav style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  style={({ isActive }) => ({
+                    color: isActive ? 'var(--color-gold)' : (themeMode === 'day' && !isScrolled ? '#081A12' : '#FFFFFF'),
+                    textDecoration: 'none',
+                    fontFamily: 'var(--font-sans)',
+                    fontSize: '0.875rem',
+                    fontWeight: isActive || (themeMode === 'day' && !isScrolled) ? '600' : '500',
+                    letterSpacing: '0.06em',
+                    textTransform: 'uppercase',
+                    transition: 'color 0.2s ease',
+                    borderBottom: isActive ? '2px solid var(--color-gold)' : '2px solid transparent',
+                    paddingBottom: '0.2rem',
+                    textShadow: themeMode === 'day' && !isScrolled ? '0 1px 4px rgba(255,255,255,0.8)' : '0 2px 6px rgba(0,0,0,0.5)'
+                  })}
+                >
+                  {link.name}
+                </NavLink>
+              ))}
+            </nav>
 
-          {/* Right Action Button & Day/Night Toggle */}
-          <div style={{ display: 'none', alignItems: 'center', gap: '1.25rem' }} className="desktop-nav">
-            {/* Day/Night Theme Toggle */}
+            {/* Single Day/Night Toggle Button */}
             <button
               onClick={toggleTheme}
               aria-label={themeMode === 'day' ? 'Switch to Night Mode' : 'Switch to Day Mode'}
@@ -112,6 +113,7 @@ export const Navbar: React.FC = () => {
               {themeMode === 'day' ? <Moon size={20} /> : <Sun size={20} />}
             </button>
 
+            {/* Primary Action Button */}
             <Link to="/contact" className="btn btn-primary" style={{ padding: '0.65rem 1.4rem', fontSize: '0.85rem' }}>
               Book Your Stay
             </Link>
