@@ -1,0 +1,144 @@
+import React from 'react';
+import { MessageSquare, Users, Maximize, Eye, BedDouble, CheckCircle2 } from 'lucide-react';
+import { RESORT_CONFIG } from '../config/resortConfig';
+import { SEO } from '../components/SEO';
+
+export const RoomsPage: React.FC = () => {
+  return (
+    <>
+      <SEO
+        title="Rooms & Accommodation"
+        description="Explore luxury suites and hillside villas at Velvet Haven Resort, Vagamon. Featuring panoramic misty mountain views, private balconies, and premium comfort."
+        canonicalPath="/rooms"
+      />
+
+      {/* Header Banner */}
+      <section
+        style={{
+          paddingTop: '10rem',
+          paddingBottom: '5rem',
+          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.75), rgba(8, 22, 16, 0.85)), url(${RESORT_CONFIG.images.roomMain})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          color: '#FFFFFF',
+          textAlign: 'center'
+        }}
+      >
+        <div className="container container-narrow">
+          <span className="badge-gold" style={{ marginBottom: '1rem' }}>Mountain Sanctuary</span>
+          <h1 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
+            Luxury Accommodation
+          </h1>
+          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.85)', maxWidth: '680px', margin: '0 auto' }}>
+            Wake up to soft mountain fog and endless green valleys. Each room combines privacy, elegance, and natural tranquility.
+          </p>
+        </div>
+      </section>
+
+      {/* Accommodation Cards List */}
+      <section className="section-padding" style={{ backgroundColor: 'var(--color-cream)' }}>
+        <div className="container">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+            {RESORT_CONFIG.rooms.map((room, index) => (
+              <div
+                key={room.id}
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: 'var(--radius-lg)',
+                  overflow: 'hidden',
+                  boxShadow: 'var(--shadow-lg)',
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                  border: '1px solid var(--color-border)'
+                }}
+              >
+                {/* Room Image */}
+                <div
+                  className="img-zoom-container"
+                  style={{
+                    minHeight: '380px',
+                    order: index % 2 === 1 ? 2 : 1
+                  }}
+                >
+                  <img src={room.image} alt={room.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+
+                {/* Room Details */}
+                <div style={{ padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', order: index % 2 === 1 ? 1 : 2 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                    <span style={{ fontSize: '0.85rem', color: 'var(--color-gold)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                      {room.subtitle}
+                    </span>
+                    <span style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--color-pine)' }}>
+                      {room.price}
+                    </span>
+                  </div>
+
+                  <h2 className="font-serif" style={{ fontSize: '2.2rem', color: 'var(--color-pine)', marginBottom: '1rem' }}>
+                    {room.name}
+                  </h2>
+
+                  <p style={{ color: 'var(--color-muted)', fontSize: '1.025rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                    {room.description}
+                  </p>
+
+                  {/* Room Specs Grid */}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '1rem', padding: '1.25rem', backgroundColor: 'var(--color-sand)', borderRadius: 'var(--radius-md)', marginBottom: '1.75rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-charcoal)' }}>
+                      <Users size={18} style={{ color: 'var(--color-gold)' }} />
+                      <span>{room.capacity}</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-charcoal)' }}>
+                      <BedDouble size={18} style={{ color: 'var(--color-gold)' }} />
+                      <span>{room.bedType}</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-charcoal)' }}>
+                      <Maximize size={18} style={{ color: 'var(--color-gold)' }} />
+                      <span>{room.size}</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-charcoal)' }}>
+                      <Eye size={18} style={{ color: 'var(--color-gold)' }} />
+                      <span>{room.viewType}</span>
+                    </div>
+                  </div>
+
+                  {/* Features badges */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '2rem' }}>
+                    {room.features.map((feat, idx) => (
+                      <span
+                        key={idx}
+                        style={{
+                          fontSize: '0.85rem',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.35rem',
+                          color: 'var(--color-pine)',
+                          fontWeight: 500
+                        }}
+                      >
+                        <CheckCircle2 size={15} style={{ color: 'var(--color-gold)' }} />
+                        {feat}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div>
+                    <a
+                      href={`https://wa.me/${RESORT_CONFIG.whatsappNumber}?text=${encodeURIComponent(`Hello, I am interested in booking the ${room.name} at Velvet Haven Resort, Vagamon. Please let me know available dates and rates.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-whatsapp"
+                    >
+                      <MessageSquare size={18} /> Enquire Availability on WhatsApp
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
