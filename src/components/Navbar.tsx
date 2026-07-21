@@ -50,28 +50,28 @@ export const Navbar: React.FC = () => {
           zIndex: 1000,
           transition: 'all 0.4s ease',
           backgroundColor: isScrolled
-            ? (themeMode === 'night' ? 'rgba(5, 16, 11, 0.95)' : 'rgba(8, 22, 16, 0.94)')
+            ? (themeMode === 'night' ? 'rgba(5, 16, 11, 0.96)' : 'rgba(8, 22, 16, 0.94)')
             : 'transparent',
           backdropFilter: isScrolled ? 'blur(16px)' : 'none',
           WebkitBackdropFilter: isScrolled ? 'blur(16px)' : 'none',
           borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid transparent',
-          paddingTop: isScrolled ? '0.75rem' : '1.25rem',
-          paddingBottom: isScrolled ? '0.75rem' : '1.25rem'
+          paddingTop: isScrolled ? '0.65rem' : '1rem',
+          paddingBottom: isScrolled ? '0.65rem' : '1rem'
         }}
       >
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          {/* Uncropped Prominent Brand Logo */}
+          {/* Prominent Single Brand Logo */}
           <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <img
               src={RESORT_CONFIG.images.logo}
               alt={`${RESORT_CONFIG.name} Logo`}
               style={{
-                height: isScrolled ? '76px' : '100px',
-                maxHeight: '110px',
+                height: isScrolled ? '85px' : '110px',
+                maxHeight: '120px',
                 width: 'auto',
                 objectFit: 'contain',
                 transition: 'height 0.3s ease',
-                filter: 'drop-shadow(0 4px 14px rgba(0,0,0,0.5))'
+                filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.5))'
               }}
             />
           </Link>
@@ -83,16 +83,16 @@ export const Navbar: React.FC = () => {
                 key={link.path}
                 to={link.path}
                 style={({ isActive }) => ({
-                  color: isActive ? 'var(--color-gold)' : '#FFFFFF',
+                  color: isActive ? 'var(--color-gold)' : (themeMode === 'day' && !isScrolled ? '#081A12' : '#FFFFFF'),
                   textDecoration: 'none',
                   fontSize: '0.925rem',
-                  fontWeight: isActive ? '600' : '400',
+                  fontWeight: isActive || (themeMode === 'day' && !isScrolled) ? '600' : '400',
                   letterSpacing: '0.04em',
                   textTransform: 'uppercase',
                   transition: 'color 0.2s ease',
                   borderBottom: isActive ? '2px solid var(--color-gold)' : '2px solid transparent',
                   paddingBottom: '0.2rem',
-                  textShadow: '0 2px 6px rgba(0,0,0,0.5)'
+                  textShadow: themeMode === 'day' && !isScrolled ? '0 1px 4px rgba(255,255,255,0.8)' : '0 2px 6px rgba(0,0,0,0.5)'
                 })}
               >
                 {link.name}
@@ -134,7 +134,7 @@ export const Navbar: React.FC = () => {
               style={{
                 background: 'none',
                 border: 'none',
-                color: '#FFFFFF',
+                color: themeMode === 'day' && !isScrolled ? '#081A12' : '#FFFFFF',
                 cursor: 'pointer',
                 padding: '0.5rem',
                 display: 'flex',
@@ -186,7 +186,7 @@ export const Navbar: React.FC = () => {
         <img
           src={RESORT_CONFIG.images.logo}
           alt={RESORT_CONFIG.name}
-          style={{ height: '95px', marginBottom: '2rem', objectFit: 'contain', filter: 'drop-shadow(0 4px 14px rgba(0,0,0,0.5))' }}
+          style={{ height: '100px', marginBottom: '2rem', objectFit: 'contain', filter: 'drop-shadow(0 4px 14px rgba(0,0,0,0.5))' }}
         />
 
         <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem', marginBottom: '2.5rem' }}>

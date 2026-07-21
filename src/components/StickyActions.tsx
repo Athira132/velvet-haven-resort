@@ -16,7 +16,7 @@ export const StickyActions: React.FC = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: '0.85rem',
-        alignItems: 'flex-end'
+        alignItems: 'center'
       }}
     >
       {/* Sticky Phone Call Action */}
@@ -41,59 +41,47 @@ export const StickyActions: React.FC = () => {
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = 'scale(1.1)';
-          e.currentTarget.style.backgroundColor = 'var(--color-pine-light)';
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = 'scale(1)';
-          e.currentTarget.style.backgroundColor = 'var(--color-pine)';
         }}
       >
         <Phone size={22} />
       </a>
 
-      {/* Sticky WhatsApp Action */}
+      {/* Sticky Icon-Only WhatsApp Action (No Text) */}
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Enquire on WhatsApp"
+        aria-label="WhatsApp Enquiry"
         title="Enquire on WhatsApp"
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.6rem',
+          width: '58px',
+          height: '58px',
+          borderRadius: '50%',
           backgroundColor: '#25D366',
           color: '#FFFFFF',
-          padding: '0.75rem 1.25rem',
-          borderRadius: '50px',
-          boxShadow: '0 8px 28px rgba(37, 211, 102, 0.4)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 8px 28px rgba(37, 211, 102, 0.5)',
           textDecoration: 'none',
-          fontWeight: 600,
-          fontSize: '0.875rem',
-          letterSpacing: '0.02em',
           transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
-          border: '1px solid rgba(255, 255, 255, 0.2)'
+          border: '1px solid rgba(255, 255, 255, 0.3)',
+          cursor: 'pointer'
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'translateY(-3px)';
-          e.currentTarget.style.boxShadow = '0 12px 32px rgba(37, 211, 102, 0.55)';
+          e.currentTarget.style.transform = 'scale(1.1)';
+          e.currentTarget.style.boxShadow = '0 12px 32px rgba(37, 211, 102, 0.65)';
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'translateY(0)';
-          e.currentTarget.style.boxShadow = '0 8px 28px rgba(37, 211, 102, 0.4)';
+          e.currentTarget.style.transform = 'scale(1)';
+          e.currentTarget.style.boxShadow = '0 8px 28px rgba(37, 211, 102, 0.5)';
         }}
       >
-        <MessageSquare size={20} />
-        <span className="sticky-wa-text">WhatsApp Enquiry</span>
+        <MessageSquare size={28} />
       </a>
-
-      <style>{`
-        @media (max-width: 576px) {
-          .sticky-wa-text {
-            display: none;
-          }
-        }
-      `}</style>
     </div>
   );
 };

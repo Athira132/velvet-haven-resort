@@ -9,6 +9,8 @@ import { useTheme } from '../context/ThemeContext';
 export const HomePage: React.FC = () => {
   const { themeMode, toggleTheme } = useTheme();
 
+  const isNight = themeMode === 'night';
+
   return (
     <>
       <SEO title="Luxury Nature Resort in Vagamon" />
@@ -26,7 +28,7 @@ export const HomePage: React.FC = () => {
             backgroundImage: `url(${RESORT_CONFIG.images.hero1})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: themeMode === 'day' ? 1 : 0,
+            opacity: isNight ? 0 : 1,
             transition: 'opacity 0.25s ease',
             zIndex: 1
           }}
@@ -43,13 +45,13 @@ export const HomePage: React.FC = () => {
             backgroundImage: `url(${RESORT_CONFIG.images.hero2})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: themeMode === 'night' ? 1 : 0,
+            opacity: isNight ? 1 : 0,
             transition: 'opacity 0.25s ease',
             zIndex: 1
           }}
         />
 
-        {/* Elegant Dark Overlay for text legibility */}
+        {/* Subtle Ambient Overlay for readability without darkening light mode */}
         <div
           style={{
             position: 'absolute',
@@ -58,9 +60,9 @@ export const HomePage: React.FC = () => {
             right: 0,
             bottom: 0,
             zIndex: 2,
-            background: themeMode === 'night'
+            background: isNight
               ? 'linear-gradient(180deg, rgba(3, 12, 8, 0.7) 0%, rgba(3, 12, 8, 0.5) 50%, rgba(3, 12, 8, 0.88) 100%)'
-              : 'linear-gradient(180deg, rgba(8, 22, 16, 0.5) 0%, rgba(8, 22, 16, 0.3) 50%, rgba(8, 22, 16, 0.78) 100%)',
+              : 'linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(8, 22, 16, 0.35) 100%)',
             transition: 'background 0.25s ease'
           }}
         />
@@ -76,8 +78,7 @@ export const HomePage: React.FC = () => {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'flex-start',
-            color: '#FFFFFF',
-            paddingTop: '5rem'
+            paddingTop: '6rem'
           }}
         >
           <motion.div
@@ -86,27 +87,38 @@ export const HomePage: React.FC = () => {
             transition={{ duration: 0.6 }}
             style={{ maxWidth: '780px' }}
           >
-            {/* Prominent Uncropped Resort Logo Emblem */}
-            <div style={{ marginBottom: '1.25rem' }}>
-              <img
-                src={RESORT_CONFIG.images.logo}
-                alt={RESORT_CONFIG.name}
-                style={{
-                  height: '95px',
-                  maxHeight: '105px',
-                  width: 'auto',
-                  objectFit: 'contain',
-                  filter: 'drop-shadow(0 6px 20px rgba(0,0,0,0.6))'
-                }}
-              />
-            </div>
-
-            {/* Resort Name & Location Badge */}
+            {/* Prominent Resort Name Badge with Adaptive Day/Night Contrast */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
-              <span className="badge-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem' }}>
-                <Sparkles size={14} /> VELVET HAVEN RESORT
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  fontSize: '0.875rem',
+                  fontWeight: 700,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                  color: isNight ? 'var(--color-gold)' : '#071A12',
+                  backgroundColor: isNight ? 'rgba(197, 160, 89, 0.16)' : 'rgba(255, 255, 255, 0.85)',
+                  padding: '0.4rem 1rem',
+                  borderRadius: '50px',
+                  border: isNight ? '1px solid rgba(197, 160, 89, 0.35)' : '1px solid rgba(8, 26, 18, 0.2)',
+                  boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+                }}
+              >
+                <Sparkles size={15} style={{ color: isNight ? 'var(--color-gold)' : '#071A12' }} />
+                VELVET HAVEN RESORT
               </span>
-              <span style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase', textShadow: '0 2px 6px rgba(0,0,0,0.5)' }}>
+              <span
+                style={{
+                  color: isNight ? 'rgba(255, 255, 255, 0.9)' : '#071A12',
+                  fontSize: '0.85rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  textShadow: isNight ? '0 2px 6px rgba(0,0,0,0.5)' : '0 1px 6px rgba(255,255,255,0.9)'
+                }}
+              >
                 Vagamon, Kerala
               </span>
             </div>
@@ -114,10 +126,10 @@ export const HomePage: React.FC = () => {
             <h1
               className="heading-display font-serif"
               style={{
-                color: '#FFFFFF',
+                color: isNight ? '#FFFFFF' : '#061710',
                 marginBottom: '1.25rem',
-                textShadow: '0 4px 18px rgba(0,0,0,0.6)',
-                fontWeight: 500
+                textShadow: isNight ? '0 4px 18px rgba(0,0,0,0.7)' : '0 2px 12px rgba(255,255,255,0.85)',
+                fontWeight: 600
               }}
             >
               Escape to the Hills.<br />Stay in the Moment.
@@ -126,11 +138,12 @@ export const HomePage: React.FC = () => {
             <p
               style={{
                 fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
-                color: 'rgba(255, 255, 255, 0.95)',
+                color: isNight ? 'rgba(255, 255, 255, 0.95)' : '#0B2218',
                 lineHeight: '1.6',
                 marginBottom: '2.25rem',
                 maxWidth: '640px',
-                textShadow: '0 2px 8px rgba(0,0,0,0.5)'
+                fontWeight: isNight ? 400 : 500,
+                textShadow: isNight ? '0 2px 8px rgba(0,0,0,0.6)' : '0 1px 8px rgba(255,255,255,0.9)'
               }}
             >
               Experience peaceful stays, scenic landscapes, and warm hospitality in the heart of Vagamon, Kerala.
@@ -140,7 +153,11 @@ export const HomePage: React.FC = () => {
               <Link to="/contact" className="btn btn-primary">
                 Book Your Stay <ChevronRight size={18} />
               </Link>
-              <Link to="/rooms" className="btn btn-outline-light">
+              <Link
+                to="/rooms"
+                className={isNight ? "btn btn-outline-light" : "btn btn-outline-dark"}
+                style={{ fontWeight: 600 }}
+              >
                 Explore The Resort
               </Link>
             </div>
@@ -158,17 +175,27 @@ export const HomePage: React.FC = () => {
               zIndex: 20
             }}
           >
-            <span style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.9)', letterSpacing: '0.05em', textTransform: 'uppercase', textShadow: '0 2px 4px rgba(0,0,0,0.6)' }} className="desktop-nav">
-              {themeMode === 'day' ? 'Day View' : 'Night View'}
+            <span
+              style={{
+                fontSize: '0.8rem',
+                color: isNight ? 'rgba(255, 255, 255, 0.9)' : '#071A12',
+                fontWeight: 600,
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase',
+                textShadow: isNight ? '0 2px 4px rgba(0,0,0,0.6)' : '0 1px 6px rgba(255,255,255,0.9)'
+              }}
+              className="desktop-nav"
+            >
+              {isNight ? 'Night View' : 'Day View'}
             </span>
             <button
               onClick={toggleTheme}
               className="theme-toggle-btn"
-              aria-label={themeMode === 'day' ? 'Switch to Night Mode' : 'Switch to Day Mode'}
-              title={themeMode === 'day' ? 'Switch to Night Mode 🌙' : 'Switch to Day Mode ☀️'}
+              aria-label={isNight ? 'Switch to Day Mode' : 'Switch to Night Mode'}
+              title={isNight ? 'Switch to Day Mode ☀️' : 'Switch to Night Mode 🌙'}
               style={{ width: '50px', height: '50px' }}
             >
-              {themeMode === 'day' ? <Moon size={24} /> : <Sun size={24} />}
+              {isNight ? <Sun size={24} /> : <Moon size={24} />}
             </button>
           </div>
         </div>
@@ -219,15 +246,15 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ================= WHY STAY WITH US ================= */}
-      <section className="section-padding bg-pine">
+      {/* ================= WHY STAY WITH US (ADAPTIVE LIGHT / DARK THEME) ================= */}
+      <section className={isNight ? "section-padding bg-pine" : "section-padding"} style={{ backgroundColor: isNight ? undefined : 'var(--color-sand)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 4rem' }}>
             <span className="badge-gold" style={{ marginBottom: '1rem' }}>The Velvet Experience</span>
-            <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
+            <h2 className="heading-1 font-serif" style={{ color: isNight ? '#FFFFFF' : 'var(--color-heading)', marginBottom: '1rem' }}>
               Why Guests Choose Velvet Haven
             </h2>
-            <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '1.05rem' }}>
+            <p style={{ color: isNight ? 'rgba(255, 255, 255, 0.82)' : 'var(--color-muted-text)', fontSize: '1.05rem' }}>
               Thoughtfully curated amenities and natural luxury created for your peaceful stay.
             </p>
           </div>
@@ -241,14 +268,14 @@ export const HomePage: React.FC = () => {
             ].map((feature, i) => (
               <div
                 key={i}
-                className="glass-panel-dark"
+                className={isNight ? "glass-panel-dark" : "glass-panel"}
                 style={{ padding: '2.25rem', borderRadius: 'var(--radius-md)' }}
               >
                 <feature.icon size={36} style={{ color: 'var(--color-gold)', marginBottom: '1.25rem' }} />
-                <h3 className="font-serif" style={{ fontSize: '1.4rem', color: '#FFFFFF', marginBottom: '0.75rem' }}>
+                <h3 className="font-serif" style={{ fontSize: '1.4rem', color: isNight ? '#FFFFFF' : 'var(--color-heading)', marginBottom: '0.75rem' }}>
                   {feature.title}
                 </h3>
-                <p style={{ color: 'rgba(255, 255, 255, 0.78)', fontSize: '0.95rem', lineHeight: '1.6' }}>
+                <p style={{ color: isNight ? 'rgba(255, 255, 255, 0.78)' : 'var(--color-muted-text)', fontSize: '0.95rem', lineHeight: '1.6' }}>
                   {feature.desc}
                 </p>
               </div>
@@ -358,15 +385,15 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ================= GUEST TESTIMONIALS & REVIEWS ================= */}
-      <section className="section-padding bg-pine">
+      {/* ================= GUEST TESTIMONIALS & REVIEWS (ADAPTIVE LIGHT / DARK THEME) ================= */}
+      <section className={isNight ? "section-padding bg-pine" : "section-padding"} style={{ backgroundColor: isNight ? undefined : 'var(--color-sand)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 4rem' }}>
             <span className="badge-gold" style={{ marginBottom: '1rem' }}>Guest Reflections</span>
-            <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
+            <h2 className="heading-1 font-serif" style={{ color: isNight ? '#FFFFFF' : 'var(--color-heading)', marginBottom: '1rem' }}>
               Stories from Velvet Haven
             </h2>
-            <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '1.05rem' }}>
+            <p style={{ color: isNight ? 'rgba(255, 255, 255, 0.82)' : 'var(--color-muted-text)', fontSize: '1.05rem' }}>
               Read what travelers say about their peaceful getaway at our Vagamon hillside sanctuary.
             </p>
           </div>
@@ -375,7 +402,7 @@ export const HomePage: React.FC = () => {
             {RESORT_CONFIG.testimonials.map((item) => (
               <div
                 key={item.id}
-                className="glass-panel-dark"
+                className={isNight ? "glass-panel-dark" : "glass-panel"}
                 style={{ padding: '2.25rem', borderRadius: 'var(--radius-md)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
               >
                 <div>
@@ -385,13 +412,13 @@ export const HomePage: React.FC = () => {
                     ))}
                   </div>
                   <Quote size={24} style={{ color: 'var(--color-gold)', opacity: 0.6, marginBottom: '0.75rem' }} />
-                  <p style={{ color: 'rgba(255, 255, 255, 0.92)', fontStyle: 'italic', fontSize: '1rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                  <p style={{ color: isNight ? 'rgba(255, 255, 255, 0.92)' : 'var(--color-body)', fontStyle: 'italic', fontSize: '1rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
                     "{item.quote}"
                   </p>
                 </div>
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.12)', paddingTop: '1rem' }}>
+                <div style={{ borderTop: '1px solid var(--color-border-theme)', paddingTop: '1rem' }}>
                   <h4 className="font-serif" style={{ color: 'var(--color-gold)', fontSize: '1.15rem' }}>{item.author}</h4>
-                  <p style={{ color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.85rem' }}>{item.location}</p>
+                  <p style={{ color: isNight ? 'rgba(255, 255, 255, 0.65)' : 'var(--color-muted-text)', fontSize: '0.85rem' }}>{item.location}</p>
                 </div>
               </div>
             ))}
@@ -453,14 +480,14 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ================= GUEST RESERVATION CALLOUT ================= */}
-      <section className="section-padding bg-pine" style={{ textAlign: 'center' }}>
+      {/* ================= GUEST RESERVATION CALLOUT (ADAPTIVE LIGHT / DARK THEME) ================= */}
+      <section className={isNight ? "section-padding bg-pine" : "section-padding"} style={{ backgroundColor: isNight ? undefined : 'var(--color-sand)', textAlign: 'center' }}>
         <div className="container container-narrow">
           <span className="badge-gold" style={{ marginBottom: '1rem' }}>Reservations</span>
-          <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1.25rem' }}>
+          <h2 className="heading-1 font-serif" style={{ color: isNight ? '#FFFFFF' : 'var(--color-heading)', marginBottom: '1.25rem' }}>
             Ready for your Vagamon Mountain Getaway?
           </h2>
-          <p style={{ color: 'rgba(255, 255, 255, 0.88)', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2.5rem' }}>
+          <p style={{ color: isNight ? 'rgba(255, 255, 255, 0.88)' : 'var(--color-muted-text)', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2.5rem' }}>
             Book directly through our dedicated reservation portal or connect instantly on WhatsApp with our front desk team.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
