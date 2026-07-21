@@ -123,22 +123,67 @@ export const RESORT_CONFIG = {
   // Experiences Data
   experiences: [
     {
+      id: "vagamon-paragliding",
+      title: "Paragliding over Vagamon Ridges",
+      category: "adventure",
+      shortDesc: "Soar over Vagamon's emerald green mountain peaks and misty valleys.",
+      fullDesc: "Experience the thrill of tandem paragliding off Vagamon's famous high-altitude launch ridges. Glide smoothly through mountain thermals with certified pilots taking in 360-degree aerial views of rolling tea estates and pine valleys.",
+      image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1200&q=80",
+      tag: "Tandem Paragliding"
+    },
+    {
+      id: "mountain-jeep-safari",
+      title: "Off-Road Mountain Jeep Safari",
+      category: "adventure",
+      shortDesc: "Traverse rugged mountain trails, hidden waterfalls, and secret ridge viewpoints.",
+      fullDesc: "Embark on an exhilarating 4x4 open-top jeep safari through Vagamon's rugged mountain terrain. Discover hidden waterfalls, secluded tea estates, and high-altitude ridge viewpoints accessible only by off-road vehicles.",
+      image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80",
+      tag: "4x4 Jeep Safari"
+    },
+    {
       id: "pine-forest-walks",
       title: "Guided Pine Forest & Valley Trails",
       category: "nature",
       shortDesc: "Wander through tall fragrant pine groves enveloped in soft mountain mist.",
       fullDesc: "Immerse your senses in Vagamon's iconic pine forests. Guided morning treks lead you through tranquil canopy paths with views of hidden mountain streams and lush valleys.",
       image: "https://i.ibb.co/jvN1Q7wS/Screenshot-2026-07-21-124133.png",
-      tag: "Nature Walk"
+      tag: "Pine Canopy Trail"
     },
     {
       id: "sunset-meadows",
-      title: "Vagamon Meadows & Hilltop Sunsets",
-      category: "romantic",
+      title: "Vagamon Meadows & Rolling Grasslands",
+      category: "nature",
       shortDesc: "Witness golden hour hues over endless green rolling hills.",
-      fullDesc: "Experience Vagamon's world-famous rolling meadows at dusk. We arrange private high-tea hampers for couples and families to enjoy spectacular sunset panoramas.",
+      fullDesc: "Experience Vagamon's world-famous rolling meadows at dusk. We arrange private high-tea hampers for couples and families to enjoy spectacular sunset panoramas over lush green hillscapes.",
       image: "https://i.ibb.co/2YmdQCp2/Screenshot-2026-07-21-124848.png",
-      tag: "Scenic Highlight"
+      tag: "Scenic Hill View"
+    },
+    {
+      id: "tea-estate-tour",
+      title: "Tea Plantation Walks & Estate Tasting",
+      category: "nature",
+      shortDesc: "Stroll through emerald tea gardens and learn the art of traditional tea plucking.",
+      fullDesc: "Take a guided walking tour through surrounding heritage tea plantations. Learn about organic tea cultivation, try your hand at leaf plucking alongside local estate tea pickers, and conclude with a fresh estate tea tasting session.",
+      image: "https://images.unsplash.com/photo-1588880331179-bc9b93a8cb5e?auto=format&fit=crop&w=1200&q=80",
+      tag: "Tea Plantation"
+    },
+    {
+      id: "kurisumala-trekking",
+      title: "Kurisumala Hill & Monastery Trekking",
+      category: "adventure",
+      shortDesc: "Ascend sacred Kurisumala Ashram peaks surrounded by alpine dairy farms.",
+      fullDesc: "Embark on a refreshing morning hike to Kurisumala hill. Pass by peaceful monastery grounds, grazing Swiss dairy cattle, and reach mountain ridges where cool mountain breeze carries complete peace.",
+      image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+      tag: "Hill Trek"
+    },
+    {
+      id: "waterfall-excursion",
+      title: "Mountain Stream & Waterfall Trails",
+      category: "relaxation",
+      shortDesc: "Discover secluded natural streams and crystal-clear mountain cascades in the woods.",
+      fullDesc: "Follow hidden forest paths to serene mountain cascades and natural rock pools. Relax by the cool flowing water, listen to forest birdsong, and enjoy a private streamside hamper prepared by our resort hosts.",
+      image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80",
+      tag: "Waterfall Cascade"
     },
     {
       id: "starlight-campfire",
@@ -153,10 +198,10 @@ export const RESORT_CONFIG = {
       id: "plantation-dining",
       title: "Traditional Kerala Gourmet Dining",
       category: "family",
-      shortDesc: "Authentic Malabar & Central Travancore culinary creations prepared with fresh local organic produce.",
+      shortDesc: "Authentic Malabar & Central Travancore culinary creations prepared with fresh organic produce.",
       fullDesc: "Savor traditional Kerala dishes served on fresh banana leaves alongside modern international cuisine crafted by our master resort chefs in an open-air mountain-view dining pavilion.",
       image: "https://i.ibb.co/wZbsBgjM/Screenshot-2026-07-21-124928.png",
-      tag: "Culinary"
+      tag: "Culinary Pavilion"
     }
   ] as ExperienceItem[],
 
