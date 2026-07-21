@@ -76,7 +76,7 @@ export const RESORT_CONFIG = {
     suiteInterior: "https://i.ibb.co/ZbxxgSv/Screenshot-2026-07-21-124955.png",
     mistyHills: "https://i.ibb.co/2YmdQCp2/Screenshot-2026-07-21-124848.png",
     diningOutdoor: "https://i.ibb.co/wZbsBgjM/Screenshot-2026-07-21-124928.png",
-    eveningCampfire: "https://i.ibb.co/PGHRfZjJ/Screenshot-2026-07-21-124818.png"
+    eveningCampfire: "/images/resort_outdoor_campfire.jpg"
   },
 
   // Rooms Data
@@ -201,7 +201,7 @@ export const RESORT_CONFIG = {
       title: "Evening Campfire & Outdoor Lounge",
       description: "Dedicated stone amphitheater fire pit with plush outdoor seating for unforgettable nights under starry Vagamon skies.",
       iconName: "Flame",
-      image: "https://i.ibb.co/PGHRfZjJ/Screenshot-2026-07-21-124818.png",
+      image: "/images/resort_outdoor_campfire.jpg",
       highlights: ["Nightly Fire Lighting", "Barbecue On Request", "Music & Ambient Lighting", "Family-Friendly"]
     },
     {

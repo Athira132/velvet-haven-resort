@@ -45,7 +45,7 @@ export const FacilitiesPage: React.FC = () => {
       {/* Main Facilities Cards */}
       <section className="section-padding">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem' }}>
             {RESORT_CONFIG.facilities.map((facility) => {
               const IconComp = iconMap[facility.iconName] || Sparkles;
               return (
