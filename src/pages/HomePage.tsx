@@ -132,7 +132,7 @@ export const HomePage: React.FC = () => {
                 fontWeight: 600
               }}
             >
-              Escape to the Hills.<br />Stay in the Moment.
+              Where Misty Pines<br />Meet Endless Serenity
             </h1>
 
             <p
@@ -141,12 +141,12 @@ export const HomePage: React.FC = () => {
                 color: isNight ? 'rgba(255, 255, 255, 0.95)' : '#0B2218',
                 lineHeight: '1.6',
                 marginBottom: '2.25rem',
-                maxWidth: '640px',
+                maxWidth: '660px',
                 fontWeight: isNight ? 400 : 500,
                 textShadow: isNight ? '0 2px 8px rgba(0,0,0,0.6)' : '0 1px 8px rgba(255,255,255,0.9)'
               }}
             >
-              Experience peaceful stays, scenic landscapes, and warm hospitality in the heart of Vagamon, Kerala.
+              Experience elevated stillness, panoramic mountain vistas, and warm Kerala hospitality in Vagamon.
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>

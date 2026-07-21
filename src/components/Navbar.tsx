@@ -55,20 +55,20 @@ export const Navbar: React.FC = () => {
           backdropFilter: isScrolled ? 'blur(16px)' : 'none',
           WebkitBackdropFilter: isScrolled ? 'blur(16px)' : 'none',
           borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid transparent',
-          paddingTop: isScrolled ? '0.75rem' : '1.25rem',
-          paddingBottom: isScrolled ? '0.75rem' : '1.25rem'
+          paddingTop: isScrolled ? '0.35rem' : '0.6rem',
+          paddingBottom: isScrolled ? '0.35rem' : '0.6rem'
         }}
       >
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           
-          {/* Logo on Left */}
+          {/* Logo on Left - Large & Prominent in a Slim Header */}
           <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', marginRight: 'auto' }}>
             <img
               src={RESORT_CONFIG.images.logo}
               alt={`${RESORT_CONFIG.name} Logo`}
               style={{
-                height: isScrolled ? '95px' : '130px',
-                maxHeight: '140px',
+                height: isScrolled ? '85px' : '115px',
+                maxHeight: '125px',
                 width: 'auto',
                 objectFit: 'contain',
                 transition: 'height 0.3s ease',
@@ -78,8 +78,8 @@ export const Navbar: React.FC = () => {
           </Link>
 
           {/* All Navigation Options Right-Aligned */}
-          <div style={{ display: 'none', alignItems: 'center', gap: '2rem', marginLeft: 'auto' }} className="desktop-nav">
-            <nav style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+          <div style={{ display: 'none', alignItems: 'center', gap: '1.75rem', marginLeft: 'auto' }} className="desktop-nav">
+            <nav style={{ display: 'flex', gap: '1.4rem', alignItems: 'center' }}>
               {navLinks.map((link) => (
                 <NavLink
                   key={link.path}
