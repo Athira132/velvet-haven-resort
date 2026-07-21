@@ -85,7 +85,7 @@ export const HomePage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            style={{ maxWidth: '780px' }}
+            style={{ maxWidth: '520px' }}
           >
             {/* Prominent Resort Name Badge with Adaptive Day/Night Contrast */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
@@ -132,7 +132,7 @@ export const HomePage: React.FC = () => {
                 fontWeight: 600
               }}
             >
-              Where Misty Pines<br />Meet Endless Serenity
+              Where the Hills<br />Feel Like Home
             </h1>
 
             <p
@@ -141,12 +141,12 @@ export const HomePage: React.FC = () => {
                 color: isNight ? 'rgba(255, 255, 255, 0.95)' : '#0B2218',
                 lineHeight: '1.6',
                 marginBottom: '2.25rem',
-                maxWidth: '660px',
+                maxWidth: '500px',
                 fontWeight: isNight ? 400 : 500,
                 textShadow: isNight ? '0 2px 8px rgba(0,0,0,0.6)' : '0 1px 8px rgba(255,255,255,0.9)'
               }}
             >
-              Experience elevated stillness, panoramic mountain vistas, and warm Kerala hospitality in Vagamon.
+              Peaceful stays, misty mountain views, and warm Kerala hospitality in Vagamon.
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
@@ -328,16 +328,13 @@ export const HomePage: React.FC = () => {
                     ))}
                   </div>
 
-                  <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border-theme)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '0.875rem', color: 'var(--color-muted-text)', fontWeight: 500 }}>
-                      {room.capacity}
-                    </span>
+                  <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border-theme)', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
                     <a
                       href={`https://wa.me/${RESORT_CONFIG.whatsappNumber}?text=${encodeURIComponent(`Hello, I would like to enquire about staying in the ${room.name} at Velvet Haven Resort, Vagamon.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-whatsapp"
-                      style={{ padding: '0.55rem 1.1rem', fontSize: '0.825rem' }}
+                      style={{ padding: '0.55rem 1.1rem', fontSize: '0.825rem', width: '100%' }}
                     >
                       <MessageSquare size={15} /> Enquire Now
                     </a>

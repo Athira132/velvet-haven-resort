@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageSquare, Users, Maximize, Eye, BedDouble, CheckCircle2 } from 'lucide-react';
+import { MessageSquare, Maximize, Eye, BedDouble, CheckCircle2 } from 'lucide-react';
 import { RESORT_CONFIG } from '../config/resortConfig';
 import { SEO } from '../components/SEO';
 
@@ -81,10 +81,6 @@ export const RoomsPage: React.FC = () => {
 
                   {/* Room Specs Grid */}
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '1rem', padding: '1.25rem', backgroundColor: 'var(--color-sand)', borderRadius: 'var(--radius-md)', marginBottom: '1.75rem', border: '1px solid var(--color-border-theme)' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-body)' }}>
-                      <Users size={18} style={{ color: 'var(--color-gold)' }} />
-                      <span>{room.capacity}</span>
-                    </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-body)' }}>
                       <BedDouble size={18} style={{ color: 'var(--color-gold)' }} />
                       <span>{room.bedType}</span>
