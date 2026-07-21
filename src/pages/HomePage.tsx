@@ -1,48 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, MapPin, ArrowRight, ShieldCheck, Flame, Utensils, MessageSquare, Sparkles } from 'lucide-react';
+import { ChevronRight, MapPin, ArrowRight, ShieldCheck, Flame, Utensils, MessageSquare, Sparkles, Moon, Sun, Star, Quote } from 'lucide-react';
 import { RESORT_CONFIG } from '../config/resortConfig';
 import { SEO } from '../components/SEO';
+import { useTheme } from '../context/ThemeContext';
 
 export const HomePage: React.FC = () => {
-  const heroImages = [RESORT_CONFIG.images.hero1, RESORT_CONFIG.images.hero2];
-  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
-
-  // Form State for Enquiry
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    checkIn: '',
-    checkOut: '',
-    guests: '2 Guests',
-    message: ''
-  });
-
-  // Slow cinematic hero transition every 7 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length);
-    }, 7000);
-    return () => clearInterval(timer);
-  }, [heroImages.length]);
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const text = `*New Resort Enquiry - Velvet Haven Resort, Vagamon*
----------------------------------------
-👤 *Name:* ${formData.name || 'Not specified'}
-📞 *Phone:* ${formData.phone || 'Not specified'}
-✉️ *Email:* ${formData.email || 'Not specified'}
-📅 *Check-in:* ${formData.checkIn || 'TBD'}
-📅 *Check-out:* ${formData.checkOut || 'TBD'}
-👥 *Guests:* ${formData.guests}
-📝 *Message:* ${formData.message || 'I would like to enquire about room availability.'}`;
-
-    const url = `https://wa.me/${RESORT_CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;
-    window.open(url, '_blank');
-  };
+  const { themeMode, toggleTheme, heroImage } = useTheme();
 
   return (
     <>
@@ -50,28 +15,28 @@ export const HomePage: React.FC = () => {
 
       {/* ================= HERO SECTION ================= */}
       <section style={{ position: 'relative', width: '100%', height: '100vh', minHeight: '650px', overflow: 'hidden' }}>
-        {/* Background Image Slider with Cross-fade */}
+        {/* Static Hero Image based on Day / Night mode */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={currentHeroIndex}
-            initial={{ opacity: 0, scale: 1.08 }}
-            animate={{ opacity: 1, scale: 1 }}
+            key={themeMode}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             style={{
               position: 'absolute',
               top: 0,
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundImage: `url(${heroImages[currentHeroIndex]})`,
+              backgroundImage: `url(${heroImage})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}
           />
         </AnimatePresence>
 
-        {/* Elegant Subtle Dark Gradient Overlay for optimal readability */}
+        {/* Elegant Dark Gradient Overlay for readability */}
         <div
           style={{
             position: 'absolute',
@@ -79,7 +44,9 @@ export const HomePage: React.FC = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'linear-gradient(180deg, rgba(8, 22, 16, 0.45) 0%, rgba(8, 22, 16, 0.25) 50%, rgba(8, 22, 16, 0.75) 100%)'
+            background: themeMode === 'night'
+              ? 'linear-gradient(180deg, rgba(3, 12, 8, 0.65) 0%, rgba(3, 12, 8, 0.45) 50%, rgba(3, 12, 8, 0.85) 100%)'
+              : 'linear-gradient(180deg, rgba(8, 22, 16, 0.45) 0%, rgba(8, 22, 16, 0.25) 50%, rgba(8, 22, 16, 0.75) 100%)'
           }}
         />
 
@@ -102,18 +69,24 @@ export const HomePage: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            style={{ maxWidth: '750px' }}
+            style={{ maxWidth: '780px' }}
           >
-            <span className="badge-gold" style={{ marginBottom: '1.25rem', display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-              <Sparkles size={14} /> Sanctuary in the Mist • Vagamon, Kerala
-            </span>
+            {/* Prominent Resort Name & Location Badge */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
+              <span className="badge-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem' }}>
+                <Sparkles size={14} /> VELVET HAVEN RESORT
+              </span>
+              <span style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase', textShadow: '0 2px 6px rgba(0,0,0,0.4)' }}>
+                Vagamon, Kerala
+              </span>
+            </div>
 
             <h1
               className="heading-display font-serif"
               style={{
                 color: '#FFFFFF',
                 marginBottom: '1.25rem',
-                textShadow: '0 4px 16px rgba(0,0,0,0.4)',
+                textShadow: '0 4px 18px rgba(0,0,0,0.5)',
                 fontWeight: 500
               }}
             >
@@ -126,14 +99,14 @@ export const HomePage: React.FC = () => {
                 color: 'rgba(255, 255, 255, 0.92)',
                 lineHeight: '1.6',
                 marginBottom: '2.25rem',
-                maxWidth: '620px',
+                maxWidth: '640px',
                 textShadow: '0 2px 8px rgba(0,0,0,0.4)'
               }}
             >
               Experience peaceful stays, scenic landscapes, and warm hospitality in the heart of Vagamon, Kerala.
             </p>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
               <Link to="/contact" className="btn btn-primary">
                 Book Your Stay <ChevronRight size={18} />
               </Link>
@@ -143,30 +116,36 @@ export const HomePage: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Slider Indicators */}
-          <div style={{ position: 'absolute', bottom: '2.5rem', right: '1.5rem', display: 'flex', gap: '0.5rem', zIndex: 20 }}>
-            {heroImages.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentHeroIndex(idx)}
-                aria-label={`Slide ${idx + 1}`}
-                style={{
-                  width: idx === currentHeroIndex ? '32px' : '10px',
-                  height: '10px',
-                  borderRadius: '5px',
-                  backgroundColor: idx === currentHeroIndex ? 'var(--color-gold)' : 'rgba(255,255,255,0.4)',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'all 0.4s ease'
-                }}
-              />
-            ))}
+          {/* Manual Day / Night Toggle Floating Button in Hero */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '2.5rem',
+              right: '1.5rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.85rem',
+              zIndex: 20
+            }}
+          >
+            <span style={{ fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.85)', letterSpacing: '0.05em', textTransform: 'uppercase', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }} className="desktop-nav">
+              {themeMode === 'day' ? 'Day View' : 'Night View'}
+            </span>
+            <button
+              onClick={toggleTheme}
+              className="theme-toggle-btn"
+              aria-label={themeMode === 'day' ? 'Switch to Night Mode' : 'Switch to Day Mode'}
+              title={themeMode === 'day' ? 'Switch to Night Mode 🌙' : 'Switch to Day Mode ☀️'}
+              style={{ width: '50px', height: '50px' }}
+            >
+              {themeMode === 'day' ? <Moon size={24} /> : <Sun size={24} />}
+            </button>
           </div>
         </div>
       </section>
 
       {/* ================= RESORT INTRODUCTION ================= */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-cream)' }}>
+      <section className="section-padding">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'center' }}>
             
@@ -248,8 +227,8 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ================= ACCOMMODATION PREVIEW ================= */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-cream)' }}>
+      {/* ================= ACCOMMODATION PREVIEW (PRICING FREE) ================= */}
+      <section className="section-padding">
         <div className="container">
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3.5rem', gap: '1.5rem' }}>
             <div>
@@ -268,12 +247,13 @@ export const HomePage: React.FC = () => {
               <div
                 key={room.id}
                 style={{
-                  backgroundColor: '#FFFFFF',
+                  backgroundColor: 'var(--color-surface)',
                   borderRadius: 'var(--radius-md)',
                   overflow: 'hidden',
                   boxShadow: 'var(--shadow-md)',
                   display: 'flex',
-                  flexDirection: 'column'
+                  flexDirection: 'column',
+                  border: '1px solid var(--color-border)'
                 }}
               >
                 <div className="img-zoom-container" style={{ height: '260px' }}>
@@ -316,7 +296,7 @@ export const HomePage: React.FC = () => {
                         style={{
                           fontSize: '0.78rem',
                           backgroundColor: 'var(--color-sand)',
-                          color: 'var(--color-pine)',
+                          color: 'var(--color-charcoal)',
                           padding: '0.3rem 0.65rem',
                           borderRadius: '4px'
                         }}
@@ -327,11 +307,11 @@ export const HomePage: React.FC = () => {
                   </div>
 
                   <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div>
-                      <span style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-pine)' }}>{room.price}</span>
-                    </div>
+                    <span style={{ fontSize: '0.875rem', color: 'var(--color-muted)', fontWeight: 500 }}>
+                      {room.capacity}
+                    </span>
                     <a
-                      href={`https://wa.me/${RESORT_CONFIG.whatsappNumber}?text=${encodeURIComponent(`Hello, I would like to enquire about booking the ${room.name} at Velvet Haven Resort, Vagamon.`)}`}
+                      href={`https://wa.me/${RESORT_CONFIG.whatsappNumber}?text=${encodeURIComponent(`Hello, I would like to enquire about staying in the ${room.name} at Velvet Haven Resort, Vagamon.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-whatsapp"
@@ -347,35 +327,49 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ================= EXPERIENCES & SCENIC HIGHLIGHT ================= */}
-      <section
-        style={{
-          position: 'relative',
-          paddingTop: '7rem',
-          paddingBottom: '7rem',
-          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.75), rgba(8, 22, 16, 0.85)), url(${RESORT_CONFIG.images.mistyHills})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          color: '#FFFFFF',
-          textAlign: 'center'
-        }}
-      >
-        <div className="container container-narrow">
-          <span className="badge-gold" style={{ marginBottom: '1.25rem' }}>Vagamon Curated Journeys</span>
-          <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1.5rem' }}>
-            Immerse Yourself in Vagamon's Natural Beauty
-          </h2>
-          <p style={{ fontSize: '1.1rem', color: 'rgba(255, 255, 255, 0.85)', lineHeight: '1.8', marginBottom: '2.5rem' }}>
-            From pine forest sunrise walks to acoustic campfire evenings under mountain stars, create timeless memories at Velvet Haven.
-          </p>
-          <Link to="/experiences" className="btn btn-primary">
-            Explore All Experiences <ArrowRight size={18} />
-          </Link>
+      {/* ================= GUEST TESTIMONIALS & REVIEWS ================= */}
+      <section className="section-padding bg-pine">
+        <div className="container">
+          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 4rem' }}>
+            <span className="badge-gold" style={{ marginBottom: '1rem' }}>Guest Reflections</span>
+            <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
+              Stories from Velvet Haven
+            </h2>
+            <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '1.05rem' }}>
+              Read what travelers say about their peaceful getaway at our Vagamon hillside sanctuary.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            {RESORT_CONFIG.testimonials.map((item) => (
+              <div
+                key={item.id}
+                className="glass-panel-dark"
+                style={{ padding: '2.25rem', borderRadius: 'var(--radius-md)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+              >
+                <div>
+                  <div style={{ display: 'flex', gap: '0.25rem', marginBottom: '1rem' }}>
+                    {[...Array(item.rating)].map((_, idx) => (
+                      <Star key={idx} size={16} fill="var(--color-gold)" style={{ color: 'var(--color-gold)' }} />
+                    ))}
+                  </div>
+                  <Quote size={24} style={{ color: 'var(--color-gold)', opacity: 0.5, marginBottom: '0.75rem' }} />
+                  <p style={{ color: 'rgba(255, 255, 255, 0.88)', fontStyle: 'italic', fontSize: '1rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                    "{item.quote}"
+                  </p>
+                </div>
+                <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1rem' }}>
+                  <h4 className="font-serif" style={{ color: 'var(--color-gold)', fontSize: '1.15rem' }}>{item.author}</h4>
+                  <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.85rem' }}>{item.location}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ================= LOCATION PREVIEW ================= */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-cream)' }}>
+      <section className="section-padding">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'center' }}>
             <div>
@@ -428,168 +422,30 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ================= GUEST ENQUIRY SECTION ================= */}
-      <section className="section-padding bg-pine">
+      {/* ================= GUEST RESERVATION CALLOUT ================= */}
+      <section className="section-padding bg-pine" style={{ textAlign: 'center' }}>
         <div className="container container-narrow">
-          <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <span className="badge-gold" style={{ marginBottom: '1rem' }}>Instant WhatsApp Enquiry</span>
-            <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
-              Plan Your Stay at Velvet Haven
-            </h2>
-            <p style={{ color: 'rgba(255, 255, 255, 0.75)', fontSize: '1.05rem' }}>
-              Fill out your preferred stay details below and click to send your enquiry directly to our reservation team on WhatsApp.
-            </p>
+          <span className="badge-gold" style={{ marginBottom: '1rem' }}>Reservations</span>
+          <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1.25rem' }}>
+            Ready for your Vagamon Mountain Getaway?
+          </h2>
+          <p style={{ color: 'rgba(255, 255, 255, 0.85)', fontSize: '1.1rem', lineHeight: '1.8', marginBottom: '2.5rem' }}>
+            Book directly through our dedicated reservation portal or connect instantly on WhatsApp with our front desk team.
+          </p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
+            <Link to="/contact" className="btn btn-primary" style={{ padding: '1rem 2.25rem' }}>
+              Proceed to Booking Enquiry <ArrowRight size={18} />
+            </Link>
+            <a
+              href={`https://wa.me/${RESORT_CONFIG.whatsappNumber}?text=${encodeURIComponent("Hello, I would like to enquire about staying at Velvet Haven Resort, Vagamon.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-whatsapp"
+              style={{ padding: '1rem 2.25rem' }}
+            >
+              <MessageSquare size={18} /> Chat on WhatsApp
+            </a>
           </div>
-
-          <form
-            onSubmit={handleFormSubmit}
-            className="glass-panel-dark"
-            style={{ padding: '2.5rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-lg)' }}
-          >
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
-              <div>
-                <label style={{ display: 'block', color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.875rem', marginBottom: '0.5rem', fontWeight: 500 }}>
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Enter your name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  style={{
-                    width: '100%',
-                    padding: '0.85rem 1rem',
-                    borderRadius: '4px',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                    color: '#FFFFFF',
-                    fontSize: '0.95rem',
-                    outline: 'none'
-                  }}
-                />
-              </div>
-
-              <div>
-                <label style={{ display: 'block', color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.875rem', marginBottom: '0.5rem', fontWeight: 500 }}>
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  required
-                  placeholder="Enter contact number"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  style={{
-                    width: '100%',
-                    padding: '0.85rem 1rem',
-                    borderRadius: '4px',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                    color: '#FFFFFF',
-                    fontSize: '0.95rem',
-                    outline: 'none'
-                  }}
-                />
-              </div>
-            </div>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
-              <div>
-                <label style={{ display: 'block', color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.875rem', marginBottom: '0.5rem', fontWeight: 500 }}>
-                  Check-in Date
-                </label>
-                <input
-                  type="date"
-                  value={formData.checkIn}
-                  onChange={(e) => setFormData({ ...formData, checkIn: e.target.value })}
-                  style={{
-                    width: '100%',
-                    padding: '0.85rem 1rem',
-                    borderRadius: '4px',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                    color: '#FFFFFF',
-                    fontSize: '0.95rem',
-                    outline: 'none'
-                  }}
-                />
-              </div>
-
-              <div>
-                <label style={{ display: 'block', color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.875rem', marginBottom: '0.5rem', fontWeight: 500 }}>
-                  Check-out Date
-                </label>
-                <input
-                  type="date"
-                  value={formData.checkOut}
-                  onChange={(e) => setFormData({ ...formData, checkOut: e.target.value })}
-                  style={{
-                    width: '100%',
-                    padding: '0.85rem 1rem',
-                    borderRadius: '4px',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                    color: '#FFFFFF',
-                    fontSize: '0.95rem',
-                    outline: 'none'
-                  }}
-                />
-              </div>
-            </div>
-
-            <div style={{ marginBottom: '1.5rem' }}>
-              <label style={{ display: 'block', color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.875rem', marginBottom: '0.5rem', fontWeight: 500 }}>
-                Number of Guests
-              </label>
-              <select
-                value={formData.guests}
-                onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                style={{
-                  width: '100%',
-                  padding: '0.85rem 1rem',
-                  borderRadius: '4px',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  backgroundColor: 'rgba(14, 36, 27, 0.95)',
-                  color: '#FFFFFF',
-                  fontSize: '0.95rem',
-                  outline: 'none'
-                }}
-              >
-                <option value="1 Guest">1 Guest</option>
-                <option value="2 Guests">2 Guests (Couple)</option>
-                <option value="3 - 4 Guests">3 - 4 Guests (Family)</option>
-                <option value="5+ Guests">5+ Guests (Group)</option>
-              </select>
-            </div>
-
-            <div style={{ marginBottom: '2rem' }}>
-              <label style={{ display: 'block', color: 'rgba(255, 255, 255, 0.85)', fontSize: '0.875rem', marginBottom: '0.5rem', fontWeight: 500 }}>
-                Special Requests or Questions
-              </label>
-              <textarea
-                rows={3}
-                placeholder="Mention any specific preferences, room choices, or questions..."
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                style={{
-                  width: '100%',
-                  padding: '0.85rem 1rem',
-                  borderRadius: '4px',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                  color: '#FFFFFF',
-                  fontSize: '0.95rem',
-                  outline: 'none',
-                  resize: 'vertical'
-                }}
-              />
-            </div>
-
-            <button type="submit" className="btn btn-whatsapp" style={{ width: '100%', padding: '1rem' }}>
-              <MessageSquare size={20} /> Send Enquiry on WhatsApp
-            </button>
-          </form>
         </div>
       </section>
     </>

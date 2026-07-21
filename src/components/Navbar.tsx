@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, MessageSquare } from 'lucide-react';
+import { Menu, X, MessageSquare, Moon, Sun } from 'lucide-react';
 import { RESORT_CONFIG } from '../config/resortConfig';
+import { useTheme } from '../context/ThemeContext';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { themeMode, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +26,6 @@ export const Navbar: React.FC = () => {
   // Close mobile drawer on route change
   useEffect(() => {
     setMobileMenuOpen(false);
-    window.scrollTo(0, 0);
   }, [location.pathname]);
 
   const navLinks = [
@@ -48,27 +49,29 @@ export const Navbar: React.FC = () => {
           right: 0,
           zIndex: 1000,
           transition: 'all 0.4s ease',
-          backgroundColor: isScrolled ? 'rgba(8, 22, 16, 0.94)' : 'rgba(8, 22, 16, 0.35)',
-          backdropFilter: 'blur(16px)',
-          WebkitBackdropFilter: 'blur(16px)',
-          borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid rgba(255, 255, 255, 0.05)',
+          backgroundColor: isScrolled
+            ? (themeMode === 'night' ? 'rgba(5, 16, 11, 0.95)' : 'rgba(8, 22, 16, 0.94)')
+            : 'transparent',
+          backdropFilter: isScrolled ? 'blur(16px)' : 'none',
+          WebkitBackdropFilter: isScrolled ? 'blur(16px)' : 'none',
+          borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.08)' : '1px solid transparent',
           paddingTop: isScrolled ? '0.75rem' : '1.25rem',
           paddingBottom: isScrolled ? '0.75rem' : '1.25rem'
         }}
       >
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          {/* Brand Logo */}
+          {/* Uncropped Prominent Brand Logo */}
           <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
             <img
               src={RESORT_CONFIG.images.logo}
               alt={`${RESORT_CONFIG.name} Logo`}
               style={{
-                height: isScrolled ? '52px' : '62px',
-                maxHeight: '70px',
+                height: isScrolled ? '64px' : '78px',
+                maxHeight: '85px',
                 width: 'auto',
                 objectFit: 'contain',
                 transition: 'height 0.3s ease',
-                filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.3))'
+                filter: 'drop-shadow(0 2px 10px rgba(0,0,0,0.4))'
               }}
             />
           </Link>
@@ -88,7 +91,8 @@ export const Navbar: React.FC = () => {
                   textTransform: 'uppercase',
                   transition: 'color 0.2s ease',
                   borderBottom: isActive ? '2px solid var(--color-gold)' : '2px solid transparent',
-                  paddingBottom: '0.2rem'
+                  paddingBottom: '0.2rem',
+                  textShadow: '0 2px 6px rgba(0,0,0,0.5)'
                 })}
               >
                 {link.name}
@@ -96,31 +100,51 @@ export const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          {/* Right Action Button */}
-          <div style={{ display: 'none', alignItems: 'center', gap: '1rem' }} className="desktop-nav">
+          {/* Right Action Button & Day/Night Toggle */}
+          <div style={{ display: 'none', alignItems: 'center', gap: '1.25rem' }} className="desktop-nav">
+            {/* Day/Night Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              aria-label={themeMode === 'day' ? 'Switch to Night Mode' : 'Switch to Day Mode'}
+              title={themeMode === 'day' ? 'Switch to Night Mode 🌙' : 'Switch to Day Mode ☀️'}
+              className="theme-toggle-btn"
+            >
+              {themeMode === 'day' ? <Moon size={20} /> : <Sun size={20} />}
+            </button>
+
             <Link to="/contact" className="btn btn-primary" style={{ padding: '0.65rem 1.4rem', fontSize: '0.85rem' }}>
               Book Your Stay
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-            style={{
-              background: 'none',
-              border: 'none',
-              color: '#FFFFFF',
-              cursor: 'pointer',
-              padding: '0.5rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            className="mobile-toggle-btn"
-          >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          {/* Mobile Actions (Toggle + Drawer button) */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }} className="mobile-toggle-btn">
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle Theme"
+              className="theme-toggle-btn"
+              style={{ width: '40px', height: '40px' }}
+            >
+              {themeMode === 'day' ? <Moon size={18} /> : <Sun size={18} />}
+            </button>
+
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+              style={{
+                background: 'none',
+                border: 'none',
+                color: '#FFFFFF',
+                cursor: 'pointer',
+                padding: '0.5rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -132,7 +156,7 @@ export const Navbar: React.FC = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundColor: 'rgba(8, 22, 16, 0.98)',
+          backgroundColor: themeMode === 'night' ? 'rgba(5, 16, 11, 0.98)' : 'rgba(8, 22, 16, 0.98)',
           backdropFilter: 'blur(20px)',
           zIndex: 999,
           display: mobileMenuOpen ? 'flex' : 'none',
@@ -162,7 +186,7 @@ export const Navbar: React.FC = () => {
         <img
           src={RESORT_CONFIG.images.logo}
           alt={RESORT_CONFIG.name}
-          style={{ height: '70px', marginBottom: '2rem', objectFit: 'contain' }}
+          style={{ height: '75px', marginBottom: '2rem', objectFit: 'contain' }}
         />
 
         <nav style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.25rem', marginBottom: '2.5rem' }}>

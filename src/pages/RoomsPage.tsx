@@ -36,14 +36,14 @@ export const RoomsPage: React.FC = () => {
       </section>
 
       {/* Accommodation Cards List */}
-      <section className="section-padding" style={{ backgroundColor: 'var(--color-cream)' }}>
+      <section className="section-padding">
         <div className="container">
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4rem' }}>
             {RESORT_CONFIG.rooms.map((room, index) => (
               <div
                 key={room.id}
                 style={{
-                  backgroundColor: '#FFFFFF',
+                  backgroundColor: 'var(--color-surface)',
                   borderRadius: 'var(--radius-lg)',
                   overflow: 'hidden',
                   boxShadow: 'var(--shadow-lg)',
@@ -68,9 +68,6 @@ export const RoomsPage: React.FC = () => {
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
                     <span style={{ fontSize: '0.85rem', color: 'var(--color-gold)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                       {room.subtitle}
-                    </span>
-                    <span style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--color-pine)' }}>
-                      {room.price}
                     </span>
                   </div>
 
@@ -112,7 +109,7 @@ export const RoomsPage: React.FC = () => {
                           display: 'inline-flex',
                           alignItems: 'center',
                           gap: '0.35rem',
-                          color: 'var(--color-pine)',
+                          color: 'var(--color-charcoal)',
                           fontWeight: 500
                         }}
                       >
@@ -124,7 +121,7 @@ export const RoomsPage: React.FC = () => {
 
                   <div>
                     <a
-                      href={`https://wa.me/${RESORT_CONFIG.whatsappNumber}?text=${encodeURIComponent(`Hello, I am interested in booking the ${room.name} at Velvet Haven Resort, Vagamon. Please let me know available dates and rates.`)}`}
+                      href={`https://wa.me/${RESORT_CONFIG.whatsappNumber}?text=${encodeURIComponent(`Hello, I am interested in booking the ${room.name} at Velvet Haven Resort, Vagamon. Please let me know available dates.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-whatsapp"

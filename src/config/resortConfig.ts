@@ -2,7 +2,6 @@ export interface RoomItem {
   id: string;
   name: string;
   subtitle: string;
-  price: string;
   description: string;
   capacity: string;
   bedType: string;
@@ -11,6 +10,14 @@ export interface RoomItem {
   image: string;
   features: string[];
   recommended?: boolean;
+}
+
+export interface TestimonialItem {
+  id: string;
+  quote: string;
+  author: string;
+  location: string;
+  rating: number;
 }
 
 export interface ExperienceItem {
@@ -78,7 +85,6 @@ export const RESORT_CONFIG = {
       id: "velvet-mist-suite",
       name: "Velvet Mist Suite",
       subtitle: "Panoramic Mountain & Valley View",
-      price: "₹8,500 / night",
       description: "Luxuriously crafted suite featuring expansive glass walls overlooking Vagamon's rolling misty hills, handcrafted hardwood furnishings, private balcony, and plush king bed.",
       capacity: "2 - 3 Guests",
       bedType: "1 King Bed",
@@ -92,7 +98,6 @@ export const RESORT_CONFIG = {
       id: "hilltop-heaven-villa",
       name: "Hilltop Heaven Villa",
       subtitle: "Private Cottage with Sunset Deck",
-      price: "₹12,000 / night",
       description: "An exclusive standalone cottage perched elevated over the pine valley. Offers secluded privacy, deep soaking tub, private fire pit patio, and warm Kerala timber architecture.",
       capacity: "2 - 4 Guests",
       bedType: "1 King Bed + Daybed",
@@ -105,7 +110,6 @@ export const RESORT_CONFIG = {
       id: "plantation-family-suite",
       name: "Plantation Family Suite",
       subtitle: "Spacious Sanctuary for Families",
-      price: "₹14,500 / night",
       description: "Designed for family comfort with dual interconnected luxury bedrooms, wide private veranda overlooking green tea estates, and family dining nook.",
       capacity: "4 - 6 Guests",
       bedType: "2 Queen Beds",
@@ -275,5 +279,30 @@ export const RESORT_CONFIG = {
     { label: "Kottayam Railway Station", distance: "64 km (~1.5 hours drive)" },
     { label: "Ernakulam Town / Junction", distance: "102 km (~3 hours drive)" },
     { label: "Thiruvananthapuram (Trivandrum)", distance: "195 km (~4.5 hours drive)" }
-  ]
+  ],
+
+  // Guest Testimonials
+  testimonials: [
+    {
+      id: "t1",
+      quote: "Velvet Haven Resort is pure magic in Vagamon. The misty morning view from our suite balcony with hot Kerala tea was an unforgettable experience.",
+      author: "Anand & Priya Nair",
+      location: "Kochi, Kerala",
+      rating: 5
+    },
+    {
+      id: "t2",
+      quote: "The evening campfire, serene pine trees, and warm hospitalities made our anniversary weekend truly special. High quality resort in every detail.",
+      author: "Dr. Vikram Kulkarni",
+      location: "Bengaluru, Karnataka",
+      rating: 5
+    },
+    {
+      id: "t3",
+      quote: "Absolute peace, luxurious room architecture, and exquisite local culinary options. We are definitely returning next winter!",
+      author: "Sarah & David Miller",
+      location: "United Kingdom",
+      rating: 5
+    }
+  ] as TestimonialItem[]
 };
