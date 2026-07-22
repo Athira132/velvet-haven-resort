@@ -18,7 +18,7 @@ export const AboutPage: React.FC = () => {
         style={{
           paddingTop: '10rem',
           paddingBottom: '5rem',
-          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.35), rgba(8, 22, 16, 0.55)), url(${RESORT_CONFIG.images.hero2})`,
+          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.35), rgba(8, 22, 16, 0.55)), url(${RESORT_CONFIG.images.resortPanorama})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#FFFFFF',
@@ -65,7 +65,7 @@ export const AboutPage: React.FC = () => {
 
             <div className="img-zoom-container" style={{ borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-lg)' }}>
               <img
-                src={RESORT_CONFIG.images.landscapeSurroundings}
+                src="/images/drive_assets/resort_lobby.jpg"
                 alt="Velvet Haven Resort Vagamon Hilltop View"
                 style={{ width: '100%', height: '500px', objectFit: 'cover' }}
               />

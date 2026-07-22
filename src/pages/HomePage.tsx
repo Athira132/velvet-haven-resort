@@ -354,7 +354,7 @@ export const HomePage: React.FC = () => {
                       className="btn btn-whatsapp"
                       style={{ padding: '0.55rem 1.1rem', fontSize: '0.825rem', width: '100%' }}
                     >
-                      <MessageSquare size={15} /> Enquire Now
+                      Enquire Now
                     </a>
                   </div>
                 </div>
@@ -437,9 +437,9 @@ export const HomePage: React.FC = () => {
                 >
                   <MapPin size={18} /> Get Google Map Directions
                 </a>
-                <Link to="/location" className="btn btn-outline-dark">
-                  View Location Details
-                </Link>
+                 <Link to="/contact" className="btn btn-outline-dark">
+                   View Location Details
+                 </Link>
               </div>
             </div>
 

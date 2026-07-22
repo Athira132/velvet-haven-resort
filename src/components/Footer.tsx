@@ -42,7 +42,6 @@ export const Footer: React.FC = () => {
                 { name: 'Experiences & Activities', path: '/experiences' },
                 { name: 'Resort Facilities', path: '/facilities' },
                 { name: 'Photo Gallery', path: '/gallery' },
-                { name: 'Location & Travel', path: '/location' },
                 { name: 'Contact & Enquiries', path: '/contact' }
               ].map((link) => (
                 <li key={link.path}>

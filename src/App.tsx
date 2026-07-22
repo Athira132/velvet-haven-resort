@@ -13,7 +13,6 @@ import { RoomsPage } from './pages/RoomsPage';
 import { ExperiencesPage } from './pages/ExperiencesPage';
 import { FacilitiesPage } from './pages/FacilitiesPage';
 import { GalleryPage } from './pages/GalleryPage';
-import { LocationPage } from './pages/LocationPage';
 import { ContactPage } from './pages/ContactPage';
 
 export const App: React.FC = () => {
@@ -35,7 +34,6 @@ export const App: React.FC = () => {
                 <Route path="/experiences" element={<ExperiencesPage />} />
                 <Route path="/facilities" element={<FacilitiesPage />} />
                 <Route path="/gallery" element={<GalleryPage />} />
-                <Route path="/location" element={<LocationPage />} />
                 <Route path="/contact" element={<ContactPage />} />
               </Routes>
             </main>

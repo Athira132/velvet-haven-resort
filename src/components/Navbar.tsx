@@ -35,7 +35,6 @@ export const Navbar: React.FC = () => {
     { name: 'Experiences', path: '/experiences' },
     { name: 'Facilities', path: '/facilities' },
     { name: 'Gallery', path: '/gallery' },
-    { name: 'Location', path: '/location' },
     { name: 'Contact', path: '/contact' }
   ];
 

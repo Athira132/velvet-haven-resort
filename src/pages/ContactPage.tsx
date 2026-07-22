@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, MessageSquare, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageSquare, Clock, Navigation } from 'lucide-react';
 import { RESORT_CONFIG } from '../config/resortConfig';
 import { SEO } from '../components/SEO';
 
@@ -320,6 +320,146 @@ export const ContactPage: React.FC = () => {
               </form>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Map & Get Directions Callout */}
+      <section className="section-padding" style={{ borderTop: '1px solid var(--color-border-theme)' }}>
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+            <div>
+              <span className="badge-gold" style={{ marginBottom: '1rem' }}>Map Navigation</span>
+              <h2 className="heading-1 font-serif" style={{ color: 'var(--color-heading)', marginBottom: '1.5rem' }}>
+                How to Find Us
+              </h2>
+              <p style={{ color: 'var(--color-muted-text)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
+                Velvet Haven Resort is nestled in the quiet upper hills of Vagamon, Idukki District, Kerala. The route passes through scenic winding tea estates and cool mist-laden roads.
+              </p>
+
+              <div style={{ padding: '1.5rem', backgroundColor: 'var(--color-card-bg)', borderRadius: 'var(--radius-md)', border: '1px solid var(--color-border-theme)', marginBottom: '2rem' }}>
+                <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.75rem' }}>
+                  <MapPin size={22} style={{ color: 'var(--color-gold)', flexShrink: 0 }} />
+                  <div>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-heading)' }}>Resort Address</h3>
+                    <p style={{ color: 'var(--color-muted-text)', fontSize: '0.95rem' }}>{RESORT_CONFIG.name}, {RESORT_CONFIG.location} - {RESORT_CONFIG.pinCode}</p>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '0.75rem' }}>
+                  <Phone size={22} style={{ color: 'var(--color-gold)', flexShrink: 0 }} />
+                  <div>
+                    <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-heading)' }}>Front Desk Assistance</h3>
+                    <p style={{ color: 'var(--color-muted-text)', fontSize: '0.95rem' }}>{RESORT_CONFIG.contactPhone}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <a
+                  href={RESORT_CONFIG.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                  style={{ padding: '1rem 2rem', fontSize: '1rem' }}
+                >
+                  <Navigation size={20} /> Get Directions on Google Maps
+                </a>
+              </div>
+            </div>
+
+            {/* Embedded Interactive Map */}
+            <div style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', height: '460px', border: '1px solid var(--color-border-theme)' }}>
+              <iframe
+                title="Velvet Haven Resort Google Map"
+                src={RESORT_CONFIG.mapEmbedSrc}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Transit & Travel Distances */}
+      <section className="section-padding bg-pine">
+        <div className="container">
+          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 4rem' }}>
+            <span className="badge-gold" style={{ marginBottom: '1rem' }}>Transit Access</span>
+            <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
+              Travel Distances from Major Hubs
+            </h2>
+            <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '1.05rem' }}>
+              Smooth road connectivity from major Kerala airports, railway stations, and cities.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem' }}>
+            {RESORT_CONFIG.travelInfo.map((info, idx) => (
+              <div
+                key={idx}
+                className="glass-panel-dark"
+                style={{ padding: '2rem', borderRadius: 'var(--radius-md)', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}
+              >
+                <h3 className="font-serif" style={{ fontSize: '1.3rem', color: '#FFFFFF' }}>
+                  {info.label}
+                </h3>
+                <p style={{ color: 'var(--color-gold)', fontWeight: 600, fontSize: '1.05rem', margin: 0 }}>
+                  {info.distance}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Nearby Attractions */}
+      <section className="section-padding">
+        <div className="container">
+          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 4rem' }}>
+            <span className="badge-gold" style={{ marginBottom: '1rem' }}>Local Sightseeing</span>
+            <h2 className="heading-1 font-serif" style={{ color: 'var(--color-heading)', marginBottom: '1rem' }}>
+              Nearby Vagamon Attractions
+            </h2>
+            <p style={{ color: 'var(--color-muted-text)', fontSize: '1.05rem' }}>
+              Explore famous sightseeing destinations located just minutes away from Velvet Haven Resort.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+            {RESORT_CONFIG.nearbyAttractions.map((spot, idx) => (
+              <div
+                key={idx}
+                style={{
+                  backgroundColor: 'var(--color-card-bg)',
+                  borderRadius: 'var(--radius-md)',
+                  padding: '2rem',
+                  boxShadow: 'var(--shadow-md)',
+                  border: '1px solid var(--color-border-theme)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between'
+                }}
+              >
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+                    <h3 className="font-serif" style={{ fontSize: '1.4rem', color: 'var(--color-heading)' }}>
+                      {spot.name}
+                    </h3>
+                    <span style={{ fontSize: '0.825rem', color: 'var(--color-gold)', fontWeight: 700, backgroundColor: 'var(--color-sand)', padding: '0.25rem 0.6rem', borderRadius: '4px', border: '1px solid var(--color-border-theme)' }}>
+                      {spot.distance}
+                    </span>
+                  </div>
+                  <p style={{ color: 'var(--color-muted-text)', fontSize: '0.95rem', lineHeight: '1.6', margin: 0 }}>
+                    {spot.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -21,7 +21,7 @@ export const ExperiencesPage: React.FC = () => {
           position: 'relative',
           paddingTop: '11rem',
           paddingBottom: '5rem',
-          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.35), rgba(8, 22, 16, 0.55)), url(${RESORT_CONFIG.images.landscapeSurroundings})`,
+          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.35), rgba(8, 22, 16, 0.55)), url(${RESORT_CONFIG.images.resortPanorama})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#FFFFFF',
@@ -146,7 +146,7 @@ export const ExperiencesPage: React.FC = () => {
                       className="btn btn-whatsapp"
                       style={{ width: '100%', padding: '0.8rem' }}
                     >
-                      <MessageSquare size={16} /> Enquire About Visiting
+                      Enquire About Visiting
                     </a>
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageSquare, Maximize, Eye, BedDouble, CheckCircle2 } from 'lucide-react';
+
 import { RESORT_CONFIG } from '../config/resortConfig';
 import { SEO } from '../components/SEO';
 
@@ -81,17 +81,14 @@ export const RoomsPage: React.FC = () => {
 
                   {/* Room Specs Grid */}
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '1rem', padding: '1.25rem', backgroundColor: 'var(--color-sand)', borderRadius: 'var(--radius-md)', marginBottom: '1.75rem', border: '1px solid var(--color-border-theme)' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-body)' }}>
-                      <BedDouble size={18} style={{ color: 'var(--color-gold)' }} />
-                      <span>{room.bedType}</span>
+                    <div style={{ fontSize: '0.875rem', color: 'var(--color-body)' }}>
+                      <strong>Bed:</strong> {room.bedType}
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-body)' }}>
-                      <Maximize size={18} style={{ color: 'var(--color-gold)' }} />
-                      <span>{room.size}</span>
+                    <div style={{ fontSize: '0.875rem', color: 'var(--color-body)' }}>
+                      <strong>Size:</strong> {room.size}
                     </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--color-body)' }}>
-                      <Eye size={18} style={{ color: 'var(--color-gold)' }} />
-                      <span>{room.viewType}</span>
+                    <div style={{ fontSize: '0.875rem', color: 'var(--color-body)' }}>
+                      <strong>View:</strong> {room.viewType}
                     </div>
                   </div>
 
@@ -104,13 +101,11 @@ export const RoomsPage: React.FC = () => {
                           fontSize: '0.85rem',
                           display: 'inline-flex',
                           alignItems: 'center',
-                          gap: '0.35rem',
                           color: 'var(--color-body)',
                           fontWeight: 500
                         }}
                       >
-                        <CheckCircle2 size={15} style={{ color: 'var(--color-gold)' }} />
-                        {feat}
+                        • {feat}
                       </span>
                     ))}
                   </div>
@@ -122,7 +117,7 @@ export const RoomsPage: React.FC = () => {
                       rel="noopener noreferrer"
                       className="btn btn-whatsapp"
                     >
-                      <MessageSquare size={18} /> Enquire Availability on WhatsApp
+                      Enquire Availability on WhatsApp
                     </a>
                   </div>
 

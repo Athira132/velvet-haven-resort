@@ -1,16 +1,8 @@
 import React from 'react';
-import { Utensils, Waves, Flame, ShieldCheck, CheckCircle2, Wifi, Car, Coffee, Sparkles } from 'lucide-react';
 import { RESORT_CONFIG } from '../config/resortConfig';
 import { SEO } from '../components/SEO';
 
 export const FacilitiesPage: React.FC = () => {
-  const iconMap: Record<string, any> = {
-    Utensils: Utensils,
-    Waves: Waves,
-    Flame: Flame,
-    ShieldCheck: ShieldCheck
-  };
-
   return (
     <>
       <SEO
@@ -46,68 +38,33 @@ export const FacilitiesPage: React.FC = () => {
       <section className="section-padding">
         <div className="container">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem' }}>
-            {RESORT_CONFIG.facilities.map((facility) => {
-              const IconComp = iconMap[facility.iconName] || Sparkles;
-              return (
-                <div
-                  key={facility.id}
-                  style={{
-                    backgroundColor: 'var(--color-card-bg)',
-                    borderRadius: 'var(--radius-lg)',
-                    overflow: 'hidden',
-                    boxShadow: 'var(--shadow-md)',
-                    border: '1px solid var(--color-border-theme)',
-                    display: 'flex',
-                    flexDirection: 'column'
-                  }}
-                >
-                  <div className="img-zoom-container" style={{ height: '260px' }}>
-                    <img src={facility.image} alt={facility.title} />
-                  </div>
-
-                  <div style={{ padding: '2.25rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                      <div
-                        style={{
-                          width: '46px',
-                          height: '46px',
-                          borderRadius: '50%',
-                          backgroundColor: 'rgba(197, 160, 89, 0.2)',
-                          color: 'var(--color-gold)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          flexShrink: 0
-                        }}
-                      >
-                        <IconComp size={22} />
-                      </div>
-                      <h2 className="font-serif" style={{ fontSize: '1.75rem', color: 'var(--color-heading)' }}>
-                        {facility.title}
-                      </h2>
-                    </div>
-
-                    <p style={{ color: 'var(--color-muted-text)', fontSize: '0.975rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
-                      {facility.description}
-                    </p>
-
-                    <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border-theme)' }}>
-                      <h3 style={{ fontSize: '0.85rem', color: 'var(--color-gold)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem', fontWeight: 600 }}>
-                        Key Highlights
-                      </h3>
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
-                        {facility.highlights.map((h, i) => (
-                          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.85rem', color: 'var(--color-body)' }}>
-                            <CheckCircle2 size={15} style={{ color: 'var(--color-gold)', flexShrink: 0 }} />
-                            <span>{h}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+            {RESORT_CONFIG.facilities.map((facility) => (
+              <div
+                key={facility.id}
+                style={{
+                  backgroundColor: 'var(--color-card-bg)',
+                  borderRadius: 'var(--radius-lg)',
+                  overflow: 'hidden',
+                  boxShadow: 'var(--shadow-md)',
+                  border: '1px solid var(--color-border-theme)',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}
+              >
+                <div className="img-zoom-container" style={{ height: '260px' }}>
+                  <img src={facility.image} alt={facility.title} />
                 </div>
-              );
-            })}
+
+                <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                  <h2 className="font-serif" style={{ fontSize: '1.5rem', color: 'var(--color-heading)', marginBottom: '0.75rem' }}>
+                    {facility.title}
+                  </h2>
+                  <p style={{ color: 'var(--color-muted-text)', fontSize: '0.975rem', lineHeight: '1.7', margin: 0 }}>
+                    {facility.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -124,20 +81,19 @@ export const FacilitiesPage: React.FC = () => {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
             {[
-              { icon: Wifi, text: "High-Speed Wi-Fi" },
-              { icon: Car, text: "Free Secured Parking" },
-              { icon: Utensils, text: "Hilltop Restaurant" },
-              { icon: Flame, text: "Night Campfire" },
-              { icon: Coffee, text: "24/7 Tea & Coffee" },
-              { icon: ShieldCheck, text: "24/7 Power Backup" }
+              { text: "High-Speed Wi-Fi" },
+              { text: "Free Secured Parking" },
+              { text: "Hilltop Restaurant" },
+              { text: "Night Campfire" },
+              { text: "24/7 Tea & Coffee" },
+              { text: "24/7 Power Backup" }
             ].map((item, idx) => (
               <div
                 key={idx}
                 className="glass-panel-dark"
-                style={{ padding: '1.75rem', borderRadius: 'var(--radius-md)', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+                style={{ padding: '1.5rem', borderRadius: 'var(--radius-md)', textAlign: 'center' }}
               >
-                <item.icon size={32} style={{ color: 'var(--color-gold)', marginBottom: '0.75rem' }} />
-                <span style={{ color: '#FFFFFF', fontWeight: 500, fontSize: '0.95rem' }}>{item.text}</span>
+                <span style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.05rem' }}>{item.text}</span>
               </div>
             ))}
           </div>

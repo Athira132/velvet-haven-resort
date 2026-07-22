@@ -55,10 +55,10 @@ export const RESORT_CONFIG = {
   siteUrl: import.meta.env.VITE_SITE_URL || "https://velvethavenresort.com",
   
   // Easily configurable contact settings (overridable via Vercel Environment Variables)
-  whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER || "919846000000",
-  whatsappDisplayNumber: import.meta.env.VITE_WHATSAPP_DISPLAY_NUMBER || "+91 98460 00000",
-  contactPhone: import.meta.env.VITE_CONTACT_PHONE || "+91 98460 00000",
-  contactPhoneAlt: import.meta.env.VITE_CONTACT_PHONE_ALT || "+91 98460 00001",
+  whatsappNumber: import.meta.env.VITE_WHATSAPP_NUMBER || "919895858983",
+  whatsappDisplayNumber: import.meta.env.VITE_WHATSAPP_DISPLAY_NUMBER || "+91 98958 58983",
+  contactPhone: import.meta.env.VITE_CONTACT_PHONE || "+91 98958 58983",
+  contactPhoneAlt: import.meta.env.VITE_CONTACT_PHONE_ALT || "+91 98958 58983",
   email: import.meta.env.VITE_EMAIL || "velvethavenresort@gmail.com",
   
   // Location & Map settings
@@ -70,10 +70,10 @@ export const RESORT_CONFIG = {
     logo: "https://i.ibb.co/27DmhGfZ/Untitled-design-2-removebg-preview.png",
     hero1: "/images/day_hero.jpg",
     hero2: "/images/night_hero.png",
-    roomMain: "/images/drive_assets/room_suite.jpg",
+    roomMain: "/images/drive_assets/room_mist.jpg",
     resortPanorama: "/images/drive_assets/scenic_misty.jpg",
     landscapeSurroundings: "/images/drive_assets/scenic_pines.jpg",
-    suiteInterior: "/images/drive_assets/room_villa.jpg",
+    suiteInterior: "/images/drive_assets/room_sunset.jpg",
     mistyHills: "/images/drive_assets/views.jpg",
     diningOutdoor: "/images/drive_assets/dining_table.jpg",
     eveningCampfire: "/images/drive_assets/campfire.jpg"
@@ -90,7 +90,7 @@ export const RESORT_CONFIG = {
       bedType: "1 King Bed",
       viewType: "Misty Mountain & Valley View",
       size: "550 sq. ft.",
-      image: "/images/drive_assets/room_suite.jpg",
+      image: "/images/drive_assets/room_mist.jpg",
       features: ["Private View Balcony", "Breakfast Included", "High-Speed Wi-Fi", "En-suite Luxury Bath", "Tea/Coffee Maker", "24/7 Room Service"],
       recommended: true
     },
@@ -103,7 +103,7 @@ export const RESORT_CONFIG = {
       bedType: "1 King Bed + Daybed",
       viewType: "360° Hilltop & Sunset View",
       size: "750 sq. ft.",
-      image: "/images/drive_assets/room_villa.jpg",
+      image: "/images/drive_assets/room_sunset.jpg",
       features: ["Private Sunset Deck", "Soaking Bathtub", "Fireplace Lounge", "Complimentary Gourmet Breakfast", "Minibar", "Dedicated Host Service"]
     },
     {
@@ -115,7 +115,7 @@ export const RESORT_CONFIG = {
       bedType: "2 Queen Beds",
       viewType: "Tea Plantation & Forest View",
       size: "950 sq. ft.",
-      image: "/images/drive_assets/resort_lobby.jpg",
+      image: "/images/drive_assets/room_family.jpg",
       features: ["2 Bedrooms", "Spacious Living Room", "Private Veranda", "Kid-Friendly Amenities", "Free High-Speed Wi-Fi", "Complimentary Tea Tasting"]
     }
   ] as RoomItem[],
@@ -128,7 +128,7 @@ export const RESORT_CONFIG = {
       category: "nature",
       shortDesc: "Explore the distinctive rock formations and enjoy breathtaking panoramic views across the green Vagamon valleys in Idukki district, Kerala.",
       fullDesc: "Explore the distinctive rock formations and enjoy breathtaking panoramic views across the green Vagamon valleys from Thangal Para's elevated mountain ridge in Idukki district.",
-      image: "/images/drive_assets/views.jpg",
+      image: "https://i.ibb.co/39Yvh2gB/Screenshot-2026-07-21-124848.png",
       tag: "Idukki Destination"
     },
     {
@@ -137,7 +137,7 @@ export const RESORT_CONFIG = {
       category: "nature",
       shortDesc: "Follow the peaceful hill trail and discover panoramic views across Vagamon’s lush green surroundings in Idukki district, Kerala.",
       fullDesc: "Follow the peaceful hill trail and discover panoramic views across Vagamon’s lush green surroundings on the serene ascent to Murugan Mala in Idukki, Kerala.",
-      image: "/images/drive_assets/scenic_pines.jpg",
+      image: "https://i.ibb.co/H6KwDgK/Screenshot-2026-07-21-124955.png",
       tag: "Idukki Destination"
     },
     {
@@ -146,7 +146,7 @@ export const RESORT_CONFIG = {
       category: "nature",
       shortDesc: "Experience peaceful hill trails, spiritual surroundings, and beautiful sunrise or sunset views across the Vagamon landscape in Idukki, Kerala.",
       fullDesc: "Experience peaceful hill trails, spiritual monastery surroundings, Swiss dairy pastures, and beautiful sunrise or sunset views across the Vagamon hillscape in Idukki district.",
-      image: "/images/drive_assets/scenic_misty.jpg",
+      image: "https://i.ibb.co/Gf9MvCTm/Screenshot-2026-07-21-124142.png",
       tag: "Idukki Destination"
     },
     {
@@ -155,7 +155,7 @@ export const RESORT_CONFIG = {
       category: "nature",
       shortDesc: "Walk beneath towering pine trees and explore one of Vagamon’s most peaceful and scenic natural landscapes in Idukki district, Kerala.",
       fullDesc: "Walk beneath towering pine trees and explore one of Vagamon’s most peaceful and scenic natural landscapes, surrounded by dense green pine canopies in Idukki, Kerala.",
-      image: "/images/drive_assets/scenic_pines.jpg",
+      image: "https://i.ibb.co/sv5cyhM5/Screenshot-2026-07-21-124133.png",
       tag: "Idukki Destination"
     },
     {
@@ -164,7 +164,7 @@ export const RESORT_CONFIG = {
       category: "nature",
       shortDesc: "Relax and wander through the wide green meadows surrounded by the peaceful beauty of Vagamon’s rolling hills in Idukki, Kerala.",
       fullDesc: "Relax and wander through the wide green meadows surrounded by the peaceful beauty of Vagamon’s rolling hills, offering endless greenery in Idukki district.",
-      image: "/images/drive_assets/scenic_misty.jpg",
+      image: "https://i.ibb.co/tw6bQD2q/Screenshot-2026-07-21-124848.png",
       tag: "Idukki Destination"
     },
     {
@@ -173,7 +173,7 @@ export const RESORT_CONFIG = {
       category: "nature",
       shortDesc: "Enjoy the calm beauty of a scenic lake surrounded by green hills and peaceful landscapes in Vagamon, Idukki district, Kerala.",
       fullDesc: "Enjoy the calm beauty of a scenic lake surrounded by green hills, lush gardens, and peaceful mountain reflection views in Vagamon, Idukki district.",
-      image: "/images/drive_assets/views.jpg",
+      image: "https://i.ibb.co/JwW3rKwp/Screenshot-2026-07-21-124928.png",
       tag: "Idukki Destination"
     }
   ] as ExperienceItem[],
@@ -234,7 +234,7 @@ export const RESORT_CONFIG = {
       id: "g3",
       title: "Velvet Mist Suite Bedroom",
       category: "accommodation",
-      image: "/images/drive_assets/room_suite.jpg",
+      image: "/images/drive_assets/room_mist.jpg",
       caption: "Spacious luxury room with full glass windows and plush king bed."
     },
     {
@@ -255,7 +255,7 @@ export const RESORT_CONFIG = {
       id: "g6",
       title: "Luxury Bathroom & Soaking View",
       category: "accommodation",
-      image: "/images/drive_assets/room_villa.jpg",
+      image: "/images/drive_assets/room_sunset.jpg",
       caption: "Elegant interior detail crafted for deep relaxation."
     },
     {
