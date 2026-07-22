@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronRight, MapPin, ArrowRight, ShieldCheck, Flame, Utensils, MessageSquare, Sparkles, Star, Quote } from 'lucide-react';
+import { ChevronRight, MapPin, ArrowRight, MessageSquare, Sparkles, Star, Quote } from 'lucide-react';
 import { RESORT_CONFIG } from '../config/resortConfig';
 import { SEO } from '../components/SEO';
 import { useTheme } from '../context/ThemeContext';
@@ -225,23 +225,41 @@ export const HomePage: React.FC = () => {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem' }}>
             {[
-              { icon: Sparkles, title: "Unmatched Panoramic Views", desc: "Wake up to rolling pine hills shrouded in soft morning mist from private balconies." },
-              { icon: Utensils, title: "Authentic Kerala Culinary", desc: "Farm-to-table traditional Travancore dishes and international dining in open mountain air." },
-              { icon: Flame, title: "Starlight Campfires", desc: "Nightly campfire gatherings with acoustic music and outdoor barbecue under clear night skies." },
-              { icon: ShieldCheck, title: "Warm Kerala Hospitality", desc: "Personalized host attention, excursion guidance, and 24/7 guest service." }
+              { image: "/images/why_guests_choose/views.jpg", title: "Unmatched Panoramic Views", desc: "Wake up to rolling pine hills shrouded in soft morning mist from private balconies." },
+              { image: "/images/why_guests_choose/culinary.jpg", title: "Authentic Kerala Culinary", desc: "Farm-to-table traditional Travancore dishes and international dining in open mountain air." },
+              { image: "/images/why_guests_choose/campfire.jpg", title: "Starlight Campfires", desc: "Nightly campfire gatherings with acoustic music and outdoor barbecue under clear night skies." },
+              { image: "/images/why_guests_choose/hospitality.jpg", title: "Warm Kerala Hospitality", desc: "Personalized host attention, excursion guidance, and 24/7 guest service." }
             ].map((feature, i) => (
               <div
                 key={i}
                 className={isNight ? "glass-panel-dark" : "glass-panel"}
-                style={{ padding: '2.25rem', borderRadius: 'var(--radius-md)' }}
+                style={{ 
+                  borderRadius: 'var(--radius-md)', 
+                  overflow: 'hidden', 
+                  display: 'flex', 
+                  flexDirection: 'column',
+                  height: '100%'
+                }}
               >
-                <feature.icon size={36} style={{ color: 'var(--color-gold)', marginBottom: '1.25rem' }} />
-                <h3 className="font-serif" style={{ fontSize: '1.4rem', color: isNight ? '#FFFFFF' : 'var(--color-heading)', marginBottom: '0.75rem' }}>
-                  {feature.title}
-                </h3>
-                <p style={{ color: isNight ? 'rgba(255, 255, 255, 0.78)' : 'var(--color-muted-text)', fontSize: '0.95rem', lineHeight: '1.6' }}>
-                  {feature.desc}
-                </p>
+                <img 
+                  src={feature.image} 
+                  alt={feature.title} 
+                  style={{ 
+                    width: '100%', 
+                    height: '180px', 
+                    objectFit: 'cover',
+                    borderTopLeftRadius: 'var(--radius-md)',
+                    borderTopRightRadius: 'var(--radius-md)'
+                  }} 
+                />
+                <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                  <h3 className="font-serif" style={{ fontSize: '1.35rem', color: isNight ? '#FFFFFF' : 'var(--color-heading)', marginBottom: '0.75rem' }}>
+                    {feature.title}
+                  </h3>
+                  <p style={{ color: isNight ? 'rgba(255, 255, 255, 0.78)' : 'var(--color-muted-text)', fontSize: '0.95rem', lineHeight: '1.6', margin: 0 }}>
+                    {feature.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
