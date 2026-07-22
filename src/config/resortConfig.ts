@@ -69,7 +69,7 @@ export const RESORT_CONFIG = {
   images: {
     logo: "https://i.ibb.co/27DmhGfZ/Untitled-design-2-removebg-preview.png",
     hero1: "/images/day_hero.jpg",
-    hero2: "/images/night_hero.jpg",
+    hero2: "/images/night_hero.png",
     roomMain: "https://i.ibb.co/m5myhvKx/Screenshot-2026-07-21-124142.png",
     resortPanorama: "https://i.ibb.co/ccnRyzQ2/Screenshot-2026-07-21-124623.png",
     landscapeSurroundings: "https://i.ibb.co/jvN1Q7wS/Screenshot-2026-07-21-124133.png",
