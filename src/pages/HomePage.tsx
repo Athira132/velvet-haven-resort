@@ -17,7 +17,7 @@ export const HomePage: React.FC = () => {
 
       {/* ================= HERO SECTION ================= */}
       <section style={{ position: 'relative', width: '100%', height: '100vh', minHeight: '650px', overflow: 'hidden' }}>
-        {/* Day Hero Layer (Hero 1) */}
+        {/* Fixed Hero Background Image (Locked Position) */}
         <div
           style={{
             position: 'absolute',
@@ -28,13 +28,15 @@ export const HomePage: React.FC = () => {
             backgroundImage: `url(${RESORT_CONFIG.images.hero1})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: isNight ? 0 : 1,
-            transition: 'opacity 0.25s ease',
+            filter: isNight
+              ? 'brightness(0.35) contrast(1.15) saturate(0.8) hue-rotate(-15deg)'
+              : 'none',
+            transition: 'filter 0.3s ease',
             zIndex: 1
           }}
         />
 
-        {/* Night Hero Layer (Hero 2) */}
+        {/* Night Glow highlights overlay (warm windows and cool pool) */}
         <div
           style={{
             position: 'absolute',
@@ -42,12 +44,12 @@ export const HomePage: React.FC = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundImage: `url(${RESORT_CONFIG.images.hero2})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            zIndex: 2,
+            background: 'radial-gradient(circle at 65% 52%, rgba(255, 165, 40, 0.85) 0%, rgba(255, 100, 20, 0.35) 40%, rgba(0, 0, 0, 0) 70%), radial-gradient(circle at 32% 78%, rgba(80, 200, 255, 0.85) 0%, rgba(30, 100, 255, 0.3) 30%, rgba(0, 0, 0, 0) 60%)',
+            mixBlendMode: 'color-dodge',
             opacity: isNight ? 1 : 0,
-            transition: 'opacity 0.25s ease',
-            zIndex: 1
+            transition: 'opacity 0.3s ease',
+            pointerEvents: 'none'
           }}
         />
 
@@ -59,11 +61,11 @@ export const HomePage: React.FC = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            zIndex: 2,
+            zIndex: 3,
             background: isNight
               ? 'linear-gradient(90deg, rgba(3, 12, 8, 0.65) 0%, rgba(3, 12, 8, 0.35) 50%, rgba(3, 12, 8, 0.05) 100%)'
               : 'linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(8, 22, 16, 0.35) 100%)',
-            transition: 'background 0.25s ease'
+            transition: 'background 0.3s ease'
           }}
         />
 
