@@ -25,7 +25,7 @@ export const GalleryPage: React.FC = () => {
         style={{
           paddingTop: '10rem',
           paddingBottom: '5rem',
-          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.75), rgba(8, 22, 16, 0.85)), url(${RESORT_CONFIG.images.hero1})`,
+          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.35), rgba(8, 22, 16, 0.55)), url(${RESORT_CONFIG.images.hero1})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#FFFFFF',
@@ -34,10 +34,10 @@ export const GalleryPage: React.FC = () => {
       >
         <div className="container container-narrow">
           <span className="badge-gold" style={{ marginBottom: '1rem' }}>Visual Journey</span>
-          <h1 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
+          <h1 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem', textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
             Resort Photo Gallery
           </h1>
-          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '680px', margin: '0 auto' }}>
+          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '680px', margin: '0 auto', textShadow: '0 1px 6px rgba(0, 0, 0, 0.4)' }}>
             Explore the tranquil atmosphere, luxury interiors, and breathtaking natural vistas of Velvet Haven Resort.
           </p>
         </div>

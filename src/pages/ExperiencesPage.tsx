@@ -21,7 +21,7 @@ export const ExperiencesPage: React.FC = () => {
           position: 'relative',
           paddingTop: '11rem',
           paddingBottom: '5rem',
-          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.3), rgba(8, 22, 16, 0.5)), url(${RESORT_CONFIG.images.landscapeSurroundings})`,
+          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.35), rgba(8, 22, 16, 0.55)), url(${RESORT_CONFIG.images.landscapeSurroundings})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#FFFFFF',

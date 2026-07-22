@@ -17,7 +17,7 @@ export const LocationPage: React.FC = () => {
         style={{
           paddingTop: '10rem',
           paddingBottom: '5rem',
-          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.75), rgba(8, 22, 16, 0.85)), url(${RESORT_CONFIG.images.hero2})`,
+          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.35), rgba(8, 22, 16, 0.55)), url(${RESORT_CONFIG.images.hero2})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#FFFFFF',
@@ -26,10 +26,10 @@ export const LocationPage: React.FC = () => {
       >
         <div className="container container-narrow">
           <span className="badge-gold" style={{ marginBottom: '1rem' }}>Hill Station Directions</span>
-          <h1 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
+          <h1 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem', textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
             Location & Travel Guide
           </h1>
-          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '680px', margin: '0 auto' }}>
+          <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '680px', margin: '0 auto', textShadow: '0 1px 6px rgba(0, 0, 0, 0.4)' }}>
             Perched amidst Vagamon's peaceful mountain landscape with effortless access to top attractions.
           </p>
         </div>
