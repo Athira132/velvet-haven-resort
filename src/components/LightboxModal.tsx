@@ -160,23 +160,6 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
         </button>
       </div>
 
-      {/* Caption info */}
-      <div
-        onClick={(e) => e.stopPropagation()}
-        style={{
-          marginTop: '1.5rem',
-          textAlign: 'center',
-          color: '#FFFFFF',
-          maxWidth: '650px'
-        }}
-      >
-        <h3 className="font-serif" style={{ fontSize: '1.6rem', color: 'var(--color-gold)', marginBottom: '0.35rem' }}>
-          {currentItem.title}
-        </h3>
-        <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '0.95rem' }}>
-          {currentItem.caption}
-        </p>
-      </div>
     </div>
   );
 };

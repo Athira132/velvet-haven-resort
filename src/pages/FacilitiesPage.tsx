@@ -68,37 +68,6 @@ export const FacilitiesPage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Complete Amenity Grid */}
-      <section className="section-padding bg-pine">
-        <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3.5rem' }}>
-            <span className="badge-gold" style={{ marginBottom: '1rem' }}>At a Glance</span>
-            <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
-              All Confirmed Amenities
-            </h2>
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
-            {[
-              { text: "High-Speed Wi-Fi" },
-              { text: "Free Secured Parking" },
-              { text: "Hilltop Restaurant" },
-              { text: "Night Campfire" },
-              { text: "24/7 Tea & Coffee" },
-              { text: "24/7 Power Backup" }
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="glass-panel-dark"
-                style={{ padding: '1.5rem', borderRadius: 'var(--radius-md)', textAlign: 'center' }}
-              >
-                <span style={{ color: '#FFFFFF', fontWeight: 600, fontSize: '1.05rem' }}>{item.text}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 };

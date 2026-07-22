@@ -182,11 +182,11 @@ export const RESORT_CONFIG = {
   facilities: [
     {
       id: "pool-facility",
-      title: "Scenic Infinity Pool",
-      description: "Dive into our crystal-clear infinity pool overlooking the rolling mountains and valley fog of Vagamon.",
+      title: "Scenic Swimming Pool",
+      description: "Dive into our crystal-clear swimming pool overlooking the rolling mountains and valley fog of Vagamon.",
       iconName: "Waves",
       image: "/images/updated_assets/facility_pool.jpg",
-      highlights: ["Valley Overlook", "Infinity Pool", "Lounge Chairs"]
+      highlights: ["Valley Overlook", "Swimming Pool", "Lounge Chairs"]
     },
     {
       id: "tv-entertainment",
@@ -206,11 +206,11 @@ export const RESORT_CONFIG = {
     },
     {
       id: "kitchen-facility",
-      title: "Fully Equipped Guest Kitchen",
-      description: "Prepare custom meals and local specialties in a modern, fully equipped kitchen environment.",
+      title: "Guest Kitchenette",
+      description: "Basic kitchenette with a refrigerator and easy cooking/food-heating facilities.",
       iconName: "ChefHat",
       image: "/images/updated_assets/facility_kitchen.jpg",
-      highlights: ["Modern Cookware", "Induction Cooktop", "Spices Provided"]
+      highlights: ["Refrigerator", "Easy Cooking", "Food Heating"]
     },
     {
       id: "spacious-room",
@@ -307,7 +307,7 @@ export const RESORT_CONFIG = {
       id: "g10",
       title: "Luxury Balcony Overlook",
       category: "accommodation",
-      image: "/images/rooms/room_7.jpg",
+      image: "/images/updated_assets/gallery_overlook.jpg",
       caption: "Breathtaking green mountain views directly from your private bedroom seating."
     },
     {
@@ -316,6 +316,13 @@ export const RESORT_CONFIG = {
       category: "accommodation",
       image: "/images/rooms/room_8.jpg",
       caption: "Premium cottage interiors blending modern elegance with natural timber."
+    },
+    {
+      id: "g12",
+      title: "Cottage Valley View Seating",
+      category: "accommodation",
+      image: "/images/rooms/room_3.jpg",
+      caption: "Stunning valley views through wide sliding glass panels."
     }
   ] as GalleryItem[],
 
