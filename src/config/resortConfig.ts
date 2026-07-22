@@ -70,13 +70,13 @@ export const RESORT_CONFIG = {
     logo: "https://i.ibb.co/27DmhGfZ/Untitled-design-2-removebg-preview.png",
     hero1: "/images/day_hero.jpg",
     hero2: "/images/night_hero.png",
-    roomMain: "https://i.ibb.co/m5myhvKx/Screenshot-2026-07-21-124142.png",
-    resortPanorama: "https://i.ibb.co/ccnRyzQ2/Screenshot-2026-07-21-124623.png",
-    landscapeSurroundings: "https://i.ibb.co/jvN1Q7wS/Screenshot-2026-07-21-124133.png",
-    suiteInterior: "https://i.ibb.co/ZbxxgSv/Screenshot-2026-07-21-124955.png",
-    mistyHills: "https://i.ibb.co/2YmdQCp2/Screenshot-2026-07-21-124848.png",
-    diningOutdoor: "https://i.ibb.co/wZbsBgjM/Screenshot-2026-07-21-124928.png",
-    eveningCampfire: "/images/resort_outdoor_campfire.jpg"
+    roomMain: "/images/drive_assets/room_suite.jpg",
+    resortPanorama: "/images/drive_assets/scenic_misty.jpg",
+    landscapeSurroundings: "/images/drive_assets/scenic_pines.jpg",
+    suiteInterior: "/images/drive_assets/room_villa.jpg",
+    mistyHills: "/images/drive_assets/views.jpg",
+    diningOutdoor: "/images/drive_assets/dining_table.jpg",
+    eveningCampfire: "/images/drive_assets/campfire.jpg"
   },
 
   // Rooms Data
@@ -90,7 +90,7 @@ export const RESORT_CONFIG = {
       bedType: "1 King Bed",
       viewType: "Misty Mountain & Valley View",
       size: "550 sq. ft.",
-      image: "https://i.ibb.co/m5myhvKx/Screenshot-2026-07-21-124142.png",
+      image: "/images/drive_assets/room_suite.jpg",
       features: ["Private View Balcony", "Breakfast Included", "High-Speed Wi-Fi", "En-suite Luxury Bath", "Tea/Coffee Maker", "24/7 Room Service"],
       recommended: true
     },
@@ -103,7 +103,7 @@ export const RESORT_CONFIG = {
       bedType: "1 King Bed + Daybed",
       viewType: "360° Hilltop & Sunset View",
       size: "750 sq. ft.",
-      image: "https://i.ibb.co/ZbxxgSv/Screenshot-2026-07-21-124955.png",
+      image: "/images/drive_assets/room_villa.jpg",
       features: ["Private Sunset Deck", "Soaking Bathtub", "Fireplace Lounge", "Complimentary Gourmet Breakfast", "Minibar", "Dedicated Host Service"]
     },
     {
@@ -115,7 +115,7 @@ export const RESORT_CONFIG = {
       bedType: "2 Queen Beds",
       viewType: "Tea Plantation & Forest View",
       size: "950 sq. ft.",
-      image: "https://i.ibb.co/ccnRyzQ2/Screenshot-2026-07-21-124623.png",
+      image: "/images/drive_assets/resort_lobby.jpg",
       features: ["2 Bedrooms", "Spacious Living Room", "Private Veranda", "Kid-Friendly Amenities", "Free High-Speed Wi-Fi", "Complimentary Tea Tasting"]
     }
   ] as RoomItem[],
@@ -128,7 +128,7 @@ export const RESORT_CONFIG = {
       category: "nature",
       shortDesc: "Explore the distinctive rock formations and enjoy breathtaking panoramic views across the green Vagamon valleys in Idukki district, Kerala.",
       fullDesc: "Explore the distinctive rock formations and enjoy breathtaking panoramic views across the green Vagamon valleys from Thangal Para's elevated mountain ridge in Idukki district.",
-      image: "https://i.ibb.co/39Yvh2gB/Screenshot-2026-07-21-124848.png",
+      image: "/images/drive_assets/views.jpg",
       tag: "Idukki Destination"
     },
     {
@@ -137,7 +137,7 @@ export const RESORT_CONFIG = {
       category: "nature",
       shortDesc: "Follow the peaceful hill trail and discover panoramic views across Vagamon’s lush green surroundings in Idukki district, Kerala.",
       fullDesc: "Follow the peaceful hill trail and discover panoramic views across Vagamon’s lush green surroundings on the serene ascent to Murugan Mala in Idukki, Kerala.",
-      image: "https://i.ibb.co/H6KwDgK/Screenshot-2026-07-21-124955.png",
+      image: "/images/drive_assets/scenic_pines.jpg",
       tag: "Idukki Destination"
     },
     {
@@ -146,7 +146,7 @@ export const RESORT_CONFIG = {
       category: "nature",
       shortDesc: "Experience peaceful hill trails, spiritual surroundings, and beautiful sunrise or sunset views across the Vagamon landscape in Idukki, Kerala.",
       fullDesc: "Experience peaceful hill trails, spiritual monastery surroundings, Swiss dairy pastures, and beautiful sunrise or sunset views across the Vagamon hillscape in Idukki district.",
-      image: "https://i.ibb.co/Gf9MvCTm/Screenshot-2026-07-21-124142.png",
+      image: "/images/drive_assets/scenic_misty.jpg",
       tag: "Idukki Destination"
     },
     {
@@ -155,7 +155,7 @@ export const RESORT_CONFIG = {
       category: "nature",
       shortDesc: "Walk beneath towering pine trees and explore one of Vagamon’s most peaceful and scenic natural landscapes in Idukki district, Kerala.",
       fullDesc: "Walk beneath towering pine trees and explore one of Vagamon’s most peaceful and scenic natural landscapes, surrounded by dense green pine canopies in Idukki, Kerala.",
-      image: "https://i.ibb.co/sv5cyhM5/Screenshot-2026-07-21-124133.png",
+      image: "/images/drive_assets/scenic_pines.jpg",
       tag: "Idukki Destination"
     },
     {
@@ -164,7 +164,7 @@ export const RESORT_CONFIG = {
       category: "nature",
       shortDesc: "Relax and wander through the wide green meadows surrounded by the peaceful beauty of Vagamon’s rolling hills in Idukki, Kerala.",
       fullDesc: "Relax and wander through the wide green meadows surrounded by the peaceful beauty of Vagamon’s rolling hills, offering endless greenery in Idukki district.",
-      image: "https://i.ibb.co/tw6bQD2q/Screenshot-2026-07-21-124848.png",
+      image: "/images/drive_assets/scenic_misty.jpg",
       tag: "Idukki Destination"
     },
     {
@@ -173,7 +173,7 @@ export const RESORT_CONFIG = {
       category: "nature",
       shortDesc: "Enjoy the calm beauty of a scenic lake surrounded by green hills and peaceful landscapes in Vagamon, Idukki district, Kerala.",
       fullDesc: "Enjoy the calm beauty of a scenic lake surrounded by green hills, lush gardens, and peaceful mountain reflection views in Vagamon, Idukki district.",
-      image: "https://i.ibb.co/JwW3rKwp/Screenshot-2026-07-21-124928.png",
+      image: "/images/drive_assets/views.jpg",
       tag: "Idukki Destination"
     }
   ] as ExperienceItem[],
@@ -185,7 +185,7 @@ export const RESORT_CONFIG = {
       title: "Panoramic Hillside Restaurant",
       description: "Open-air and glass-walled dining serving authentic Kerala flavors, fresh farm-to-table salads, and international comfort cuisine with mountain backdrop views.",
       iconName: "Utensils",
-      image: "https://i.ibb.co/wZbsBgjM/Screenshot-2026-07-21-124928.png",
+      image: "/images/drive_assets/dining_table.jpg",
       highlights: ["Fresh Farm Ingredients", "Kerala Speciality Menu", "Indoor & Deck Seating", "Buffet & A la Carte"]
     },
     {
@@ -193,7 +193,7 @@ export const RESORT_CONFIG = {
       title: "Misty Valley View Deck & Pool",
       description: "An architectural deck perched over the valley, offering comfortable lounge sunbeds, infinity pool view, and morning yoga space amidst the fog.",
       iconName: "Waves",
-      image: "https://i.ibb.co/GvMnbvMS/Chat-GPT-Image-Jul-21-2026-01-26-57-PM.png",
+      image: "/images/drive_assets/scenic_misty.jpg",
       highlights: ["Valley Overlook", "Morning Yoga Mat Setup", "Sunset Viewing Lounge", "Refreshment Bar"]
     },
     {
@@ -201,7 +201,7 @@ export const RESORT_CONFIG = {
       title: "Evening Campfire & Outdoor Lounge",
       description: "Dedicated stone amphitheater fire pit with plush outdoor seating for unforgettable nights under starry Vagamon skies.",
       iconName: "Flame",
-      image: "/images/resort_outdoor_campfire.jpg",
+      image: "/images/drive_assets/campfire.jpg",
       highlights: ["Nightly Fire Lighting", "Barbecue On Request", "Music & Ambient Lighting", "Family-Friendly"]
     },
     {
@@ -209,7 +209,7 @@ export const RESORT_CONFIG = {
       title: "Modern Comforts & Guest Care",
       description: "High-speed Wi-Fi across the resort, secure private parking, 24/7 power backup, concierge excursion assistance, and daily housekeeping.",
       iconName: "ShieldCheck",
-      image: "https://i.ibb.co/ZbxxgSv/Screenshot-2026-07-21-124955.png",
+      image: "/images/drive_assets/hospitality.jpg",
       highlights: ["High-Speed Fiber Wi-Fi", "Free Secured Parking", "24/7 Generator Backup", "Doctor on Call"]
     }
   ] as FacilityItem[],
@@ -220,63 +220,63 @@ export const RESORT_CONFIG = {
       id: "g1",
       title: "Misty Sunrise over Velvet Haven",
       category: "resort",
-      image: "https://i.ibb.co/GvMnbvMS/Chat-GPT-Image-Jul-21-2026-01-26-57-PM.png",
+      image: "/images/drive_assets/views.jpg",
       caption: "Early morning mountain fog floating through the resort grounds."
     },
     {
       id: "g2",
       title: "Resort Architecture in Forest",
       category: "resort",
-      image: "https://i.ibb.co/KpjgGDJN/Untitled-design-3.png",
+      image: "/images/drive_assets/resort_lobby.jpg",
       caption: "Seamless integration of modern luxury with Vagamon natural topography."
     },
     {
       id: "g3",
       title: "Velvet Mist Suite Bedroom",
       category: "accommodation",
-      image: "https://i.ibb.co/m5myhvKx/Screenshot-2026-07-21-124142.png",
+      image: "/images/drive_assets/room_suite.jpg",
       caption: "Spacious luxury room with full glass windows and plush king bed."
     },
     {
       id: "g4",
       title: "Panoramic Plantation Landscape",
       category: "nature",
-      image: "https://i.ibb.co/ccnRyzQ2/Screenshot-2026-07-21-124623.png",
+      image: "/images/drive_assets/scenic_misty.jpg",
       caption: "Lush green slopes surrounding Velvet Haven Resort."
     },
     {
       id: "g5",
       title: "Pine Forest Trails nearby",
       category: "nature",
-      image: "https://i.ibb.co/jvN1Q7wS/Screenshot-2026-07-21-124133.png",
+      image: "/images/drive_assets/scenic_pines.jpg",
       caption: "Serene pine tree canopy paths perfect for peaceful walks."
     },
     {
       id: "g6",
       title: "Luxury Bathroom & Soaking View",
       category: "accommodation",
-      image: "https://i.ibb.co/ZbxxgSv/Screenshot-2026-07-21-124955.png",
+      image: "/images/drive_assets/room_villa.jpg",
       caption: "Elegant interior detail crafted for deep relaxation."
     },
     {
       id: "g7",
       title: "Misty Hilltop Outlook",
       category: "nature",
-      image: "https://i.ibb.co/2YmdQCp2/Screenshot-2026-07-21-124848.png",
+      image: "/images/drive_assets/views.jpg",
       caption: "Rolling green hills shrouded in characteristic Vagamon fog."
     },
     {
       id: "g8",
       title: "Hillside Dining Pavilion",
       category: "dining",
-      image: "https://i.ibb.co/wZbsBgjM/Screenshot-2026-07-21-124928.png",
+      image: "/images/drive_assets/dining_table.jpg",
       caption: "Outdoor dining experience overlooking mountain vistas."
     },
     {
       id: "g9",
       title: "Night Fire Pit & Starlight Lounge",
       category: "dining",
-      image: "https://i.ibb.co/PGHRfZjJ/Screenshot-2026-07-21-124818.png",
+      image: "/images/drive_assets/campfire.jpg",
       caption: "Cosy evening campfire gathering under the stars."
     }
   ] as GalleryItem[],
