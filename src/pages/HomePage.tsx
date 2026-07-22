@@ -44,7 +44,7 @@ export const HomePage: React.FC = () => {
             bottom: 0,
             backgroundImage: `url(${RESORT_CONFIG.images.hero2})`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'center 40%',
             opacity: isNight ? 1 : 0,
             transition: 'opacity 0.25s ease',
             zIndex: 1
@@ -61,7 +61,7 @@ export const HomePage: React.FC = () => {
             bottom: 0,
             zIndex: 2,
             background: isNight
-              ? 'linear-gradient(180deg, rgba(3, 12, 8, 0.7) 0%, rgba(3, 12, 8, 0.5) 50%, rgba(3, 12, 8, 0.88) 100%)'
+              ? 'linear-gradient(90deg, rgba(3, 12, 8, 0.65) 0%, rgba(3, 12, 8, 0.35) 50%, rgba(3, 12, 8, 0.05) 100%)'
               : 'linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(8, 22, 16, 0.35) 100%)',
             transition: 'background 0.25s ease'
           }}
