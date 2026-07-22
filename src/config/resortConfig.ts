@@ -70,10 +70,10 @@ export const RESORT_CONFIG = {
     logo: "https://i.ibb.co/27DmhGfZ/Untitled-design-2-removebg-preview.png",
     hero1: "/images/day_hero.jpg",
     hero2: "/images/night_hero.png",
-    roomMain: "/images/drive_assets/room_mist.jpg",
+    roomMain: "/images/rooms/room_1.jpg",
     resortPanorama: "/images/drive_assets/scenic_misty.jpg",
     landscapeSurroundings: "/images/drive_assets/scenic_pines.jpg",
-    suiteInterior: "/images/drive_assets/room_sunset.jpg",
+    suiteInterior: "/images/rooms/room_3.jpg",
     mistyHills: "/images/drive_assets/views.jpg",
     diningOutdoor: "/images/drive_assets/dining_table.jpg",
     eveningCampfire: "/images/drive_assets/campfire.jpg"
@@ -90,7 +90,7 @@ export const RESORT_CONFIG = {
       bedType: "1 King Bed",
       viewType: "Misty Mountain & Valley View",
       size: "550 sq. ft.",
-      image: "/images/drive_assets/room_mist.jpg",
+      image: "/images/rooms/room_2.jpg",
       features: ["Private View Balcony", "Breakfast Included", "High-Speed Wi-Fi", "En-suite Luxury Bath", "Tea/Coffee Maker", "24/7 Room Service"],
       recommended: true
     },
@@ -103,7 +103,7 @@ export const RESORT_CONFIG = {
       bedType: "1 King Bed + Daybed",
       viewType: "360° Hilltop & Sunset View",
       size: "750 sq. ft.",
-      image: "/images/drive_assets/room_sunset.jpg",
+      image: "/images/rooms/room_3.jpg",
       features: ["Private Sunset Deck", "Soaking Bathtub", "Fireplace Lounge", "Complimentary Gourmet Breakfast", "Minibar", "Dedicated Host Service"]
     },
     {
@@ -115,7 +115,7 @@ export const RESORT_CONFIG = {
       bedType: "2 Queen Beds",
       viewType: "Tea Plantation & Forest View",
       size: "950 sq. ft.",
-      image: "/images/drive_assets/room_family.jpg",
+      image: "/images/rooms/room_4.jpg",
       features: ["2 Bedrooms", "Spacious Living Room", "Private Veranda", "Kid-Friendly Amenities", "Free High-Speed Wi-Fi", "Complimentary Tea Tasting"]
     }
   ] as RoomItem[],
@@ -234,7 +234,7 @@ export const RESORT_CONFIG = {
       id: "g3",
       title: "Velvet Mist Suite Bedroom",
       category: "accommodation",
-      image: "/images/drive_assets/room_mist.jpg",
+      image: "/images/rooms/room_5.jpg",
       caption: "Spacious luxury room with full glass windows and plush king bed."
     },
     {
@@ -255,7 +255,7 @@ export const RESORT_CONFIG = {
       id: "g6",
       title: "Luxury Bathroom & Soaking View",
       category: "accommodation",
-      image: "/images/drive_assets/room_sunset.jpg",
+      image: "/images/rooms/room_6.jpg",
       caption: "Elegant interior detail crafted for deep relaxation."
     },
     {
@@ -278,6 +278,20 @@ export const RESORT_CONFIG = {
       category: "dining",
       image: "/images/drive_assets/campfire.jpg",
       caption: "Cosy evening campfire gathering under the stars."
+    },
+    {
+      id: "g10",
+      title: "Luxury Balcony Overlook",
+      category: "accommodation",
+      image: "/images/rooms/room_7.jpg",
+      caption: "Breathtaking green mountain views directly from your private bedroom seating."
+    },
+    {
+      id: "g11",
+      title: "Hilltop Cottage Lounge",
+      category: "accommodation",
+      image: "/images/rooms/room_8.jpg",
+      caption: "Premium cottage interiors blending modern elegance with natural timber."
     }
   ] as GalleryItem[],
 
