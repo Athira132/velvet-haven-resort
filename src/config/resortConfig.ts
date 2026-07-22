@@ -73,7 +73,7 @@ export const RESORT_CONFIG = {
     roomMain: "/images/rooms/room_1.jpg",
     resortPanorama: "/images/drive_assets/scenic_misty.jpg",
     landscapeSurroundings: "/images/drive_assets/scenic_pines.jpg",
-    suiteInterior: "/images/rooms/room_3.jpg",
+    suiteInterior: "/images/updated_assets/room_hilltop.jpg",
     mistyHills: "/images/drive_assets/views.jpg",
     diningOutdoor: "/images/drive_assets/dining_table.jpg",
     eveningCampfire: "/images/drive_assets/campfire.jpg"
@@ -103,7 +103,7 @@ export const RESORT_CONFIG = {
       bedType: "1 King Bed + Daybed",
       viewType: "360° Hilltop & Sunset View",
       size: "750 sq. ft.",
-      image: "/images/rooms/room_3.jpg",
+      image: "/images/updated_assets/room_hilltop.jpg",
       features: ["Private Sunset Deck", "Soaking Bathtub", "Fireplace Lounge", "Complimentary Gourmet Breakfast", "Minibar", "Dedicated Host Service"]
     },
     {
@@ -181,36 +181,60 @@ export const RESORT_CONFIG = {
   // Facilities Data
   facilities: [
     {
-      id: "hilltop-restaurant",
-      title: "Panoramic Hillside Restaurant",
-      description: "Open-air and glass-walled dining serving authentic Kerala flavors, fresh farm-to-table salads, and international comfort cuisine with mountain backdrop views.",
-      iconName: "Utensils",
-      image: "/images/drive_assets/dining_table.jpg",
-      highlights: ["Fresh Farm Ingredients", "Kerala Speciality Menu", "Indoor & Deck Seating", "Buffet & A la Carte"]
-    },
-    {
-      id: "infinity-deck",
-      title: "Misty Valley View Deck & Pool",
-      description: "An architectural deck perched over the valley, offering comfortable lounge sunbeds, infinity pool view, and morning yoga space amidst the fog.",
+      id: "pool-facility",
+      title: "Scenic Infinity Pool",
+      description: "Dive into our crystal-clear infinity pool overlooking the rolling mountains and valley fog of Vagamon.",
       iconName: "Waves",
-      image: "/images/drive_assets/scenic_misty.jpg",
-      highlights: ["Valley Overlook", "Morning Yoga Mat Setup", "Sunset Viewing Lounge", "Refreshment Bar"]
+      image: "/images/updated_assets/facility_pool.jpg",
+      highlights: ["Valley Overlook", "Infinity Pool", "Lounge Chairs"]
     },
     {
-      id: "campfire-arena",
-      title: "Evening Campfire & Outdoor Lounge",
-      description: "Dedicated stone amphitheater fire pit with plush outdoor seating for unforgettable nights under starry Vagamon skies.",
+      id: "tv-entertainment",
+      title: "TV & Entertainment Hub",
+      description: "Enjoy high-definition flat-screen TVs and premium entertainment streaming options in every guest cottage.",
+      iconName: "Tv",
+      image: "/images/updated_assets/facility_tv.jpg",
+      highlights: ["HD Flat Screen", "Satellite TV Channels", "Premium Comfort"]
+    },
+    {
+      id: "dining-facility",
+      title: "Fine Hillside Dining",
+      description: "Authentic multi-cuisine Kerala and international dishes served fresh in a premium open-air restaurant setup.",
+      iconName: "Utensils",
+      image: "/images/updated_assets/facility_dining.jpg",
+      highlights: ["Local Kerala Cuisine", "Buffet Options", "Spectacular Views"]
+    },
+    {
+      id: "kitchen-facility",
+      title: "Fully Equipped Guest Kitchen",
+      description: "Prepare custom meals and local specialties in a modern, fully equipped kitchen environment.",
+      iconName: "ChefHat",
+      image: "/images/updated_assets/facility_kitchen.jpg",
+      highlights: ["Modern Cookware", "Induction Cooktop", "Spices Provided"]
+    },
+    {
+      id: "spacious-room",
+      title: "Luxury Spacious Rooms",
+      description: "Premium cottage layouts featuring extra space, warm woodwork, and sliding glass balconies.",
+      iconName: "BedDouble",
+      image: "/images/updated_assets/facility_spacious.jpg",
+      highlights: ["King Beds", "Timber Architecture", "Veranda Outlets"]
+    },
+    {
+      id: "program-venue",
+      title: "Scenic Program Venue",
+      description: "A dedicated gathering space and stone amphitheater ideal for evening campfire gatherings and special events.",
       iconName: "Flame",
-      image: "/images/drive_assets/campfire.jpg",
-      highlights: ["Nightly Fire Lighting", "Barbecue On Request", "Music & Ambient Lighting", "Family-Friendly"]
+      image: "/images/updated_assets/facility_venue.jpg",
+      highlights: ["Evening Campfire Arena", "Starlight Seating", "Event Ready"]
     },
     {
-      id: "resort-amenities",
-      title: "Modern Comforts & Guest Care",
-      description: "High-speed Wi-Fi across the resort, secure private parking, 24/7 power backup, concierge excursion assistance, and daily housekeeping.",
-      iconName: "ShieldCheck",
-      image: "/images/drive_assets/hospitality.jpg",
-      highlights: ["High-Speed Fiber Wi-Fi", "Free Secured Parking", "24/7 Generator Backup", "Doctor on Call"]
+      id: "bathroom-facility",
+      title: "En-suite Luxury Bathrooms",
+      description: "Sophisticated modern bathrooms fitted with deep soaking tubs, rain showers, and premium organic toiletries.",
+      iconName: "Bath",
+      image: "/images/updated_assets/facility_bathroom.jpg",
+      highlights: ["Deep Soaking Tubs", "Rain Showerhead", "Organic Toiletries"]
     }
   ] as FacilityItem[],
 

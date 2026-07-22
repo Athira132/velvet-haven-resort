@@ -65,7 +65,7 @@ export const AboutPage: React.FC = () => {
 
             <div className="img-zoom-container" style={{ borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-lg)' }}>
               <img
-                src="/images/drive_assets/resort_lobby.jpg"
+                src="/images/updated_assets/about_nature.jpg"
                 alt="Velvet Haven Resort Vagamon Hilltop View"
                 style={{ width: '100%', height: '500px', objectFit: 'cover' }}
               />
