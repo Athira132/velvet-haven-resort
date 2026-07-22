@@ -44,7 +44,7 @@ export const HomePage: React.FC = () => {
             bottom: 0,
             backgroundImage: `url(${RESORT_CONFIG.images.hero2})`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center 40%',
+            backgroundPosition: 'center',
             opacity: isNight ? 1 : 0,
             transition: 'opacity 0.25s ease',
             zIndex: 1

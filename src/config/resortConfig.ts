@@ -68,7 +68,7 @@ export const RESORT_CONFIG = {
   // Core visual assets provided by user
   images: {
     logo: "https://i.ibb.co/27DmhGfZ/Untitled-design-2-removebg-preview.png",
-    hero1: "https://i.ibb.co/GvMnbvMS/Chat-GPT-Image-Jul-21-2026-01-26-57-PM.png",
+    hero1: "/images/day_hero.jpg",
     hero2: "/images/night_hero.jpg",
     roomMain: "https://i.ibb.co/m5myhvKx/Screenshot-2026-07-21-124142.png",
     resortPanorama: "https://i.ibb.co/ccnRyzQ2/Screenshot-2026-07-21-124623.png",
