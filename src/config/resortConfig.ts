@@ -102,11 +102,15 @@ export const RESORT_CONFIG = {
       subtitle: "Spacious Sanctuary for Families",
       description: "Designed for family comfort with dual interconnected luxury suites, wide private veranda overlooking green tea estates, and family dining nook.",
       viewType: "Tea Plantation & Forest View",
-      image: "https://lh3.googleusercontent.com/d/1hitp4QfeL69iT9MgqkzxJY_2G1xGqt9b",
+      image: "https://i.ibb.co/G4STyhHp/image.png",
       images: [
-        "https://lh3.googleusercontent.com/d/1hitp4QfeL69iT9MgqkzxJY_2G1xGqt9b",
-        "https://lh3.googleusercontent.com/d/15fkZFqvbW6caUeijuY2WLNCD1SGHqxwK",
-        "https://lh3.googleusercontent.com/d/1Qu-r4pwncUAW8zhluGUwt1-XdtTsOVoI"
+        "https://i.ibb.co/G4STyhHp/image.png",
+        "https://i.ibb.co/QFK5FZCX/image.png",
+        "https://i.ibb.co/Y4NGtZdX/image.png",
+        "https://i.ibb.co/4w0fLGGG/image.png",
+        "https://i.ibb.co/qFdCR1z6/image.png",
+        "https://i.ibb.co/bMFTDhXw/image.png",
+        "https://i.ibb.co/Y4Qsc27G/image.png"
       ],
       features: ["Spacious Dual-Room Layout", "Spacious Living Room", "Private Veranda", "Kid-Friendly Amenities", "Free High-Speed Wi-Fi"]
     },
