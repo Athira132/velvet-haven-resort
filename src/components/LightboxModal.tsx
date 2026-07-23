@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import type { GalleryItem } from '../config/resortConfig';
 
@@ -15,6 +15,15 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
   onClose,
   onNavigate
 }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   if (currentIndex === null || !items[currentIndex]) return null;
 
   const currentItem = items[currentIndex];
@@ -50,14 +59,14 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(5, 15, 10, 0.95)',
+        backgroundColor: 'rgba(5, 15, 10, 0.96)',
         backdropFilter: 'blur(20px)',
         zIndex: 2000,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '2rem'
+        padding: isMobile ? '1rem' : '2rem'
       }}
     >
       {/* Close button */}
@@ -65,14 +74,14 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
         onClick={onClose}
         style={{
           position: 'absolute',
-          top: '2rem',
-          right: '2rem',
+          top: isMobile ? '1rem' : '2rem',
+          right: isMobile ? '1rem' : '2rem',
           background: 'rgba(255, 255, 255, 0.1)',
           border: '1px solid rgba(255, 255, 255, 0.2)',
           color: '#FFFFFF',
           borderRadius: '50%',
-          width: '44px',
-          height: '44px',
+          width: isMobile ? '40px' : '44px',
+          height: isMobile ? '40px' : '44px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -81,7 +90,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           transition: 'all 0.2s ease'
         }}
       >
-        <X size={24} />
+        <X size={isMobile ? 20 : 24} />
       </button>
 
       {/* Main Image Container */}
@@ -90,7 +99,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
         style={{
           position: 'relative',
           maxWidth: '1100px',
-          maxHeight: '75vh',
+          maxHeight: isMobile ? '60vh' : '75vh',
           width: '100%',
           display: 'flex',
           alignItems: 'center',
@@ -102,7 +111,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           alt={currentItem.title}
           style={{
             maxWidth: '100%',
-            maxHeight: '75vh',
+            maxHeight: isMobile ? '60vh' : '75vh',
             objectFit: 'contain',
             borderRadius: '8px',
             boxShadow: '0 20px 60px rgba(0, 0, 0, 0.6)'
@@ -115,23 +124,24 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           aria-label="Previous image"
           style={{
             position: 'absolute',
-            left: '-1.5rem',
+            left: isMobile ? '0.5rem' : '-1.5rem',
             top: '50%',
             transform: 'translateY(-50%)',
-            backgroundColor: 'rgba(14, 36, 27, 0.8)',
+            backgroundColor: 'rgba(14, 36, 27, 0.85)',
             color: 'var(--color-gold)',
             border: '1px solid rgba(197, 160, 89, 0.4)',
             borderRadius: '50%',
-            width: '48px',
-            height: '48px',
+            width: isMobile ? '40px' : '48px',
+            height: isMobile ? '40px' : '48px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
-            transition: 'all 0.2s ease'
+            transition: 'all 0.2s ease',
+            boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
           }}
         >
-          <ChevronLeft size={28} />
+          <ChevronLeft size={isMobile ? 22 : 28} />
         </button>
 
         {/* Next Arrow */}
@@ -140,24 +150,45 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           aria-label="Next image"
           style={{
             position: 'absolute',
-            right: '-1.5rem',
+            right: isMobile ? '0.5rem' : '-1.5rem',
             top: '50%',
             transform: 'translateY(-50%)',
-            backgroundColor: 'rgba(14, 36, 27, 0.8)',
+            backgroundColor: 'rgba(14, 36, 27, 0.85)',
             color: 'var(--color-gold)',
             border: '1px solid rgba(197, 160, 89, 0.4)',
             borderRadius: '50%',
-            width: '48px',
-            height: '48px',
+            width: isMobile ? '40px' : '48px',
+            height: isMobile ? '40px' : '48px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             cursor: 'pointer',
-            transition: 'all 0.2s ease'
+            transition: 'all 0.2s ease',
+            boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
           }}
         >
-          <ChevronRight size={28} />
+          <ChevronRight size={isMobile ? 22 : 28} />
         </button>
+      </div>
+
+      {/* Elegant Title & Caption Overlay at the bottom */}
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          marginTop: isMobile ? '1rem' : '2rem',
+          textAlign: 'center',
+          color: '#FFFFFF',
+          maxWidth: '640px',
+          padding: '0 1rem',
+          zIndex: 2010
+        }}
+      >
+        <h3 className="font-serif" style={{ fontSize: isMobile ? '1.2rem' : '1.45rem', color: 'var(--color-gold)', marginBottom: '0.4rem', fontWeight: 600 }}>
+          {currentItem.title}
+        </h3>
+        <p style={{ fontSize: isMobile ? '0.85rem' : '0.95rem', color: 'rgba(255, 255, 255, 0.85)', margin: 0, lineHeight: 1.5 }}>
+          {currentItem.caption}
+        </p>
       </div>
 
     </div>

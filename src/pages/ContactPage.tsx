@@ -3,14 +3,17 @@ import { Mail, Phone, MapPin, MessageSquare, Clock, Navigation } from 'lucide-re
 import { RESORT_CONFIG } from '../config/resortConfig';
 import { SEO } from '../components/SEO';
 
+import { useTheme } from '../context/ThemeContext';
+
 export const ContactPage: React.FC = () => {
+  const { heroImage } = useTheme();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     checkIn: '',
     checkOut: '',
-    guests: '2 Guests',
+    partyType: 'Couple',
     message: ''
   });
 
@@ -23,7 +26,7 @@ export const ContactPage: React.FC = () => {
 ✉️ *Email:* ${formData.email || 'Not specified'}
 📅 *Check-in:* ${formData.checkIn || 'TBD'}
 📅 *Check-out:* ${formData.checkOut || 'TBD'}
-👥 *Guests:* ${formData.guests}
+👥 *Travel Party:* ${formData.partyType}
 📝 *Message:* ${formData.message || 'I would like to enquire about staying at Velvet Haven Resort.'}`;
 
     const url = `https://wa.me/${RESORT_CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;
@@ -33,9 +36,13 @@ export const ContactPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Contact & Booking Enquiry"
-        description="Get in touch with Velvet Haven Resort, Vagamon. Send your booking enquiry directly on WhatsApp or email velvethavenresort@gmail.com."
+        title="Contact & Bookings | Best Resort in Vagamon Kerala"
+        description="Get in touch with the front desk support at Velvet Haven Resort. Plan your trip, enquire about rooms, or contact the best premium resort in Vagamon, Kerala."
         canonicalPath="/contact"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Contact Us", path: "/contact" }
+        ]}
       />
 
       {/* Header Banner */}
@@ -43,7 +50,7 @@ export const ContactPage: React.FC = () => {
         style={{
           paddingTop: '10rem',
           paddingBottom: '5rem',
-          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.35), rgba(8, 22, 16, 0.55)), url(${RESORT_CONFIG.images.hero1})`,
+          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.35), rgba(8, 22, 16, 0.55)), url(${heroImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#FFFFFF',
@@ -117,7 +124,7 @@ export const ContactPage: React.FC = () => {
                   </div>
                   <div>
                     <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--color-heading)' }}>Front Desk Hours</h3>
-                    <p style={{ color: 'var(--color-muted-text)', fontSize: '1rem' }}>24 Hours Guest Support & Check-in</p>
+                    <p style={{ color: 'var(--color-muted-text)', fontSize: '1rem' }}>24 Hours Front Desk & Support</p>
                   </div>
                 </div>
               </div>
@@ -268,11 +275,11 @@ export const ContactPage: React.FC = () => {
 
                 <div style={{ marginBottom: '1.25rem' }}>
                   <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: 600, color: 'var(--color-heading)', marginBottom: '0.35rem' }}>
-                    Number of Guests
+                    Travel Party
                   </label>
                   <select
-                    value={formData.guests}
-                    onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
+                    value={formData.partyType}
+                    onChange={(e) => setFormData({ ...formData, partyType: e.target.value })}
                     style={{
                       width: '100%',
                       padding: '0.8rem 0.9rem',
@@ -284,10 +291,9 @@ export const ContactPage: React.FC = () => {
                       outline: 'none'
                     }}
                   >
-                    <option value="1 Guest">1 Guest</option>
-                    <option value="2 Guests">2 Guests (Couple)</option>
-                    <option value="3 - 4 Guests">3 - 4 Guests (Family)</option>
-                    <option value="5+ Guests">5+ Guests (Group)</option>
+                    <option value="Couple">Couple</option>
+                    <option value="Family">Family</option>
+                    <option value="Group">Group</option>
                   </select>
                 </div>
 

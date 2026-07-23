@@ -2,12 +2,18 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { RESORT_CONFIG } from '../config/resortConfig';
 
+interface BreadcrumbItem {
+  name: string;
+  path: string;
+}
+
 interface SEOProps {
   title?: string;
   description?: string;
   keywords?: string;
   canonicalPath?: string;
   ogImage?: string;
+  breadcrumbs?: BreadcrumbItem[];
 }
 
 export const SEO: React.FC<SEOProps> = ({
@@ -15,7 +21,8 @@ export const SEO: React.FC<SEOProps> = ({
   description = "Experience peaceful stays, scenic misty mountain views, and luxury Kerala hospitality at Velvet Haven Resort, Vagamon. Book your mountain getaway today.",
   keywords = "Resort in Vagamon, Best resort in Vagamon, Luxury resort in Vagamon, Resort stay in Vagamon, Vagamon resort, Family resort in Vagamon, Couple resort in Vagamon, Stay in Vagamon Kerala",
   canonicalPath = "",
-  ogImage = RESORT_CONFIG.images.hero1
+  ogImage = RESORT_CONFIG.images.hero1,
+  breadcrumbs
 }) => {
   const siteTitle = title ? `${title} | ${RESORT_CONFIG.name}, Vagamon` : `${RESORT_CONFIG.name} | Luxury Resort in Vagamon, Kerala`;
   const baseUrl = RESORT_CONFIG.siteUrl.replace(/\/$/, '');
@@ -62,6 +69,17 @@ export const SEO: React.FC<SEOProps> = ({
     "priceRange": "₹8,500 - ₹14,500"
   };
 
+  const breadcrumbSchema = breadcrumbs ? {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((crumb, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "name": crumb.name,
+      "item": `${baseUrl}${crumb.path}`
+    }))
+  } : null;
+
   return (
     <Helmet>
       {/* Basic Meta Tags */}
@@ -88,6 +106,11 @@ export const SEO: React.FC<SEOProps> = ({
       <script type="application/ld+json">
         {JSON.stringify(schemaOrgJSONLD)}
       </script>
+      {breadcrumbSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+      )}
     </Helmet>
   );
 };

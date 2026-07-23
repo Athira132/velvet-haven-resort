@@ -10,9 +10,13 @@ export const ExperiencesPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="What You Can Do in Vagamon, Idukki, Kerala"
-        description="Explore what you can do in Vagamon, Idukki district, Kerala: Thangal Para, Murugan Mala, Kurish Mala, Vagamon Pine Forest, Vagamon Meadows, and Vagamon Lake."
+        title="Best Places to Stay in Vagamon Kerala | Curated Visual Guide"
+        description="Explore the best places to visit in Vagamon, Idukki, Kerala. Read our local guide covering Vagamon Pine Forest, Meadows, Lake, Kurisumala Ashram, and Thangal Para."
         canonicalPath="/experiences"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Experiences", path: "/experiences" }
+        ]}
       />
 
       {/* Bright Green Scenic Header Banner */}
@@ -41,7 +45,7 @@ export const ExperiencesPage: React.FC = () => {
               fontWeight: 600
             }}
           >
-            What You Can Do in Vagamon
+            What You Can Do in Vagamon, Kerala
           </h1>
           <p
             style={{

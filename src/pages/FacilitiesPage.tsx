@@ -6,9 +6,13 @@ export const FacilitiesPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Resort Facilities & Amenities"
-        description="Explore luxury facilities at Velvet Haven Resort, Vagamon. Hilltop dining, valley view pool deck, starlight campfire arena, high-speed Wi-Fi, and safe parking."
+        title="Resort Facilities & Amenities | Premium Stay in Vagamon"
+        description="Discover the luxury facilities at Velvet Haven Resort, the best resort in Vagamon. Enjoy open-air hillside dining, a scenic program venue, TV hub, and private pantry."
         canonicalPath="/facilities"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Facilities", path: "/facilities" }
+        ]}
       />
 
       {/* Header Banner */}
@@ -26,7 +30,7 @@ export const FacilitiesPage: React.FC = () => {
         <div className="container container-narrow">
           <span className="badge-gold" style={{ marginBottom: '1rem' }}>Elevated Comfort</span>
           <h1 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem', textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
-            Resort Facilities & Amenities
+            Resort Facilities & Amenities at Velvet Haven
           </h1>
           <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '680px', margin: '0 auto', textShadow: '0 1px 6px rgba(0, 0, 0, 0.4)' }}>
             Designed for total peace of mind, delightful dining, and unhurried relaxation in Vagamon.

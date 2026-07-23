@@ -8,9 +8,13 @@ export const AboutPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="About Our Resort"
-        description="Discover the story of Velvet Haven Resort in Vagamon, Kerala. Learn about our nature-focused luxury architecture, Kerala hospitality, and serene hill sanctuary."
+        title="About Our Hill Station Resort | Velvet Haven Resort Vagamon"
+        description="Learn about Velvet Haven Resort, a premium luxury resort in Vagamon, Kerala. Read our story of providing sustainable, nature-focused hospitality in the Idukki hills."
         canonicalPath="/about"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "About Us", path: "/about" }
+        ]}
       />
 
       {/* Page Header Banner */}
@@ -28,7 +32,7 @@ export const AboutPage: React.FC = () => {
         <div className="container container-narrow">
           <span className="badge-gold" style={{ marginBottom: '1rem' }}>Our Story & Philosophy</span>
           <h1 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem', textShadow: '0 2px 10px rgba(0, 0, 0, 0.5)' }}>
-            About Velvet Haven Resort
+            About Velvet Haven Resort in Vagamon
           </h1>
           <p style={{ fontSize: '1.15rem', color: 'rgba(255, 255, 255, 0.9)', maxWidth: '680px', margin: '0 auto', textShadow: '0 1px 6px rgba(0, 0, 0, 0.4)' }}>
             Crafted as a sanctuary of quiet luxury among Vagamon's pine forests and high-altitude mist.
@@ -50,7 +54,7 @@ export const AboutPage: React.FC = () => {
                 Velvet Haven Resort was conceived around a single core vision: to offer travelers a peaceful mountain haven that respects the untouched natural beauty of Vagamon while providing modern, high-end comfort.
               </p>
               <p style={{ color: 'var(--color-muted-text)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
-                Every element of our architecture—from wide glass viewing windows to locally crafted timber elements—was thoughtfully integrated into the sloping landscape. Our guests enjoy panoramic vistas of rolling tea estates and evergreen pine groves right from their rooms.
+                Every element of our architecture—from wide glass viewing windows to locally crafted timber elements—was thoughtfully integrated into the sloping landscape. Our visitors enjoy panoramic vistas of rolling tea estates and evergreen pine groves right from their rooms.
               </p>
 
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
@@ -91,9 +95,9 @@ export const AboutPage: React.FC = () => {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
             {[
               { icon: Leaf, title: "Harmony with Nature", desc: "Low-impact design that leaves the surrounding forest and wildlife corridors undisturbed." },
-              { icon: Heart, title: "Authentic Kerala Care", desc: "Warm, intuitive service inspired by traditional Kerala hospitality and guest honor." },
+              { icon: Heart, title: "Authentic Kerala Care", desc: "Warm, intuitive service inspired by traditional Kerala hospitality and care." },
               { icon: Compass, title: "Unplugged Peace", desc: "Secluded hilltop positioning designed to help you slow down, breathe, and recharge." },
-              { icon: Sun, title: "Curated Experiences", desc: "Bespoke tea tasting, guided nature trails, and outdoor dining tailored to your rhythm." }
+              { icon: Sun, title: "Curated Experiences", desc: "Guided nature trails and outdoor dining tailored to your rhythm." }
             ].map((pillar, idx) => (
               <div
                 key={idx}
@@ -125,13 +129,13 @@ export const AboutPage: React.FC = () => {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
             <div className="img-zoom-container" style={{ borderRadius: 'var(--radius-md)', height: '320px' }}>
-              <img src={RESORT_CONFIG.images.suiteInterior} alt="Resort Suite Detail" />
+              <img src={RESORT_CONFIG.images.suiteInterior} alt="Velvet Haven Resort Luxury Suite Interior in Vagamon" />
             </div>
             <div className="img-zoom-container" style={{ borderRadius: 'var(--radius-md)', height: '320px' }}>
-              <img src={RESORT_CONFIG.images.diningOutdoor} alt="Resort Outdoor Dining" />
+              <img src={RESORT_CONFIG.images.diningOutdoor} alt="Velvet Haven Resort Hillside Outdoor Dining in Vagamon" />
             </div>
             <div className="img-zoom-container" style={{ borderRadius: 'var(--radius-md)', height: '320px' }}>
-              <img src={RESORT_CONFIG.images.eveningCampfire} alt="Evening Starlight Campfire" />
+              <img src={RESORT_CONFIG.images.landscapeSurroundings} alt="Scenic Pine Forest Surroundings near Velvet Haven Resort, Vagamon" />
             </div>
           </div>
 

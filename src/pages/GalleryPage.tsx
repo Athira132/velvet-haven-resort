@@ -4,7 +4,10 @@ import { RESORT_CONFIG } from '../config/resortConfig';
 import { SEO } from '../components/SEO';
 import { LightboxModal } from '../components/LightboxModal';
 
+import { useTheme } from '../context/ThemeContext';
+
 export const GalleryPage: React.FC = () => {
+  const { heroImage } = useTheme();
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const galleryItems = RESORT_CONFIG.gallery;
@@ -12,9 +15,13 @@ export const GalleryPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Photo Gallery"
-        description="Visual gallery of Velvet Haven Resort, Vagamon. Explore pictures of our luxury rooms, misty pine landscapes, hilltop dining, and campfire evenings."
+        title="Photo Gallery | Best Luxury Resort in Vagamon Kerala"
+        description="Browse the photo gallery of Velvet Haven Resort, a premium luxury resort in Vagamon, Kerala. Explore our scenic pine forest landscape, rooms, and dining areas."
         canonicalPath="/gallery"
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Gallery", path: "/gallery" }
+        ]}
       />
 
       {/* Header Banner */}
@@ -22,7 +29,7 @@ export const GalleryPage: React.FC = () => {
         style={{
           paddingTop: '10rem',
           paddingBottom: '5rem',
-          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.35), rgba(8, 22, 16, 0.55)), url(${RESORT_CONFIG.images.hero1})`,
+          backgroundImage: `linear-gradient(rgba(8, 22, 16, 0.35), rgba(8, 22, 16, 0.55)), url(${heroImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           color: '#FFFFFF',
@@ -40,10 +47,10 @@ export const GalleryPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Gallery Grid */}
-      <section className="section-padding">
+      {/* Gallery Grid using CSS columns Masonry */}
+      <section style={{ paddingTop: '3.5rem', paddingBottom: '5rem' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.75rem' }}>
+          <div className="masonry-grid">
             {galleryItems.map((item, idx) => (
               <div
                 key={item.id}
@@ -53,15 +60,20 @@ export const GalleryPage: React.FC = () => {
                   borderRadius: 'var(--radius-md)',
                   overflow: 'hidden',
                   cursor: 'pointer',
-                  height: '280px',
                   boxShadow: 'var(--shadow-md)',
-                  border: '1px solid var(--color-border-theme)'
+                  border: '1px solid var(--color-border-theme)',
+                  transition: 'transform 0.3s ease'
                 }}
-                className="img-zoom-container"
+                className="img-zoom-container masonry-item"
               >
-                <img src={item.image} alt={item.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img
+                  src={item.image}
+                  alt={`${item.title} - ${RESORT_CONFIG.name}, Vagamon`}
+                  style={{ width: '100%', height: 'auto', display: 'block' }}
+                  loading="lazy"
+                />
                 
-                {/* Clean hover overlay with only Maximize2 icon, no headings or captions */}
+                {/* Clean hover overlay with only Maximize2 icon */}
                 <div className="gallery-overlay">
                   <div style={{ backgroundColor: 'rgba(197, 160, 89, 0.95)', padding: '0.85rem', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Maximize2 size={24} style={{ color: '#081610' }} />

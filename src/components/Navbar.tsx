@@ -65,6 +65,7 @@ export const Navbar: React.FC = () => {
             <img
               src={RESORT_CONFIG.images.logo}
               alt={`${RESORT_CONFIG.name} Logo`}
+              className="logo-img"
               style={{
                 height: isScrolled ? '85px' : '115px',
                 maxHeight: '125px',
@@ -159,7 +160,7 @@ export const Navbar: React.FC = () => {
           bottom: 0,
           backgroundColor: themeMode === 'night' ? 'rgba(5, 16, 11, 0.98)' : 'rgba(8, 22, 16, 0.98)',
           backdropFilter: 'blur(20px)',
-          zIndex: 999,
+          zIndex: 1010,
           display: mobileMenuOpen ? 'flex' : 'none',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -239,6 +240,16 @@ export const Navbar: React.FC = () => {
           }
           .mobile-toggle-btn {
             display: none !important;
+          }
+        }
+        @media (max-width: 991px) {
+          .logo-img {
+            height: 65px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .logo-img {
+            height: 55px !important;
           }
         }
       `}</style>

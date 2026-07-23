@@ -330,3 +330,25 @@ p {
 .img-zoom-container:hover .gallery-overlay {
   opacity: 1;
 }
+
+/* Responsive masonry gallery */
+.masonry-grid {
+  column-count: 3;
+  column-gap: 1.5rem;
+}
+@media (max-width: 992px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+@media (max-width: 576px) {
+  .masonry-grid {
+    column-count: 1;
+  }
+}
+.masonry-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+}

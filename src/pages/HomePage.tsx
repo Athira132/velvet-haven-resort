@@ -1,19 +1,32 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronRight, MapPin, ArrowRight, MessageSquare, Sparkles, Star, Quote } from 'lucide-react';
 import { RESORT_CONFIG } from '../config/resortConfig';
+import type { RoomItem } from '../config/resortConfig';
 import { SEO } from '../components/SEO';
 import { useTheme } from '../context/ThemeContext';
 
 export const HomePage: React.FC = () => {
   const { themeMode } = useTheme();
+  const navigate = useNavigate();
 
   const isNight = themeMode === 'night';
 
+  const handleOpenRoom = (room: RoomItem) => {
+    navigate(`/rooms/${room.id}`);
+  };
+
   return (
     <>
-      <SEO title="Luxury Nature Resort in Vagamon" />
+      <SEO
+        title="Best Premium Resort in Vagamon, Kerala | Velvet Haven Resort"
+        description="Escape to Velvet Haven Resort, the best premium resort in Vagamon, Kerala. Located in Idukki, our luxury hill retreat features private balconies, organic dining, and unmatched mountain views."
+        canonicalPath="/"
+        breadcrumbs={[
+          { name: "Home", path: "/" }
+        ]}
+      />
 
       {/* ================= HERO SECTION ================= */}
       <section style={{ position: 'relative', width: '100%', height: '100vh', minHeight: '650px', overflow: 'hidden' }}>
@@ -132,7 +145,7 @@ export const HomePage: React.FC = () => {
                 fontWeight: 600
               }}
             >
-              Where the Hills<br />Feel Like Home
+              Where the Hills Feel Like Home
             </h1>
 
             <p
@@ -179,7 +192,7 @@ export const HomePage: React.FC = () => {
                 Perched gracefully amidst the misty pine ridges of Vagamon, Velvet Haven Resort is designed for travelers who seek true stillness, elevated comfort, and unhurried luxury.
               </p>
               <p style={{ color: 'var(--color-muted-text)', fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '2rem' }}>
-                Whether you are listening to morning birdsong over the pine valley or gathering around an evening campfire under a starry mountain sky, every moment here connects you deeply with nature and authentic Kerala warmth.
+                Whether you are listening to morning birdsong over the pine valley or looking up at a starry mountain sky, every moment here connects you deeply with nature and authentic Kerala warmth.
               </p>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '2rem' }}>
@@ -216,7 +229,7 @@ export const HomePage: React.FC = () => {
           <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 4rem' }}>
             <span className="badge-gold" style={{ marginBottom: '1rem' }}>The Velvet Experience</span>
             <h2 className="heading-1 font-serif" style={{ color: isNight ? '#FFFFFF' : 'var(--color-heading)', marginBottom: '1rem' }}>
-              Why Guests Choose Velvet Haven
+              Why Visitors Choose Velvet Haven
             </h2>
             <p style={{ color: isNight ? 'rgba(255, 255, 255, 0.82)' : 'var(--color-muted-text)', fontSize: '1.05rem' }}>
               Thoughtfully curated amenities and natural luxury created for your peaceful stay.
@@ -227,8 +240,7 @@ export const HomePage: React.FC = () => {
             {[
               { image: "/images/why_guests_choose/views.jpg", title: "Unmatched Panoramic Views", desc: "Wake up to rolling pine hills shrouded in soft morning mist from private balconies." },
               { image: "/images/why_guests_choose/culinary.jpg", title: "Authentic Kerala Culinary", desc: "Farm-to-table traditional Travancore dishes and international dining in open mountain air." },
-              { image: "/images/why_guests_choose/campfire.jpg", title: "Starlight Campfires", desc: "Nightly campfire gatherings with acoustic music and outdoor barbecue under clear night skies." },
-              { image: "/images/why_guests_choose/hospitality.jpg", title: "Warm Kerala Hospitality", desc: "Personalized host attention, excursion guidance, and 24/7 guest service." }
+              { image: "/images/why_guests_choose/hospitality.jpg", title: "Warm Kerala Hospitality", desc: "Personalized host attention, excursion guidance, and 24/7 support." }
             ].map((feature, i) => (
               <div
                 key={i}
@@ -243,7 +255,7 @@ export const HomePage: React.FC = () => {
               >
                 <img 
                   src={feature.image} 
-                  alt={feature.title} 
+                  alt={`${feature.title} - Velvet Haven Resort Vagamon Kerala`} 
                   style={{ 
                     width: '100%', 
                     height: '180px', 
@@ -295,8 +307,17 @@ export const HomePage: React.FC = () => {
                   border: '1px solid var(--color-border-theme)'
                 }}
               >
-                <div className="img-zoom-container" style={{ height: '260px' }}>
-                  <img src={room.image} alt={room.name} />
+                <div
+                  className="img-zoom-container"
+                  onClick={() => handleOpenRoom(room)}
+                  style={{ height: '260px', cursor: 'pointer' }}
+                >
+                  <img src={room.image} alt={`${room.name} - Velvet Haven Resort, Vagamon`} />
+                  <div className="gallery-overlay">
+                    <span style={{ fontSize: '0.85rem', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                      View Details & Gallery
+                    </span>
+                  </div>
                   {room.recommended && (
                     <span
                       style={{
@@ -309,7 +330,8 @@ export const HomePage: React.FC = () => {
                         fontWeight: 700,
                         padding: '0.3rem 0.75rem',
                         borderRadius: '4px',
-                        textTransform: 'uppercase'
+                        textTransform: 'uppercase',
+                        zIndex: 3
                       }}
                     >
                       Most Popular
@@ -321,7 +343,7 @@ export const HomePage: React.FC = () => {
                   <span style={{ fontSize: '0.85rem', color: 'var(--color-gold)', fontWeight: 600, textTransform: 'uppercase', marginBottom: '0.4rem' }}>
                     {room.subtitle}
                   </span>
-                  <h3 className="font-serif" style={{ fontSize: '1.75rem', color: 'var(--color-heading)', marginBottom: '0.75rem' }}>
+                  <h3 className="font-serif" style={{ fontSize: '1.75rem', color: 'var(--color-heading)', marginBottom: '0.75rem', cursor: 'pointer' }} onClick={() => handleOpenRoom(room)}>
                     {room.name}
                   </h3>
                   <p style={{ color: 'var(--color-muted-text)', fontSize: '0.95rem', marginBottom: '1.25rem', lineHeight: '1.6' }}>
@@ -346,16 +368,23 @@ export const HomePage: React.FC = () => {
                     ))}
                   </div>
 
-                  <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border-theme)', display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }}>
+                  <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border-theme)', display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
                     <a
                       href={`https://wa.me/${RESORT_CONFIG.whatsappNumber}?text=${encodeURIComponent(`Hello, I would like to enquire about staying in the ${room.name} at Velvet Haven Resort, Vagamon.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-whatsapp"
-                      style={{ padding: '0.55rem 1.1rem', fontSize: '0.825rem', width: '100%' }}
+                      style={{ padding: '0.55rem 1.1rem', fontSize: '0.825rem', flex: 1 }}
                     >
-                      Enquire Now
+                      Enquire
                     </a>
+                    <button
+                      onClick={() => handleOpenRoom(room)}
+                      className="btn btn-outline-dark"
+                      style={{ padding: '0.55rem 1.1rem', fontSize: '0.825rem', flex: 1 }}
+                    >
+                      Details
+                    </button>
                   </div>
                 </div>
               </div>
@@ -364,11 +393,11 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ================= GUEST TESTIMONIALS & REVIEWS (ADAPTIVE LIGHT / DARK THEME) ================= */}
+      {/* ================= VISITOR TESTIMONIALS & REVIEWS (ADAPTIVE LIGHT / DARK THEME) ================= */}
       <section className={isNight ? "section-padding bg-pine" : "section-padding"} style={{ backgroundColor: isNight ? undefined : 'var(--color-sand)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 4rem' }}>
-            <span className="badge-gold" style={{ marginBottom: '1rem' }}>Guest Reflections</span>
+            <span className="badge-gold" style={{ marginBottom: '1rem' }}>Visitor Reflections</span>
             <h2 className="heading-1 font-serif" style={{ color: isNight ? '#FFFFFF' : 'var(--color-heading)', marginBottom: '1rem' }}>
               Stories from Velvet Haven
             </h2>
@@ -459,7 +488,7 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* ================= GUEST RESERVATION CALLOUT (ADAPTIVE LIGHT / DARK THEME) ================= */}
+      {/* ================= RESERVATION CALLOUT (ADAPTIVE LIGHT / DARK THEME) ================= */}
       <section className={isNight ? "section-padding bg-pine" : "section-padding"} style={{ backgroundColor: isNight ? undefined : 'var(--color-sand)', textAlign: 'center' }}>
         <div className="container container-narrow">
           <span className="badge-gold" style={{ marginBottom: '1rem' }}>Reservations</span>
@@ -485,6 +514,8 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Reserved Space */}
     </>
   );
 };
