@@ -563,7 +563,7 @@ export const RESORT_CONFIG = {
   // Stays & Packages Data
   packages: [
     {
-      id: "private-pool-villa",
+      id: "full-property-private-pool-villa",
       name: "Full Property / Private Pool Villa",
       description: "Enjoy complete exclusivity of our luxury hillside property, complete with a private pool, designed for large families, group outings, and private getaways in Vagamon's peaceful hills.",
       price: "₹22,000",
@@ -579,13 +579,13 @@ export const RESORT_CONFIG = {
       ]
     },
     {
-      id: "standard-villa",
-      name: "Standard Villa",
-      description: "A private, cozy villa surrounded by Vagamon's misty slopes. Features custom Kerala timber finishes and a private sit-out deck to enjoy the cool hill station breeze.",
+      id: "standard-cottage",
+      name: "Standard Cottage",
+      description: "An elegant, standalone cottage nestled in the misty hillside of Vagamon. Ideal for couples seeking a tranquil getaway, featuring a private veranda to enjoy the serene mountain breeze and plantation views.",
       price: "₹3,500",
-      image: "/images/updated_assets/room_hilltop.jpg",
+      image: "https://lh3.googleusercontent.com/d/1j18dlEpOuruWDpX7qu9ioYkJqGHA7iZG",
       highlights: [
-        "Cozy private villa accommodation",
+        "Cozy private cottage accommodation",
         "Elegant woodwork and native timber finishes",
         "Private veranda overlooking the misty valley",
         "Perfect for couples and budget-conscious travelers",
@@ -593,31 +593,31 @@ export const RESORT_CONFIG = {
       ]
     },
     {
-      id: "family-cottage",
-      name: "Family Cottage",
-      description: "A spacious cottage sanctuary designed specifically for families. Offers comfortable bedding layouts, expansive garden views, and a dedicated space for children.",
+      id: "plantation-family-suite",
+      name: "Plantation Family Suite",
+      description: "Designed for family comfort with dual interconnected luxury suites, wide private veranda overlooking green tea estates, and family dining nook.",
       price: "₹4,500",
-      image: "/images/rooms/room_4.jpg",
+      image: "https://i.ibb.co/G4STyhHp/image.png",
       highlights: [
-        "Spacious family-friendly layout",
-        "Large windows with tea plantation vistas",
-        "Comfortable bedding configurations for families",
-        "Close to our recreational garden walkways",
-        "Dedicated play space and family nook details"
+        "Spacious dual-room suite layout",
+        "Spacious living room and family dining nook",
+        "Private veranda overlooking green tea estates",
+        "Kid-friendly amenities and comfort features",
+        "Free high-speed Wi-Fi"
       ]
     },
     {
-      id: "cottage-room",
-      name: "Cottage Room",
-      description: "A premium, beautifully furnished cottage room designed for premium privacy, panoramic views of the pine canopy, and high-end comfort.",
+      id: "velvet-mist-suite",
+      name: "Velvet Mist Suite",
+      description: "Luxuriously crafted suite featuring expansive glass walls overlooking Vagamon's rolling misty hills, handcrafted hardwood furnishings, private balcony, and plush furnishings.",
       price: "₹7,900",
-      image: "/images/rooms/room_8.jpg",
+      image: "https://lh3.googleusercontent.com/d/1_E_w5Vt4t3pM8xH8h_upKhdvvhkxB2-v",
       highlights: [
-        "Premium cottage room accommodation",
-        "Spectacular views of the Vagamon pine forest",
-        "Ultra-comfortable bedding and high-end linens",
-        "Private sit-out deck area",
-        "Elegant layout with modern organic decor details"
+        "Panoramic mountain and valley views",
+        "Expansive sliding glass panels",
+        "Handcrafted solid hardwood furniture",
+        "Private seating area and balcony deck",
+        "Luxury en-suite bath with premium fixtures"
       ]
     }
   ] as PackageItem[]
