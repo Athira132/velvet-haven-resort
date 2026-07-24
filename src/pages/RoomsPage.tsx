@@ -25,6 +25,29 @@ export const RoomsPage: React.FC = () => {
     }
   }, [roomId]);
 
+  // Handle smooth scroll to hash anchors on load or hash change
+  useEffect(() => {
+    const handleScroll = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        // Strip the '#' from the hash
+        const id = hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }, 300); // Small timeout to ensure page content is fully rendered
+        }
+      }
+    };
+
+    handleScroll();
+    
+    // Listen to hash changes in case the user clicked another link on the same page
+    window.addEventListener('hashchange', handleScroll);
+    return () => window.removeEventListener('hashchange', handleScroll);
+  }, []);
+
   const handleOpenRoom = (room: RoomItem) => {
     navigate(`/rooms/${room.id}`);
   };
@@ -183,6 +206,104 @@ export const RoomsPage: React.FC = () => {
                     </button>
                   </div>
 
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================= SPECIAL PACKAGES SECTION ================= */}
+      <section id="packages" className="section-padding bg-pine" style={{ borderTop: '1px solid var(--color-border-theme)' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 4rem' }}>
+            <span className="badge-gold" style={{ marginBottom: '1rem' }}>Excursions & Stays</span>
+            <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF', marginBottom: '1rem' }}>
+              Special Stays & Packages
+            </h2>
+            <p style={{ color: 'rgba(255, 255, 255, 0.82)', fontSize: '1.05rem' }}>
+              Explore curated Vagamon packages designed for exclusive getaways, large groups, and memorable family adventures.
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '5rem' }}>
+            {RESORT_CONFIG.packages.map((pkg, index) => (
+              <div
+                key={pkg.id}
+                id={pkg.id}
+                style={{
+                  backgroundColor: 'var(--color-card-bg)',
+                  borderRadius: 'var(--radius-lg)',
+                  overflow: 'hidden',
+                  boxShadow: 'var(--shadow-lg)',
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                  border: '1px solid var(--color-border-theme)',
+                  scrollMarginTop: '8rem'
+                }}
+              >
+                {/* Package Image */}
+                <div
+                  className="img-zoom-container"
+                  style={{
+                    minHeight: '380px',
+                    order: index % 2 === 1 ? 2 : 1
+                  }}
+                >
+                  <img src={pkg.image} alt={pkg.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                </div>
+
+                {/* Package Details */}
+                <div style={{ padding: '3.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', order: index % 2 === 1 ? 1 : 2 }}>
+                  <span style={{ fontSize: '0.85rem', color: 'var(--color-gold)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>
+                    Velvet Haven Package
+                  </span>
+                  
+                  <h2 className="font-serif" style={{ fontSize: '2.2rem', color: 'var(--color-heading)', marginBottom: '1rem' }}>
+                    {pkg.name}
+                  </h2>
+
+                  <p style={{ color: 'var(--color-muted-text)', fontSize: '1.025rem', lineHeight: '1.7', marginBottom: '1.5rem' }}>
+                    {pkg.description}
+                  </p>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', padding: '1.25rem', backgroundColor: 'var(--color-sand)', borderRadius: 'var(--radius-md)', marginBottom: '1.75rem', border: '1px solid var(--color-border-theme)' }}>
+                    <div>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--color-muted-text)', textTransform: 'uppercase', fontWeight: 600, marginBottom: '0.25rem' }}>Price</div>
+                      <div style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--color-heading)' }}>
+                        {pkg.price} <span style={{ fontSize: '0.8rem', color: 'var(--color-muted-text)', fontWeight: 400 }}>(Incl. GST)</span>
+                      </div>
+                    </div>
+                    {pkg.capacity && (
+                      <div>
+                        <div style={{ fontSize: '0.8rem', color: 'var(--color-muted-text)', textTransform: 'uppercase', fontWeight: 600, marginBottom: '0.25rem' }}>Capacity</div>
+                        <div style={{ fontSize: '1.15rem', fontWeight: 600, color: 'var(--color-heading)' }}>{pkg.capacity}</div>
+                      </div>
+                    )}
+                  </div>
+
+                  <div style={{ marginBottom: '2rem' }}>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--color-muted-text)', fontWeight: 700, textTransform: 'uppercase', marginBottom: '0.75rem', letterSpacing: '0.05em' }}>Package Highlights</div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.75rem' }}>
+                      {pkg.highlights.map((highlight, idx) => (
+                        <div key={idx} style={{ fontSize: '0.925rem', color: 'var(--color-body)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                          <span style={{ color: 'var(--color-gold)', fontWeight: 'bold' }}>•</span> {highlight}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <a
+                      href={`https://wa.me/${RESORT_CONFIG.whatsappNumber}?text=${encodeURIComponent(`Hi, I would like to book the ${pkg.name} at Velvet Haven.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-whatsapp"
+                      style={{ display: 'inline-block', width: '100%', textAlign: 'center', padding: '0.9rem' }}
+                    >
+                      Book Now
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}

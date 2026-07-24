@@ -393,6 +393,95 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* ================= PACKAGES PREVIEW (STAY YOUR WAY) ================= */}
+      <section className="section-padding bg-pine" style={{ borderTop: '1px solid var(--color-border-theme)' }}>
+        <div className="container">
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3.5rem', gap: '1.5rem' }}>
+            <div>
+              <span className="badge-gold" style={{ marginBottom: '0.75rem' }}>Stay Your Way</span>
+              <h2 className="heading-1 font-serif" style={{ color: '#FFFFFF' }}>
+                Find Your Perfect Stay
+              </h2>
+              <p style={{ color: 'rgba(255, 255, 255, 0.8)', fontSize: '1.05rem', maxWidth: '650px', marginTop: '0.5rem', lineHeight: '1.6' }}>
+                Choose from thoughtfully designed stays for private getaways, family escapes, and memorable group experiences in the hills of Vagamon.
+              </p>
+            </div>
+            <Link to="/rooms#packages" className="btn btn-primary" style={{ padding: '0.85rem 2rem' }}>
+              View All Packages <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2.5rem' }}>
+            {RESORT_CONFIG.packages.map((pkg) => (
+              <div
+                key={pkg.id}
+                style={{
+                  backgroundColor: 'var(--color-card-bg)',
+                  borderRadius: 'var(--radius-md)',
+                  overflow: 'hidden',
+                  boxShadow: 'var(--shadow-md)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  border: '1px solid var(--color-border-theme)'
+                }}
+              >
+                <div
+                  className="img-zoom-container"
+                  style={{ height: '260px', position: 'relative' }}
+                >
+                  <img src={pkg.image} alt={pkg.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <div className="gallery-overlay">
+                    <span style={{ fontSize: '0.85rem', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                      View Details
+                    </span>
+                  </div>
+                </div>
+
+                <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                  <h3 className="font-serif" style={{ fontSize: '1.65rem', color: 'var(--color-heading)', marginBottom: '0.5rem' }}>
+                    {pkg.name}
+                  </h3>
+                  
+                  {pkg.capacity && (
+                    <div style={{ fontSize: '0.875rem', color: 'var(--color-muted-text)', marginBottom: '0.75rem', fontWeight: 600 }}>
+                      Capacity: {pkg.capacity}
+                    </div>
+                  )}
+
+                  <p style={{ color: 'var(--color-muted-text)', fontSize: '0.95rem', marginBottom: '1.5rem', lineHeight: '1.6', flexGrow: 1 }}>
+                    {pkg.description}
+                  </p>
+
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--color-border-theme)' }}>
+                    <div>
+                      <span style={{ fontSize: '1.35rem', fontWeight: 700, color: 'var(--color-heading)' }}>
+                        {pkg.price}
+                      </span>
+                      <span style={{ fontSize: '0.8rem', color: 'var(--color-muted-text)', marginLeft: '0.25rem' }}>
+                        (Incl. GST)
+                      </span>
+                    </div>
+                    <Link
+                      to={`/rooms#${pkg.id}`}
+                      className="btn btn-outline-dark"
+                      style={{ padding: '0.55rem 1.1rem', fontSize: '0.825rem' }}
+                    >
+                      More Details
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+            <Link to="/rooms#packages" className="btn btn-outline-light" style={{ padding: '1rem 2.5rem' }}>
+              View All Packages
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ================= VISITOR TESTIMONIALS & REVIEWS (ADAPTIVE LIGHT / DARK THEME) ================= */}
       <section className={isNight ? "section-padding bg-pine" : "section-padding"} style={{ backgroundColor: isNight ? undefined : 'var(--color-sand)' }}>
         <div className="container">

@@ -45,6 +45,16 @@ export interface GalleryItem {
   caption: string;
 }
 
+export interface PackageItem {
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+  capacity?: string;
+  image: string;
+  highlights: string[];
+}
+
 export const RESORT_CONFIG = {
   name: "Velvet Haven Resort",
   tagline: "Escape to the Hills. Stay in the Moment.",
@@ -548,5 +558,67 @@ export const RESORT_CONFIG = {
       location: "Mumbai, Maharashtra",
       rating: 5
     }
-  ] as TestimonialItem[]
+  ] as TestimonialItem[],
+
+  // Stays & Packages Data
+  packages: [
+    {
+      id: "private-pool-villa",
+      name: "Full Property / Private Pool Villa",
+      description: "Enjoy complete exclusivity of our luxury hillside property, complete with a private pool, designed for large families, group outings, and private getaways in Vagamon's peaceful hills.",
+      price: "₹22,000",
+      capacity: "Maximum 15 Persons",
+      image: "/images/updated_assets/facility_pool.jpg",
+      highlights: [
+        "Exclusive private stay on the entire property",
+        "Private swimming pool",
+        "Perfect for large families, friend groups, and getaways",
+        "Accommodates up to 15 guests comfortably",
+        "Spacious indoor layout and outdoor deck spaces",
+        "Peaceful surrounding pine forest landscape"
+      ]
+    },
+    {
+      id: "standard-villa",
+      name: "Standard Villa",
+      description: "A private, cozy villa surrounded by Vagamon's misty slopes. Features custom Kerala timber finishes and a private sit-out deck to enjoy the cool hill station breeze.",
+      price: "₹3,500",
+      image: "/images/updated_assets/room_hilltop.jpg",
+      highlights: [
+        "Cozy private villa accommodation",
+        "Elegant woodwork and native timber finishes",
+        "Private veranda overlooking the misty valley",
+        "Perfect for couples and budget-conscious travelers",
+        "Fully equipped en-suite modern bathroom"
+      ]
+    },
+    {
+      id: "family-cottage",
+      name: "Family Cottage",
+      description: "A spacious cottage sanctuary designed specifically for families. Offers comfortable bedding layouts, expansive garden views, and a dedicated space for children.",
+      price: "₹4,500",
+      image: "/images/rooms/room_4.jpg",
+      highlights: [
+        "Spacious family-friendly layout",
+        "Large windows with tea plantation vistas",
+        "Comfortable bedding configurations for families",
+        "Close to our recreational garden walkways",
+        "Dedicated play space and family nook details"
+      ]
+    },
+    {
+      id: "cottage-room",
+      name: "Cottage Room",
+      description: "A premium, beautifully furnished cottage room designed for premium privacy, panoramic views of the pine canopy, and high-end comfort.",
+      price: "₹7,900",
+      image: "/images/rooms/room_8.jpg",
+      highlights: [
+        "Premium cottage room accommodation",
+        "Spectacular views of the Vagamon pine forest",
+        "Ultra-comfortable bedding and high-end linens",
+        "Private sit-out deck area",
+        "Elegant layout with modern organic decor details"
+      ]
+    }
+  ] as PackageItem[]
 };
